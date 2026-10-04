@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+.build/
+.output/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs & env
+*.log
+.env
+.env.*
+npm-debug.log*
+
+# Tạm thời
+*.tmp
+*~
