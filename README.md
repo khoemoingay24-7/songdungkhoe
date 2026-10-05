@@ -8,15 +8,21 @@
 
 ```
 songdungkhoe/
+├── index.html               # Trang chủ hợp nhất Thân - Tâm (ở gốc để Cloudflare Pages nhận diện)
+├── gioithieu.html
+├── lienhe.html
+├── than/
+│   ├── index.html                        # Trang chủ Dưỡng Thân
+│   ├── ngu-vi-ngu-tang-khi-mam-com-la-lieu-thuoc-quy/   # Bài mẫu: bài viết thường
+│   └── trac-nghiem-ban-an-uong-the-nao/                # Bài mẫu: trắc nghiệm tương tác
+├── tam/
+│   ├── index.html          # Trang chủ Dưỡng Tâm
+│   ├── thay-vi-gian/       # Bài mẫu: gộp bộ ba (bài + thảo luận + quiz)
+│   ├── audio-ve-lo-au/     # Bài mẫu: trang audio
+│   └── thay-vi-lo/         # Bài mẫu: bài viết có ảnh minh họa
 ├── src/
 │   ├── components/      # Header, Footer, Navigation Bar (partial HTML tái sử dụng)
 │   ├── layouts/         # base.html — khung trang chuẩn
-│   ├── pages/           # Các trang HTML
-│   │   ├── index.html        # Trang chủ hợp nhất Thân - Tâm
-│   │   ├── gioithieu.html
-│   │   ├── lienhe.html
-│   │   ├── than/index.html   # Trang chủ Dưỡng Thân
-│   │   └── tam/index.html    # Trang chủ Dưỡng Tâm
 │   └── content/         # Nội dung bài viết (Markdown + frontmatter)
 │       ├── than/
 │       └── tam/
@@ -30,6 +36,10 @@ songdungkhoe/
 ├── README.md
 └── .gitignore
 ```
+
+> Lưu ý triển khai: Cloudflare Pages tìm `index.html` ở thư mục gốc,
+> nên các trang chính đặt trực tiếp ở root (`/`, `/than/`, `/tam/`).
+> Mọi trang dùng đường dẫn tuyệt đối tới tài nguyên: `/public/assets/css/main.css`.
 
 ## Design System (public/assets/css/main.css)
 

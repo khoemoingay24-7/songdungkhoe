@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trắc nghiệm: Bạn ăn uống thế nào? | Sống Đúng Khỏe</title>
+  <meta name="description" content="Mẫu trắc nghiệm tương tác — nhánh Dưỡng Thân. Rebuild trực tiếp trên website mới.">
+  <link rel="icon" href="/public/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/assets/css/main.css">
+  <style>
+    .quiz-q { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; margin: 16px 0; }
+    .quiz-q h3 { margin-top: 0; }
+    .quiz-q label { display: block; padding: 10px 14px; margin: 8px 0; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; font-size: 16px; }
+    .quiz-q label:hover { border-color: var(--than); background: var(--than-soft); }
+    .quiz-btn { background: var(--than); color: #fff; border: none; border-radius: 999px; padding: 14px 36px; font-size: 18px; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .quiz-btn:hover { background: var(--than-deep); }
+    .quiz-result { display: none; margin-top: 24px; }
+  </style>
+</head>
+<body class="page-than">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">SĐK</span>
+        <span>
+          <span class="brand-name">Sống Đúng Khỏe</span><br>
+          <span class="brand-tag">Dưỡng Thân Khỏe &middot; Dưỡng Tâm An</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="/">Trang chủ</a>
+        <a href="/than/" class="active">Dưỡng Thân</a>
+        <a href="/tam/">Dưỡng Tâm</a>
+        <a href="/gioithieu.html">Giới thiệu</a>
+        <a href="/lienhe.html">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap-narrow">
+      <article class="article">
+        <p style="color:var(--muted);font-size:15px;">Dưỡng Thân &middot; Trắc nghiệm &middot; Bài viết mẫu</p>
+        <h1>Trắc nghiệm: Bạn ăn uống thế nào?</h1>
+        <div class="notice">
+          <strong>Đây là trang mẫu để kiểm tra cơ chế trắc nghiệm tương tác.</strong>
+          Câu hỏi dưới đây là câu hỏi mẫu — nội dung quiz thật sẽ được rebuild
+          từ quiz gốc sau khi bóc tách.
+        </div>
+
+        <form id="quizForm">
+          <div class="quiz-q">
+            <h3>Câu 1 (mẫu): Mỗi bữa ăn của bạn thường có mấy vị?</h3>
+            <label><input type="radio" name="q1" value="2"> Chỉ 1–2 vị quen thuộc</label>
+            <label><input type="radio" name="q1" value="1"> Đủ các vị, thay đổi mỗi bữa</label>
+            <label><input type="radio" name="q1" value="0"> Không để ý đến vị</label>
+          </div>
+          <div class="quiz-q">
+            <h3>Câu 2 (mẫu): Bạn ăn tối vào khoảng mấy giờ?</h3>
+            <label><input type="radio" name="q2" value="1"> Trước 19 giờ</label>
+            <label><input type="radio" name="q2" value="2"> Từ 19–21 giờ</label>
+            <label><input type="radio" name="q2" value="0"> Sau 21 giờ</label>
+          </div>
+          <div class="quiz-q">
+            <h3>Câu 3 (mẫu): Khi ăn, bạn có hay vừa ăn vừa xem điện thoại?</h3>
+            <label><input type="radio" name="q3" value="0"> Thường xuyên</label>
+            <label><input type="radio" name="q3" value="2"> Thỉnh thoảng</label>
+            <label><input type="radio" name="q3" value="1"> Hiếm khi — ăn là chỉ ăn</label>
+          </div>
+          <p style="text-align:center;"><button type="button" class="quiz-btn" onclick="xemKetQua()">Xem kết quả</button></p>
+        </form>
+
+        <div class="quiz-result notice" id="quizResult"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="cols">
+        <div>
+          <strong>Sống Đúng Khỏe</strong><br>
+          Hợp nhất Dưỡng Thân &amp; Dưỡng Tâm
+        </div>
+        <div>
+          <a href="/than/">Dưỡng Thân</a> &middot;
+          <a href="/tam/">Dưỡng Tâm</a> &middot;
+          <a href="/gioithieu.html">Giới thiệu</a> &middot;
+          <a href="/lienhe.html">Liên hệ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; Sống Đúng Khỏe - Dưỡng Thân Khỏe, Dưỡng Tâm An</div>
+  </footer>
+
+  <script>
+    function xemKetQua() {
+      var tong = 0, dem = 0;
+      ["q1", "q2", "q3"].forEach(function (ten) {
+        var chon = document.querySelector('input[name="' + ten + '"]:checked');
+        if (chon) { tong += parseInt(chon.value, 10); dem++; }
+      });
+      var kq = document.getElementById("quizResult");
+      if (dem < 3) {
+        kq.style.display = "block";
+        kq.innerHTML = "<strong>Bạn chưa trả lời hết.</strong> Hãy chọn đáp án cho cả 3 câu nhé.";
+        return;
+      }
+      var nhan = tong >= 5
+        ? "Thói quen ăn uống của bạn khá điều độ. Hãy tiếp tục duy trì nhé!"
+        : "Có vài điểm nhỏ bạn có thể điều chỉnh — ăn đúng giờ, đủ vị và tập trung khi ăn sẽ giúp Tỳ Vị khỏe hơn.";
+      kq.style.display = "block";
+      kq.innerHTML = "<strong>Kết quả (mẫu):</strong> " + nhan;
+      kq.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  </script>
+</body>
+</html>
