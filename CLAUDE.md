@@ -50,6 +50,7 @@
 - Trang chính đặt ở **thư mục gốc** (Cloudflare Pages tìm `index.html` ở root).
 - Nội dung bài viết (Markdown + frontmatter) lưu tại `src/content/than/` và `src/content/tam/`.
 - Slug ≤ 60 ký tự, chữ thường, gạch nối.
+- **Ngày đăng trên web mới = ngày đăng bài lên web mới** (không giữ ngày đăng gốc từ web cũ — ví dụ bài đăng ngày 05/10/2026 thì ghi `05/10/2026`).
 
 ## 7. Ranh giới bắt buộc
 
