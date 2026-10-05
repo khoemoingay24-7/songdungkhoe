@@ -124,6 +124,9 @@ body.page-tam  .cat-card:hover { border-color: var(--tam); }
 /* ---------- Nội dung bài ---------- */
 .article { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px; margin: 32px 0 56px; }
 .article h1 { font-size: 34px; line-height: 1.4; margin-top: 0; }
+.article h2 { font-size: 26px; line-height: 1.45; margin: 36px 0 12px; }
+body.page-than .article h2 { color: var(--than-deep); }
+body.page-tam .article h2 { color: var(--tam-deep); }
 .notice {
   background: var(--than-soft); border-left: 5px solid var(--than);
   border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 16px;
