@@ -1,4 +1,4 @@
-# Sống Đúng Khỏe — Website hợp nhất Dưỡng Thân & Dưỡng Tâm
+# Sống Đúng Khỏe — Website hợp nhất Dưỡng Thân & Dưỡng Tâm.
 
 > **Thương hiệu:** Sống Đúng Khỏe (Hợp nhất Dưỡng Thân & Dưỡng Tâm)
 > **Tác giả / Ban biên tập:** Sống Đúng Khỏe
