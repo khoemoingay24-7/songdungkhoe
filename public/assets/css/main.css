@@ -127,6 +127,9 @@ body.page-tam  .cat-card:hover { border-color: var(--tam); }
 .article h2 { font-size: 26px; line-height: 1.45; margin: 36px 0 12px; }
 body.page-than .article h2 { color: var(--than-deep); }
 body.page-tam .article h2 { color: var(--tam-deep); }
+.mo-ta { font-size: 20px; color: var(--muted); line-height: 1.75; margin: 0 0 24px; }
+.hero-img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); margin: 8px 0; display: block; }
+.img-cap { text-align: center; color: var(--muted); font-size: 15px; margin: 8px 0 28px; }
 .notice {
   background: var(--than-soft); border-left: 5px solid var(--than);
   border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 16px;
