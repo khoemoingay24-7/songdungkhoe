@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trắc nghiệm ăn uống – Phần 1: Khai vị | Sống Đúng Khỏe</title>
+  <meta name="description" content="Món 1 Khai vị: 6 câu trắc nghiệm vui về ăn uống, chỉ 2 phút — mở đầu nhẹ nhàng cho thực đơn 26 câu.">
+  <link rel="icon" href="/public/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/assets/css/main.css">
+  <style>
+    .quiz-q { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; margin: 16px 0; }
+    .quiz-q h3 { margin-top: 0; font-size: 19px; line-height: 1.55; }
+    .quiz-q label { display: block; padding: 10px 14px; margin: 8px 0; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; font-size: 16px; line-height: 1.55; }
+    .quiz-q label:hover { border-color: var(--than); background: var(--than-soft); }
+    .quiz-explain { margin-top: 12px; padding: 12px 16px; border-radius: 10px; font-size: 15.5px; line-height: 1.65; }
+    .explain-dung { background: #EAF6EC; border: 1px solid #BFE3C6; color: #1F5C2E; }
+    .explain-sai { background: #FFF4E8; border: 1px solid #F3D9B8; color: #7A4A12; }
+    .quiz-btn { background: var(--than); color: #fff; border: none; border-radius: 999px; padding: 14px 36px; font-size: 18px; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .quiz-btn:hover { background: var(--than-deep); }
+    .quiz-result { display: none; margin-top: 24px; }
+    .quiz-result h3 { margin-top: 0; }
+    .quiz-tier { font-size: 18px; font-weight: 600; color: var(--than-deep); }
+    .review-item { border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin: 12px 0; background: #fff; }
+    .review-item h4 { margin: 0 0 8px 0; }
+    .review-dung h4 { color: #1F5C2E; }
+    .review-sai h4 { color: #7A4A12; }
+    .review-item p { margin: 6px 0; font-size: 15.5px; line-height: 1.6; }
+    .review-explain { color: var(--muted); font-style: italic; }
+    .quiz-progress { position: sticky; top: 0; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 20px; font-weight: 600; display: inline-block; margin: 12px 0; }
+</style>
+</head>
+<body class="page-than">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/public/assets/images/logo.png" alt="Logo Sống Đúng Khỏe">
+        <span>
+          <span class="brand-name">Sống Đúng Khỏe</span><br>
+          <span class="brand-tag">Dưỡng Thân Khỏe &middot; Dưỡng Tâm An</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="/">Trang chủ</a>
+        <a href="/than/" class="active">Dưỡng Thân</a>
+        <a href="/tam/">Dưỡng Tâm</a>
+        <a href="/gioithieu.html">Giới thiệu</a>
+        <a href="/lienhe.html">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap-narrow">
+      <article class="article">
+        <p style="color:var(--muted);font-size:15px;">Dưỡng Thân &middot; Trắc nghiệm &middot; Phần 1/4 &middot; Ngày đăng 06/10/2026</p>
+        <h1>Trắc nghiệm ăn uống – Phần 1: Khai vị</h1>
+        <div class="notice">
+          <p><strong>Chào mừng bạn đến với món khai vị!</strong> Chỉ 6 câu hỏi nhẹ nhàng như đĩa gỏi cuốn đầu bữa, làm xong trong khoảng 2 phút. Trả lời xong, bạn sẽ biết mâm cơm nhà mình đang “ngon” ở điểm nào, “nhạt” ở điểm nào — mỗi câu đều có lời giải thích kèm mẹo nhỏ dễ áp dụng. Nào, mời bạn gắp đũa!</p><p style="color:var(--muted);font-size:15px;"><em>Mỗi câu có 4 đáp án; lời giải thích hiện ngay sau khi bạn chọn.</em></p>
+        </div>
+        <p><span class="quiz-progress" id="tienDo">Đã trả lời: 0 / 6 câu</span></p>
+
+        <form id="quizForm">
+          <p id="quizActions" style="text-align:center;">
+            <button type="button" class="quiz-btn" onclick="nopBai()">Xem kết quả</button>
+          </p>
+        </form>
+
+        <div class="quiz-result notice" id="quizResult"></div>
+        <p style="text-align:center;margin-top:28px;"><a href="/than/trac-nghiem-ban-an-uong-the-nao/">&larr; Về thực đơn 4 món</a></p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="cols">
+        <div>
+          <strong>Sống Đúng Khỏe</strong><br>
+          Hợp nhất Dưỡng Thân &amp; Dưỡng Tâm<br>Email liên hệ: <a href="mailto:moidalat@gmail.com">moidalat@gmail.com</a>
+        </div>
+        <div>
+          <a href="/than/">Dưỡng Thân</a> &middot;
+          <a href="/tam/">Dưỡng Tâm</a> &middot;
+          <a href="/gioithieu.html">Giới thiệu</a> &middot;
+          <a href="/lienhe.html">Liên hệ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; Sống Đúng Khỏe - Dưỡng Thân Khỏe, Dưỡng Tâm An</div>
+  </footer>
+
+  <script>
+function nhanXet(score, total) {
+  var tyLe = score / total;
+  if (tyLe === 1) return "Khai vị hoàn hảo! Bạn mở đầu mâm trắc nghiệm thật ngon miệng — kiến thức ăn uống của bạn rất vững.";
+  if (tyLe >= 0.8) return "Khai vị rất ngon! Bạn có hiểu biết đáng kể về ăn uống lành mạnh.";
+  if (tyLe >= 0.5) return "Khai vị khá ổn! Còn vài vị cần nêm nếm thêm — mai vào món chính cố gắng nhé.";
+  return "Khai vị hơi nhạt, nhưng không sao! Đọc kỹ lời giải thích là mai “nấu” ngon hơn ngay.";
+}
+
+
+var QUIZ = [{"q":"Với tình trạng thừa cân, thói quen ăn uống nào sau đây được khuyến nghị để cải thiện sức khỏe tổng thể và quản lý cân nặng một cách bền vững, theo khuyến nghị của WHO?","options":["Chỉ ăn thịt và các sản phẩm từ sữa để tăng cơ giảm mỡ.","Uống nhiều nước ngọt có ga thay cho nước lọc để bù năng lượng.","Nhịn ăn gián đoạn 16/8 mỗi ngày để giảm cân nhanh.","Ăn nhiều rau xanh và trái cây, giảm đồ ngọt và thức ăn chế biến sẵn."],"correct":3,"explain":"Chế độ ăn giàu rau xanh và trái cây cung cấp vitamin, khoáng chất và chất xơ, giúp kiểm soát cân nặng và cải thiện sức khỏe tổng thể. Trong đó, hạn chế đồ ngọt và thực phẩm chế biến sẵn giúp giảm lượng calo rỗng và chất béo không lành mạnh."},{"q":"Bạn thường xuyên thức khuya. Thói quen sinh hoạt nào dưới đây có thể giúp cải thiện tình trạng sức khỏe do thức khuya và thừa cân, theo các tổ chức y tế như WHO và CDC?","options":["Dùng cà phê hoặc nước tăng lực để giữ tỉnh táo khi thức khuya.","Tập thể dục cường độ cao ngay trước khi đi ngủ để đốt cháy calo.","Ăn tối muộn và xem TV đến 2-3 giờ sáng.","Ngủ đủ 7-9 tiếng mỗi đêm và ăn bữa cuối cách giờ ngủ ít nhất 2-3 tiếng."],"correct":3,"explain":"Thói quen ngủ đủ giấc và ăn tối sớm giúp cơ thể có đủ thời gian tiêu hóa, cải thiện chất lượng giấc ngủ và hỗ trợ quá trình trao đổi chất, góp phần kiểm soát cân nặng và duy trì sức khỏe tim mạch."},{"q":"Một người có cholesterol cao và thói quen ăn ngoài thường xuyên. Lựa chọn thực phẩm nào dưới đây là tốt nhất để giảm mức cholesterol, theo khuyến nghị của các tổ chức y tế uy tín?","options":["Tiếp tục ăn các món chiên rán, đồ ăn nhanh vì chúng tiện lợi khi ăn ngoài.","Hạn chế thịt đỏ, ưu tiên thịt trắng, cá và chất béo không bão hòa từ thực vật như dầu ô liu, quả bơ.","Loại bỏ hoàn toàn carbohydrate ra khỏi chế độ ăn.","Tăng cường ăn phô mai, bơ và các sản phẩm từ sữa nguyên kem."],"correct":1,"explain":"Theo Hiệp hội Tim mạch Hoa Kỳ (AHA), hạn chế chất béo bão hòa và cholesterol từ thịt đỏ, đồng thời tăng cường chất béo không bão hòa từ thực vật, giúp giảm mức cholesterol LDL (cholesterol xấu) và cải thiện sức khỏe tim mạch."},{"q":"Một người có chỉ số đường huyết cận tiểu đường và thích ăn đồ mặn, nêm nhiều gia vị nhưng không ăn ngọt. Chế độ ăn nào sau đây là phù hợp nhất để kiểm soát đường huyết cho người đó, theo khuyến nghị của các tổ chức y tế như ADA và WHO?","options":["Uống nhiều nước ép trái cây đóng hộp vì chúng có vitamin.","Ăn nhiều thực phẩm mặn và nêm nhiều gia vị để kích thích vị giác.","Không ăn các bữa chính mà chỉ ăn vặt liên tục trong ngày.","Giảm thiểu đồ ngọt, tinh bột trắng, tăng cường ngũ cốc nguyên hạt, rau xanh và protein nạc."],"correct":3,"explain":"Theo Hiệp hội Tiểu đường Hoa Kỳ (ADA) và WHO, kiểm soát lượng đường và tinh bột tinh chế, đồng thời tăng cường chất xơ từ ngũ cốc nguyên hạt và rau xanh, cùng protein nạc, là chìa khóa để ổn định đường huyết ở người tiền tiểu đường."},{"q":"Khi đi ăn ngoài, bạn có thể áp dụng nguyên tắc nào để duy trì chế độ ăn lành mạnh và kiểm soát cholesterol, theo khuyến nghị của các chuyên gia dinh dưỡng?","options":["Ăn thoải mái các món yêu thích vì chỉ thỉnh thoảng mới đi ăn nhà hàng.","Yêu cầu nhà hàng cho thêm nhiều phô mai và sốt kem vào món ăn.","Chọn các món nướng, hấp, luộc thay vì chiên xào, ưu tiên rau xanh và hạn chế nước sốt béo.","Chỉ ăn các món tráng miệng để thưởng thức hương vị."],"correct":2,"explain":"Các món ăn được chế biến bằng cách nướng, hấp, hoặc luộc thường ít chất béo và calo hơn. Việc ưu tiên rau xanh và hạn chế nước sốt béo giúp giảm lượng chất béo, cholesterol và calo nạp vào cơ thể, hỗ trợ quản lý cân nặng và sức khỏe tim mạch."},{"q":"Một người thích ăn đồ mặn và nêm nhiều gia vị khi nấu ăn. Làm thế nào để người đó có thể giảm lượng natri trong khẩu phần ăn mà vẫn đảm bảo món ăn ngon miệng, đặc biệt khi có nguy cơ tiền tiểu đường, theo khuyến nghị của các tổ chức y tế?","options":["Thêm nhiều nước mắm và các loại sốt mặn khác vào món ăn.","Chỉ mua đồ ăn chế biến sẵn vì đã được nêm nếm vừa phải.","Sử dụng thảo mộc, gia vị tự nhiên (tỏi, ớt, gừng, chanh) thay cho muối và bột nêm để tăng hương vị.","Hoàn toàn loại bỏ gia vị khỏi các món ăn."],"correct":2,"explain":"Theo Tổ chức Y tế Canada và WHO, giảm lượng muối và các gia vị công nghiệp, thay thế bằng thảo mộc và gia vị tự nhiên, giúp giảm nguy cơ cao huyết áp và các bệnh tim mạch mà vẫn đảm bảo món ăn ngon miệng."}]
+
+function xaoTron(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+function txt(s) { return document.createTextNode(s); }
+
+function dungQuiz() {
+  var form = document.getElementById("quizForm");
+  QUIZ.forEach(function (cau, i) {
+    var thuTu = xaoTron(cau.options.map(function (_, k) { return k; }));
+    var div = document.createElement("div");
+    div.className = "quiz-q";
+    div.id = "q" + i;
+    var h3 = document.createElement("h3");
+    h3.appendChild(txt("Câu " + (i + 1) + ": " + cau.q));
+    div.appendChild(h3);
+    var wrap = document.createElement("div");
+    thuTu.forEach(function (k) {
+      var lab = document.createElement("label");
+      var inp = document.createElement("input");
+      inp.type = "radio"; inp.name = "cau" + i; inp.value = k;
+      inp.addEventListener("change", function () { hienGiaiThich(i); capNhatTienDo(); });
+      lab.appendChild(inp);
+      lab.appendChild(txt(" " + cau.options[k]));
+      wrap.appendChild(lab);
+    });
+    div.appendChild(wrap);
+    var gt = document.createElement("div");
+    gt.className = "quiz-explain"; gt.style.display = "none";
+    div.appendChild(gt);
+    form.insertBefore(div, document.getElementById("quizActions"));
+  });
+}
+
+function dapAnChon(i) {
+  var chon = document.querySelector('input[name="cau' + i + '"]:checked');
+  return chon ? parseInt(chon.value, 10) : null;
+}
+
+function hienGiaiThich(i) {
+  var chon = dapAnChon(i);
+  if (chon === null) return;
+  var cau = QUIZ[i];
+  var gt = document.querySelector("#q" + i + " .quiz-explain");
+  gt.style.display = "block";
+  gt.innerHTML = "";
+  var dung = (chon === cau.correct);
+  var b = document.createElement("strong");
+  b.appendChild(txt(dung ? "Chính xác! " : "Chưa đúng. "));
+  gt.appendChild(b);
+  gt.appendChild(txt(cau.explain));
+  gt.classList.toggle("explain-dung", dung);
+  gt.classList.toggle("explain-sai", !dung);
+}
+
+function capNhatTienDo() {
+  var n = 0;
+  QUIZ.forEach(function (_, i) { if (dapAnChon(i) !== null) n++; });
+  document.getElementById("tienDo").textContent = "Đã trả lời: " + n + " / " + QUIZ.length + " câu";
+}
+
+function nopBai() {
+  var thieu = [];
+  QUIZ.forEach(function (_, i) { if (dapAnChon(i) === null) thieu.push(i + 1); });
+  var kq = document.getElementById("quizResult");
+  kq.style.display = "block";
+  if (thieu.length) {
+    kq.innerHTML = "";
+    var p = document.createElement("p");
+    var b = document.createElement("strong");
+    b.appendChild(txt("Bạn chưa trả lời hết."));
+    p.appendChild(b);
+    p.appendChild(txt(" Hãy trả lời các câu: " + thieu.join(", ") + " nhé."));
+    kq.appendChild(p);
+    kq.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+  var diem = 0;
+  var review = document.createElement("div");
+  QUIZ.forEach(function (cau, i) {
+    var chon = dapAnChon(i);
+    var dung = (chon === cau.correct);
+    if (dung) diem++;
+    var item = document.createElement("div");
+    item.className = "review-item " + (dung ? "review-dung" : "review-sai");
+    var h4 = document.createElement("h4");
+    h4.appendChild(txt("Câu " + (i + 1) + (dung ? " — đúng" : " — chưa đúng")));
+    item.appendChild(h4);
+    var p1 = document.createElement("p");
+    p1.appendChild(txt("Bạn chọn: " + cau.options[chon]));
+    item.appendChild(p1);
+    if (!dung) {
+      var p2 = document.createElement("p");
+      var b2 = document.createElement("strong");
+      b2.appendChild(txt("Đáp án đúng: "));
+      p2.appendChild(b2);
+      p2.appendChild(txt(cau.options[cau.correct]));
+      item.appendChild(p2);
+    }
+    var p3 = document.createElement("p");
+    p3.className = "review-explain";
+    p3.appendChild(txt(cau.explain));
+    item.appendChild(p3);
+    review.appendChild(item);
+  });
+  kq.innerHTML = "";
+  var h3 = document.createElement("h3");
+  h3.appendChild(txt("Bạn đã trả lời đúng " + diem + " / " + QUIZ.length + " câu."));
+  kq.appendChild(h3);
+  var nx = document.createElement("p");
+  nx.className = "quiz-tier";
+  nx.appendChild(txt(nhanXet(diem, QUIZ.length)));
+  kq.appendChild(nx);
+  kq.appendChild(review);
+  kq.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+document.addEventListener("DOMContentLoaded", function () { dungQuiz(); capNhatTienDo(); });
+</script>
+</body>
+</html>
