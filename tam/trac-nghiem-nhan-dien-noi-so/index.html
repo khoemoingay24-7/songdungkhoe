@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trắc nghiệm: Nhận diện nỗi sợ | Sống Đúng Khỏe</title>
+  <meta name="description" content="8 câu hỏi nhỏ để nhận diện nỗi sợ — mỗi câu đều có lời giải thích nhẹ nhàng. Trắc nghiệm đi kèm bài viết “Thay vì sợ”, nhánh Dưỡng Tâm.">
+  <link rel="icon" href="/public/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/assets/css/main.css">
+<style>
+    .quiz-q { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; margin: 16px 0; }
+    .quiz-q h3 { margin-top: 0; font-size: 19px; line-height: 1.55; }
+    .quiz-q label { display: block; padding: 10px 14px; margin: 8px 0; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; font-size: 16px; line-height: 1.55; }
+    .quiz-q label:hover { border-color: var(--tam); background: var(--tam-soft); }
+    .quiz-explain { margin-top: 12px; padding: 12px 16px; border-radius: 10px; font-size: 15.5px; line-height: 1.65; }
+    .explain-dung { background: #EAF6EC; border: 1px solid #BFE3C6; color: #1F5C2E; }
+    .explain-sai { background: #FFF4E8; border: 1px solid #F3D9B8; color: #7A4A12; }
+    .quiz-btn { background: var(--tam); color: #fff; border: none; border-radius: 999px; padding: 14px 36px; font-size: 18px; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .quiz-btn:hover { background: var(--tam-deep); }
+    .quiz-result { display: none; margin-top: 24px; }
+    .quiz-result h3 { margin-top: 0; }
+    .quiz-tier { font-size: 18px; font-weight: 600; color: var(--tam-deep); }
+    .review-item { border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin: 12px 0; background: #fff; }
+    .review-item h4 { margin: 0 0 8px 0; }
+    .review-dung h4 { color: #1F5C2E; }
+    .review-sai h4 { color: #7A4A12; }
+    .review-item p { margin: 6px 0; font-size: 15.5px; line-height: 1.6; }
+    .review-explain { color: var(--muted); font-style: italic; }
+    .quiz-progress { position: sticky; top: 0; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 20px; font-weight: 600; display: inline-block; margin: 12px 0; }
+</style>
+</head>
+<body class="page-tam">
+<header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/public/assets/images/logo.png" alt="Logo Sống Đúng Khỏe">
+        <span>
+          <span class="brand-name">Sống Đúng Khỏe</span><br>
+          <span class="brand-tag">Dưỡng Thân Khỏe &middot; Dưỡng Tâm An</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="/">Trang chủ</a>
+        <a href="/than/">Dưỡng Thân</a>
+        <a href="/tam/" class="active">Dưỡng Tâm</a>
+        <a href="/gioithieu.html">Giới thiệu</a>
+        <a href="/lienhe.html">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap-narrow">
+      <article class="article">
+        <p style="color:var(--muted);font-size:15px;">Dưỡng Tâm &middot; Trắc nghiệm &middot; Ngày đăng: 06/10/2026</p>
+        <h1>Trắc nghiệm: Nhận diện nỗi sợ</h1>
+        <div class="notice">
+          <p><strong>8 câu hỏi nhỏ để nhận diện nỗi sợ</strong> — chỉ mất khoảng 3 phút. Mỗi câu đều có lời giải thích nhẹ nhàng như một lời thủ thỉ. Không chấm điểm khắt khe đâu, cứ thong thả mà làm nhé!</p>
+        </div>
+        <p><span class="quiz-progress" id="tienDo">Đã trả lời: 0 / 8 câu</span></p>
+
+        <form id="quizForm">
+          <p id="quizActions" style="text-align:center;">
+            <button type="button" class="quiz-btn" onclick="nopBai()">Xem kết quả</button>
+          </p>
+        </form>
+
+        <div class="quiz-result notice" id="quizResult"></div>
+        <p style="text-align:center;margin-top:28px;">
+          <a href="/tam/thay-vi-so/">&larr; Về bài viết “Thay vì sợ”</a> &middot;
+          <a href="/tam/">Dưỡng Tâm</a>
+        </p>
+      </article>
+    </section>
+  </main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+      <div class="cols">
+        <div>
+          <strong>Sống Đúng Khỏe</strong><br>
+          Hợp nhất Dưỡng Thân &amp; Dưỡng Tâm<br>Email liên hệ: <a href="mailto:moidalat@gmail.com">moidalat@gmail.com</a>
+        </div>
+        <div>
+          <a href="/than/">Dưỡng Thân</a> &middot;
+          <a href="/tam/">Dưỡng Tâm</a> &middot;
+          <a href="/gioithieu.html">Giới thiệu</a> &middot;
+          <a href="/lienhe.html">Liên hệ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; Sống Đúng Khỏe - Dưỡng Thân Khỏe, Dưỡng Tâm An</div>
+  </footer>
+<script>
+function nhanXet(score, total) {
+  var tyLe = score / total;
+  if (tyLe === 1) return "Tuyệt vời! Bạn nhận diện nỗi sợ rất rõ — như người đã thuộc lòng “động tác vẽ” của tâm trí mình.";
+  if (tyLe >= 0.8) return "Rất tốt! Bạn hiểu khá rõ về nỗi sợ và cách tâm trí vận hành.";
+  if (tyLe >= 0.5) return "Khá tốt! Hãy đọc lại lời giải thích để hiểu sâu hơn về tâm mình nhé.";
+  return "Đừng nản! Mỗi câu trả lời là một cơ hội hiểu mình hơn — hãy đọc kỹ lời giải thích nhé.";
+}
+
+var QUIZ = [{"q":"Nguồn gốc sâu xa của những nỗi sợ hãi thường không đến từ thực tại mà từ đâu?","options":[{"t":"Những sai lầm và tổn thương trong quá khứ chưa được giải quyết.","g":"Mặc dù quá khứ có ảnh hưởng, nhưng nỗi sợ thường hướng về những gì chưa xảy ra."},{"t":"Sự thiếu hụt các kỹ năng sinh tồn trong môi trường hiện đại.","g":"Nỗi sợ mang tính tâm lý và nhận thức sâu xa hơn là vấn đề kỹ năng thực tế."},{"t":"Những sự kiện thực tế đang diễn ra trong cuộc sống hằng ngày.","g":"Nỗi sợ thường không đến từ những gì đang thực sự diễn ra, mà từ những gì ta tưởng tượng sẽ xảy ra."},{"t":"Một “bức tranh” do chính tâm trí tự vẽ nên về tương lai.","g":"Tâm trí thường tự dệt nên những kịch bản xấu nhất từ những tín hiệu nhỏ, tạo ra sự bất an mà thực tại chưa hề có."}],"correct":3},{"q":"Tâm trí thường mượn những danh xưng nào để biện minh cho việc lo âu về tương lai?","options":[{"t":"“Bảo vệ bản thân” và “tìm kiếm hạnh phúc”.","g":"Đây là những nhu cầu cơ bản, nhưng không phải là cách tâm trí thường dùng để che đậy sự lo âu."},{"t":"“Phòng bệnh hơn chữa bệnh” và “cẩn trọng”.","g":"Mặc dù có ý nghĩa gần giống, nhưng cách diễn đạt này chưa phản ánh đúng bản chất của sự lo lắng thường trực."},{"t":"“Trách nhiệm gia đình” và “phát triển sự nghiệp”.","g":"Đây là những áp lực xã hội, không phải là cơ chế tâm lý sâu bên trong tạo ra lo âu."},{"t":"“Lo xa” hoặc “chuẩn bị cho tương lai”.","g":"Tâm trí khéo léo dùng những tên gọi có vẻ tích cực này để biện minh cho việc tiêu hao năng lượng vào những điều chưa xảy ra."}],"correct":3},{"q":"Khi hoảng loạn, việc cố gắng tìm kiếm sự bảo đảm từ bên ngoài sẽ dẫn đến điều gì?","options":[{"t":"Vô tình nuôi dưỡng thêm gốc rễ của sự bất an.","g":"Hành động dựa trên nỗi sợ sẽ củng cố thêm niềm tin vào sự không an toàn, khiến tâm trí càng thêm bất ổn."},{"t":"Giúp cơ thể có đủ thời gian để phục hồi sau những cơn đau.","g":"Đây là phản ứng tâm lý hơn là một biện pháp phục hồi thể chất thực sự."},{"t":"Tâm trí sẽ nhanh chóng đạt được trạng thái an ổn lâu dài.","g":"Sự tìm kiếm bên ngoài khi đang hoảng loạn thường chỉ mang lại cảm giác an toàn tạm thời, không bền vững."},{"t":"Giúp ta nhận diện rõ ràng hơn các nguy cơ có thật trong tương lai.","g":"Hành động này thường khiến ta càng sa lầy vào những kịch bản không có thật do tâm trí tạo ra."}],"correct":0},{"q":"Cách thoát khỏi cơn lo âu một cách thông tuệ nhất là gì?","options":[{"t":"Tìm mọi bằng chứng để chứng minh rằng viễn cảnh đó là sai.","g":"Cố gắng xác minh đúng sai của bức tranh chỉ làm ta mất thêm năng lượng vào nó."},{"t":"Tìm một chỗ dựa tâm linh xa xôi để cầu nguyện sự bình an.","g":"Sự bình an bền vững đến từ bên trong, không phải từ những chỗ dựa bên ngoài."},{"t":"Thay thế bức tranh u tối bằng một viễn cảnh tươi sáng hơn.","g":"Thay thế bằng một tưởng tượng khác vẫn không phải là cách đối diện trực tiếp với thực tại."},{"t":"Học cách nhìn thẳng vào cách tâm trí đang tạo ra nỗi sợ.","g":"Thay vì tập trung vào nội dung nỗi sợ, việc nhận diện quá trình tâm trí đang vận hành sẽ giúp ta giải phóng khỏi nó."}],"correct":3},{"q":"Trong giây phút lo lắng, điều gì mới thực sự là “thực tại” đang có mặt?","options":[{"t":"Các giải pháp để ngăn chặn hậu quả xấu xảy ra.","g":"Giải pháp thường hướng tới tương lai, trong khi thực tại chỉ nằm ở hiện tại."},{"t":"Những kịch bản và thước phim do suy nghĩ tự biên tự diễn.","g":"Đây chỉ là những khái niệm hoặc thời điểm không có thật, chỉ tồn tại trong tâm trí."},{"t":"Thân xác này, hơi thở này và giây phút này.","g":"Sự thật luôn đơn giản và hiện hữu trực tiếp qua cảm giác của cơ thể và hơi thở ngay bây giờ."},{"t":"Những dữ liệu cũ mà tâm trí đã tích lũy từ trước.","g":"Đây là nguyên liệu để tâm trí xây dựng kịch bản, chứ không phải là thực tại đang hiện hữu."}],"correct":2},{"q":"Nếu thực hiện đúng cách, việc sinh hoạt lành mạnh và lắng nghe cơ thể được xem là:","options":[{"t":"Một hành động để trốn chạy các hậu quả tưởng tượng.","g":"Cần phân biệt rõ giữa chăm sóc vì yêu thương và hành động vì sợ hãi."},{"t":"Một phần của kế hoạch phòng thủ trước tương lai bất định.","g":"Lối sống này hướng tới sự trọn vẹn trong hiện tại hơn là sự phòng thủ bị động."},{"t":"Sự chăm sóc trong tỉnh thức.","g":"Đó là sự nuôi dưỡng thân xác bằng năng lượng tích cực thay vì để nỗi sợ dẫn dắt hành vi."},{"t":"Cách duy nhất để nỗi sợ biến mất hoàn toàn ngay lập tức.","g":"Nỗi sợ có thể không biến mất ngay, nhưng cách ta đối xử với nó sẽ thay đổi."}],"correct":2},{"q":"Yếu tố nào thường gieo vào tâm thức chúng ta những mầm mống lo lắng?","options":[{"t":"Việc sống trọn vẹn từng ngày ở hiện tại.","g":"Sống trọn vẹn là mảnh đất nuôi dưỡng sự định tĩnh, chứ không phải lo âu."},{"t":"Thông tin giật gân hoặc lời cảnh báo từ bên ngoài.","g":"Những tác động này nuôi dưỡng tâm trí để vẽ nên những kịch bản xấu về tương lai."},{"t":"Các quy luật vận hành tự nhiên của cơ thể.","g":"Quy luật tự nhiên là thực tại, trong khi lo lắng thường đến từ cách ta phản ứng với các tác động bên ngoài."},{"t":"Sự tĩnh lặng và quan sát không phán xét.","g":"Đây là giải pháp để chuyển hóa lo lắng, không phải là nguyên nhân gây ra nó."}],"correct":1},{"q":"Đâu là dấu hiệu cho thấy bạn đang bắt đầu làm chủ được nỗi sợ của mình?","options":[{"t":"Khi bạn đã chuẩn bị đủ mọi phương án dự phòng cho mọi rủi ro.","g":"Việc chuẩn bị quá mức thường là biểu hiện của việc bị nỗi sợ dẫn dắt."},{"t":"Khi bạn nhận ra lo âu chỉ là hiện tượng của tâm trí, chứ không phải thực tại.","g":"Nhận biết rõ ràng bản chất của dòng suy nghĩ giúp ta đạt được sự tự tại và bình an."},{"t":"Khi bạn không còn cảm thấy bất kỳ cơn đau nào trên cơ thể.","g":"Làm chủ bản thân liên quan đến thái độ của tâm trí, không phải là việc loại bỏ cảm giác đau."},{"t":"Khi bạn thuyết phục được người khác rằng nỗi sợ của mình là có cơ sở.","g":"Tìm kiếm sự xác nhận bên ngoài thường chỉ làm tăng thêm gốc rễ của sự bất an."}],"correct":1}];
+
+function xaoTron(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+function txt(s) { return document.createTextNode(s); }
+
+function dungQuiz() {
+  var form = document.getElementById("quizForm");
+  QUIZ.forEach(function (cau, i) {
+    var thuTu = xaoTron(cau.options.map(function (_, k) { return k; }));
+    var div = document.createElement("div");
+    div.className = "quiz-q";
+    div.id = "q" + i;
+    var h3 = document.createElement("h3");
+    h3.appendChild(txt("Câu " + (i + 1) + ": " + cau.q));
+    div.appendChild(h3);
+    var wrap = document.createElement("div");
+    thuTu.forEach(function (k) {
+      var lab = document.createElement("label");
+      var inp = document.createElement("input");
+      inp.type = "radio"; inp.name = "cau" + i; inp.value = k;
+      inp.addEventListener("change", function () { hienGiaiThich(i); capNhatTienDo(); });
+      lab.appendChild(inp);
+      lab.appendChild(txt(" " + cau.options[k].t));
+      wrap.appendChild(lab);
+    });
+    div.appendChild(wrap);
+    var gt = document.createElement("div");
+    gt.className = "quiz-explain"; gt.style.display = "none";
+    div.appendChild(gt);
+    form.insertBefore(div, document.getElementById("quizActions"));
+  });
+}
+
+function dapAnChon(i) {
+  var chon = document.querySelector('input[name="cau' + i + '"]:checked');
+  return chon ? parseInt(chon.value, 10) : null;
+}
+
+function hienGiaiThich(i) {
+  var chon = dapAnChon(i);
+  if (chon === null) return;
+  var cau = QUIZ[i];
+  var gt = document.querySelector("#q" + i + " .quiz-explain");
+  gt.style.display = "block";
+  gt.innerHTML = "";
+  var dung = (chon === cau.correct);
+  var b = document.createElement("strong");
+  if (dung) {
+    b.appendChild(txt("Chính xác! "));
+    gt.appendChild(b);
+    gt.appendChild(txt(cau.options[cau.correct].g));
+  } else {
+    b.appendChild(txt("Chưa đúng. "));
+    gt.appendChild(b);
+    gt.appendChild(txt(cau.options[chon].g + " "));
+    var b2 = document.createElement("strong");
+    b2.appendChild(txt("Đáp án đúng: "));
+    gt.appendChild(b2);
+    gt.appendChild(txt(cau.options[cau.correct].t + " — " + cau.options[cau.correct].g));
+  }
+  gt.classList.toggle("explain-dung", dung);
+  gt.classList.toggle("explain-sai", !dung);
+}
+
+function capNhatTienDo() {
+  var n = 0;
+  QUIZ.forEach(function (_, i) { if (dapAnChon(i) !== null) n++; });
+  document.getElementById("tienDo").textContent = "Đã trả lời: " + n + " / " + QUIZ.length + " câu";
+}
+
+function nopBai() {
+  var thieu = [];
+  QUIZ.forEach(function (_, i) { if (dapAnChon(i) === null) thieu.push(i + 1); });
+  var kq = document.getElementById("quizResult");
+  kq.style.display = "block";
+  if (thieu.length) {
+    kq.innerHTML = "";
+    var p = document.createElement("p");
+    var b = document.createElement("strong");
+    b.appendChild(txt("Bạn chưa trả lời hết."));
+    p.appendChild(b);
+    p.appendChild(txt(" Hãy trả lời các câu: " + thieu.join(", ") + " nhé."));
+    kq.appendChild(p);
+    kq.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+  var diem = 0;
+  var review = document.createElement("div");
+  QUIZ.forEach(function (cau, i) {
+    var chon = dapAnChon(i);
+    var dung = (chon === cau.correct);
+    if (dung) diem++;
+    var item = document.createElement("div");
+    item.className = "review-item " + (dung ? "review-dung" : "review-sai");
+    var h4 = document.createElement("h4");
+    h4.appendChild(txt("Câu " + (i + 1) + (dung ? " — đúng" : " — chưa đúng")));
+    item.appendChild(h4);
+    var p1 = document.createElement("p");
+    p1.appendChild(txt("Bạn chọn: " + cau.options[chon].t));
+    item.appendChild(p1);
+    if (!dung) {
+      var p2 = document.createElement("p");
+      var b2 = document.createElement("strong");
+      b2.appendChild(txt("Đáp án đúng: "));
+      p2.appendChild(b2);
+      p2.appendChild(txt(cau.options[cau.correct].t));
+      item.appendChild(p2);
+    }
+    var p3 = document.createElement("p");
+    p3.className = "review-explain";
+    p3.appendChild(txt(cau.options[cau.correct].g));
+    item.appendChild(p3);
+    review.appendChild(item);
+  });
+  kq.innerHTML = "";
+  var h3 = document.createElement("h3");
+  h3.appendChild(txt("Bạn đã trả lời đúng " + diem + " / " + QUIZ.length + " câu."));
+  kq.appendChild(h3);
+  var nx = document.createElement("p");
+  nx.className = "quiz-tier";
+  nx.appendChild(txt(nhanXet(diem, QUIZ.length)));
+  kq.appendChild(nx);
+  kq.appendChild(review);
+  kq.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+document.addEventListener("DOMContentLoaded", function () { dungQuiz(); capNhatTienDo(); });
+</script>
+</body>
+</html>
