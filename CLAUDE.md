@@ -51,6 +51,7 @@
 - Nội dung bài viết (Markdown + frontmatter) lưu tại `src/content/than/` và `src/content/tam/`.
 - Slug ≤ 60 ký tự, chữ thường, gạch nối.
 - **Ngày đăng trên web mới = ngày đăng bài lên web mới** (không giữ ngày đăng gốc từ web cũ — ví dụ bài đăng ngày 05/10/2026 thì ghi `05/10/2026`).
+- **Bỏ ngày tháng và địa danh của web cũ** (ví dụ dòng "Đà Lạt, ngày 19/07/2025" ở đầu bài) — không mang sang web mới. Cuối bài chỉ giữ dòng email liên hệ, không ghi địa danh.
 
 ## 7. Ranh giới bắt buộc
 
