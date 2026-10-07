@@ -52,3 +52,22 @@
   }
   loadWeather();
 })();
+
+/* ---------- Nút "Về đầu trang" (hiện mọi trang) ---------- */
+(function () {
+  var nut = document.createElement('button');
+  nut.className = 'nut-len-dau';
+  nut.innerHTML = '&#8593;';
+  nut.setAttribute('aria-label', 'Về đầu trang');
+  nut.title = 'Về đầu trang';
+  document.body.appendChild(nut);
+  function kiemTra() {
+    nut.classList.toggle('hien', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', kiemTra, { passive: true });
+  nut.addEventListener('click', function () {
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    catch (e) { window.scrollTo(0, 0); }
+  });
+  kiemTra();
+})();

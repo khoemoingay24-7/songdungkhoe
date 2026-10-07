@@ -214,3 +214,29 @@ body.page-tam .site-search button { background: var(--tam); }
 @media (max-width: 480px) {
   .topbar-inner { padding: 6px 16px; font-size: 13px; }
 }
+
+/* ---------- Mục "Bài mới nhất" (trang chủ) ---------- */
+.tieu-de-muc { font-size: 24px; margin: 6px 0 4px; }
+.latest-list { display: grid; gap: 12px; margin: 14px 0 8px; }
+.latest-item { display: flex; gap: 14px; align-items: flex-start; background: var(--card);
+  border: 1px solid var(--line); border-left-width: 5px; border-radius: var(--radius);
+  padding: 14px 18px; box-shadow: var(--shadow); }
+.latest-item.than { border-left-color: var(--than); }
+.latest-item.tam { border-left-color: var(--tam); }
+.latest-item h3 { margin: 2px 0 4px; font-size: 19px; line-height: 1.5; }
+.latest-item h3 a { color: var(--ink); text-decoration: none; }
+.latest-item h3 a:hover { text-decoration: underline; }
+.latest-meta { margin: 0; font-size: 14px; color: var(--muted); }
+.nhan-nhanh { display: inline-block; flex: none; font-size: 13px; font-weight: 700;
+  padding: 3px 12px; border-radius: 999px; margin-top: 3px; white-space: nowrap; }
+.nhan-nhanh.than { background: var(--than-soft); color: var(--than-deep); }
+.nhan-nhanh.tam { background: var(--tam-soft); color: var(--tam-deep); }
+
+/* ---------- Nút "Về đầu trang" ---------- */
+.nut-len-dau { position: fixed; right: 18px; bottom: 18px; z-index: 60;
+  width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--card); color: var(--ink); font-size: 22px; line-height: 1;
+  cursor: pointer; box-shadow: var(--shadow); display: none;
+  align-items: center; justify-content: center; }
+.nut-len-dau.hien { display: flex; }
+.nut-len-dau:hover { transform: translateY(-2px); }
