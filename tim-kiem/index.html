@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liên hệ | Sống Đúng Khỏe</title>
-  <meta name="description" content="Liên hệ với Ban biên tập Sống Đúng Khỏe.">
   <link rel="icon" href="/public/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/public/assets/css/main.css">
 </head>
-<body class="page-home">
-  <header class="site-header">
+<body>
+  <title>Tìm kiếm bài viết | Sống Đúng Khỏe</title>
+  <meta name="description" content="Tìm kiếm bài viết, trắc nghiệm và kho audio trên website Sống Đúng Khỏe — gõ từ khóa và xem kết quả ngay.">
+<header class="site-header">
     <div class="header-inner">
       <a class="brand" href="/">
         <img class="brand-logo" src="/public/assets/images/logo.png" alt="Logo Sống Đúng Khỏe">
@@ -26,7 +26,7 @@
         <a href="/than/">Dưỡng Thân</a>
         <a href="/tam/">Dưỡng Tâm</a>
         <a href="/gioithieu.html">Giới thiệu</a>
-        <a href="/lienhe.html" class="active">Liên hệ</a>
+        <a href="/lienhe.html">Liên hệ</a>
       </nav>
       <form class="site-search" action="/tim-kiem/" method="get" role="search">
         <input type="search" name="q" placeholder="Tìm bài viết…" aria-label="Tìm kiếm bài viết">
@@ -34,26 +34,20 @@
       </form>
     </div>
   </header>
-
   <main>
     <section class="wrap-narrow">
-      <article class="article">
-        <h1>Liên hệ</h1>
-        <p>Ban biên tập <strong>Sống Đúng Khỏe</strong> luôn lắng nghe ý kiến,
-        câu hỏi và góp ý của bạn đọc.</p>
-        <div class="notice">
-          Trang liên hệ đang được hoàn thiện. Trong thời gian này, bạn có thể
-          theo dõi Sống Đúng Khỏe trên các nền tảng mạng xã hội.
-        </div>
-        <p><strong>Các kênh chính thức:</strong></p>
-        <ul>
-          <li>TikTok, YouTube, Spotify, Facebook — <em>liên kết sẽ được cập nhật tại đây</em></li>
-        </ul>
-      </article>
+      <h1>Tìm kiếm</h1>
+      <p style="color:var(--muted)">Gõ từ khóa liên quan đến bài viết bạn cần — ví dụ: <em>giấc ngủ</em>, <em>huyết áp</em>, <em>chánh niệm</em>.</p>
+      <form class="search-page-form" action="/tim-kiem/" method="get" role="search">
+        <input id="search-input" type="search" name="q" placeholder="Gõ từ khóa…" aria-label="Từ khóa tìm kiếm" autocomplete="off">
+        <button type="submit">Tìm kiếm</button>
+      </form>
+      <p id="search-count" style="color:var(--muted)"></p>
+      <div id="search-results" class="cards"></div>
     </section>
   </main>
 
-  <footer class="site-footer">
+<footer class="site-footer">
     <div class="footer-inner">
       <div class="cols">
         <div>
@@ -70,5 +64,6 @@
     </div>
     <div class="footer-copy">&copy; Sống Đúng Khỏe - Dưỡng Thân Khỏe, Dưỡng Tâm An</div>
   </footer>
+  <script src="/public/assets/js/search.js"></script>
 </body>
 </html>

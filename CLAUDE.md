@@ -56,6 +56,7 @@
 - **Bài nhánh Thân lẫn thuật ngữ riêng của nhánh Tâm** thì chỉnh nhẹ để bài đứng độc lập được (ví dụ đã gỡ "(Tâm Si)"/"(Tâm Sân)" ở bài Hơi thở 11/10).
 - **Bài cũ còn nhắc tên "An Lạc Trang"** thì nhắc bác hoặc tự điều chỉnh cho hợp web mới — ví dụ thêm dòng "Lời ngỏ" in nghiêng đầu bài giải thích An Lạc Trang là tên website cũ của nhánh Dưỡng Tâm (bác duyệt ngày 07/10/2026).
 - **Mọi trang trắc nghiệm** phải chèn `<script src="/public/assets/js/quiz-audio.js"></script>` ngay trước `</body>` (sau script quiz của trang) để có âm thanh: đọc câu hỏi giọng Việt, tiếng đúng/sai, nhạc hoàn thành, nút bật/tắt.
+- **Ô tìm kiếm**: header mọi trang có form tìm kiếm trỏ về `/tim-kiem/`; trang `/tim-kiem/` chạy `public/assets/js/search.js` trên `public/assets/data/search-index.json` (khớp nguyên từ, không phân biệt dấu/hoa-thường). Mỗi lần đăng bài mới phải tạo lại chỉ mục tìm kiếm từ các trang trong repo (xem bước 2b trong cron bai7-release-1110) rồi commit cùng đợt push.
 - **Trước mỗi lần push**, chạy checklist kiểm tra thủ công Mục 2 tại `~/workspace/goals/new-s-ng-ng-kh-e-website-on-cloudflare/hidden_files/checklist-kiem-tra-thu-cong.md`: mỗi trang chỉ **1 thẻ `<title>` và 1 meta description** (xóa title/meta thừa do copy template), title/meta/alt text/link nội bộ khớp nội dung thật; ghi một dòng "đã kiểm tra thủ công" trong tin báo push (quyết định của bác ngày 07/10/2026, theo hướng dẫn Google Search Central 01/10/2026).
 
 ## 7. Ranh giới bắt buộc
