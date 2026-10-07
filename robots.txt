@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://songdungkhoe-chinhthuc.pages.dev/sitemap.xml
