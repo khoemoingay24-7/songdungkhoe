@@ -52,6 +52,9 @@
 - Slug ≤ 60 ký tự, chữ thường, gạch nối.
 - **Ngày đăng trên web mới = ngày đăng bài lên web mới** (không giữ ngày đăng gốc từ web cũ — ví dụ bài đăng ngày 05/10/2026 thì ghi `05/10/2026`).
 - **Bỏ ngày tháng và địa danh của web cũ** (ví dụ dòng "Đà Lạt, ngày 19/07/2025" ở đầu bài) — không mang sang web mới. Cuối bài chỉ giữ dòng email liên hệ, không ghi địa danh.
+- **Không đánh số "Bài 1, Bài 2..." ở đầu tiêu đề bài** — tiền tố "Bài N:" làm Google tìm kiếm kém liên kết. Tên chuỗi để ở dòng teaser/dòng mô tả và link nội bộ "xem thêm trong chuỗi" cuối bài (quyết định của bác ngày 07/10/2026).
+- **Bài nhánh Thân lẫn thuật ngữ riêng của nhánh Tâm** thì chỉnh nhẹ để bài đứng độc lập được (ví dụ đã gỡ "(Tâm Si)"/"(Tâm Sân)" ở bài Hơi thở 11/10).
+- **Bài cũ còn nhắc tên "An Lạc Trang"** thì nhắc bác hoặc tự điều chỉnh cho hợp web mới — ví dụ thêm dòng "Lời ngỏ" in nghiêng đầu bài giải thích An Lạc Trang là tên website cũ của nhánh Dưỡng Tâm (bác duyệt ngày 07/10/2026).
 - **Mọi trang trắc nghiệm** phải chèn `<script src="/public/assets/js/quiz-audio.js"></script>` ngay trước `</body>` (sau script quiz của trang) để có âm thanh: đọc câu hỏi giọng Việt, tiếng đúng/sai, nhạc hoàn thành, nút bật/tắt.
 - **Trước mỗi lần push**, chạy checklist kiểm tra thủ công Mục 2 tại `~/workspace/goals/new-s-ng-ng-kh-e-website-on-cloudflare/hidden_files/checklist-kiem-tra-thu-cong.md`: mỗi trang chỉ **1 thẻ `<title>` và 1 meta description** (xóa title/meta thừa do copy template), title/meta/alt text/link nội bộ khớp nội dung thật; ghi một dòng "đã kiểm tra thủ công" trong tin báo push (quyết định của bác ngày 07/10/2026, theo hướng dẫn Google Search Central 01/10/2026).
 
