@@ -6,12 +6,13 @@
  *
  * Tự động có, không cần sửa gì thêm trong trang:
  *  - Nút "🔊 Âm thanh: bật/tắt" (nhớ lựa chọn bằng localStorage)
- *  - Nút 🔊 ở mỗi câu hỏi: đọc câu hỏi + các đáp án bằng giọng tiếng Việt
+ *  - Nút 🔊 ở mỗi câu hỏi: phát file thu sẵn (giọng chuẩn, giống nhau mọi máy);
+ *    nếu thiếu file thì dự phòng bằng giọng tiếng Việt của máy (Web Speech API)
  *  - Trả lời đúng: tiếng chuông vui nhẹ | Sai: tiếng trầm nhẹ
  *  - Nộp bài xong: một đoạn nhạc ngắn chúc mừng
  *
- * Tất cả dùng khả năng có sẵn của trình duyệt (Web Speech API + Web Audio API):
- * không file nhạc, không máy chủ, không tốn dung lượng.
+ * File thu sẵn nằm ở /public/assets/audio/quiz/<tiền-tố>-q<NN>.mp3,
+ * đặt tên theo bảng PREFIX_AM_THANH dưới đây và số thứ tự câu hỏi trên trang.
  */
 (function () {
   'use strict';
@@ -79,7 +80,7 @@
   // Trình duyệt yêu cầu có thao tác chạm trước mới cho phát tiếng: mở khóa ngay lần chạm đầu.
   document.addEventListener('pointerdown', function () { layCtx(); }, { once: true });
 
-  /* ---------- Đọc câu hỏi bằng giọng tiếng Việt ---------- */
+  /* ---------- Đọc câu hỏi: ưu tiên file thu sẵn ---------- */
   var giongViet = null;
   function chonGiongViet() {
     try {
@@ -89,7 +90,54 @@
       }
     } catch (e) {}
   }
+  var PREFIX_AM_THANH = {
+    'trac-nghiem-an-uong-khai-vi': 'mon1',
+    'trac-nghiem-an-uong-mon-chinh': 'mon2',
+    'trac-nghiem-an-uong-canh-nong': 'mon3',
+    'trac-nghiem-an-uong-trang-mieng': 'mon4',
+    'trac-nghiem-nhan-dien-noi-so': 'so',
+    'trac-nghiem-nhan-dien-noi-lo': 'lo'
+  };
+  var audioThuSan = null;
+  function dungPhatThuSan() {
+    try { if (audioThuSan) { audioThuSan.pause(); audioThuSan = null; } } catch (e) {}
+  }
+  function tienToTrang() {
+    try {
+      var m = location.pathname.match(/\/([^\/]+)\/?$/);
+      var slug = m ? m[1] : '';
+      return PREFIX_AM_THANH[slug] || null;
+    } catch (e) { return null; }
+  }
+  function phatFileThuSan(url) {
+    dungPhatThuSan();
+    try {
+      audioThuSan = new Audio(url);
+      var p = audioThuSan.play();
+      if (p && p.catch) p.catch(function () {});
+    } catch (e) {}
+  }
   function docCauHoi(nut) {
+    if (!amThanhBat()) return;
+    try {
+      dungPhatThuSan();
+      if ('speechSynthesis' in window) { try { window.speechSynthesis.cancel(); } catch (e) {} }
+      var khoi = nut.closest('.quiz-q');
+      if (khoi) {
+        var dsCau = Array.prototype.slice.call(document.querySelectorAll('.quiz-q'));
+        var idx = dsCau.indexOf(khoi);
+        var prefix = tienToTrang();
+        if (prefix && idx >= 0) {
+          var so = idx + 1;
+          phatFileThuSan('/public/assets/audio/quiz/' + prefix + '-q'
+            + (so < 10 ? '0' + so : '' + so) + '.mp3');
+          return;
+        }
+      }
+    } catch (e) {}
+    docCauHoiBangMay(nut); // dự phòng khi thiếu file
+  }
+  function docCauHoiBangMay(nut) {
     if (!amThanhBat() || !('speechSynthesis' in window)) return;
     try {
       window.speechSynthesis.cancel();
@@ -138,7 +186,8 @@
       datAmThanh(!amThanhBat());
       nutBatTat.textContent = amThanhBat() ? '🔊 Âm thanh: bật' : '🔇 Âm thanh: tắt';
       capNhatNutDoc();
-      if (!amThanhBat() && 'speechSynthesis' in window) {
+      dungPhatThuSan();
+      if ('speechSynthesis' in window) {
         try { window.speechSynthesis.cancel(); } catch (e) {}
       }
     };
