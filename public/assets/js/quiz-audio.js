@@ -6,13 +6,19 @@
  *
  * Tự động có, không cần sửa gì thêm trong trang:
  *  - Nút "🔊 Âm thanh: bật/tắt" (nhớ lựa chọn bằng localStorage)
- *  - Nút 🔊 ở mỗi câu hỏi: phát file thu sẵn (giọng chuẩn, giống nhau mọi máy);
- *    nếu thiếu file thì dự phòng bằng giọng tiếng Việt của máy (Web Speech API)
+ *  - Nút 🔊 ở mỗi câu hỏi: phát file thu sẵn (giọng chuẩn, giống nhau mọi máy),
+ *    đọc câu hỏi rồi đọc 4 đáp án ĐÚNG THEO THỨ TỰ đang hiển thị trên màn hình
+ *    (vì đáp án bị xáo trộn mỗi lần tải trang); nếu thiếu file thì dự phòng
+ *    bằng giọng tiếng Việt của máy (Web Speech API)
  *  - Trả lời đúng: tiếng chuông vui nhẹ | Sai: tiếng trầm nhẹ
  *  - Nộp bài xong: một đoạn nhạc ngắn chúc mừng
  *
- * File thu sẵn nằm ở /public/assets/audio/quiz/<tiền-tố>-q<NN>.mp3,
- * đặt tên theo bảng PREFIX_AM_THANH dưới đây và số thứ tự câu hỏi trên trang.
+ * File thu sẵn nằm ở /public/assets/audio/quiz/:
+ *   <tiền-tố>-q<NN>.mp3       — "Câu N: ..." (câu hỏi)
+ *   <tiền-tố>-q<NN>-o<K>.mp3  — nội dung đáp án (K = vị trí GỐC 0..3 trong dữ liệu)
+ *   so-dem-1..4.mp3           — "Đáp án 1." .. "Đáp án 4." (dùng chung)
+ * Đáp án bị xáo trộn mỗi lần tải trang nên JS đọc input.value của từng label
+ * (chính là vị trí gốc K) để phát file đáp án đúng theo thứ tự hiển thị.
  */
 (function () {
   'use strict';
@@ -99,8 +105,21 @@
     'trac-nghiem-nhan-dien-noi-lo': 'lo'
   };
   var audioThuSan = null;
+  var danhSachPhat = []; // playlist các file mp3 đang chờ phát
   function dungPhatThuSan() {
     try { if (audioThuSan) { audioThuSan.pause(); audioThuSan = null; } } catch (e) {}
+    danhSachPhat = [];
+  }
+  function phatTiep() {
+    if (!danhSachPhat.length) { audioThuSan = null; return; }
+    var url = danhSachPhat.shift();
+    try {
+      audioThuSan = new Audio(url);
+      audioThuSan.onended = phatTiep;
+      audioThuSan.onerror = phatTiep; // file lỗi thì bỏ qua, phát tiếp file sau
+      var p = audioThuSan.play();
+      if (p && p.catch) p.catch(function () { phatTiep(); });
+    } catch (e) { phatTiep(); }
   }
   function tienToTrang() {
     try {
@@ -117,11 +136,12 @@
       if (p && p.catch) p.catch(function () {});
     } catch (e) {}
   }
+  // Đọc câu hỏi + đáp án theo đúng thứ tự đang HIỂN THỊ trên màn hình.
   function docCauHoi(nut) {
     if (!amThanhBat()) return;
+    dungPhatThuSan();
+    if ('speechSynthesis' in window) { try { window.speechSynthesis.cancel(); } catch (e) {} }
     try {
-      dungPhatThuSan();
-      if ('speechSynthesis' in window) { try { window.speechSynthesis.cancel(); } catch (e) {} }
       var khoi = nut.closest('.quiz-q');
       if (khoi) {
         var dsCau = Array.prototype.slice.call(document.querySelectorAll('.quiz-q'));
@@ -129,8 +149,19 @@
         var prefix = tienToTrang();
         if (prefix && idx >= 0) {
           var so = idx + 1;
-          phatFileThuSan('/public/assets/audio/quiz/' + prefix + '-q'
-            + (so < 10 ? '0' + so : '' + so) + '.mp3');
+          var base = '/public/assets/audio/quiz/' + prefix + '-q'
+            + (so < 10 ? '0' + so : '' + so);
+          danhSachPhat.push(base + '.mp3'); // "Câu N: ..."
+          var labels = khoi.querySelectorAll('label');
+          for (var p = 0; p < labels.length; p++) {
+            var inp = labels[p].querySelector('input');
+            var k = inp ? parseInt(inp.value, 10) : p;
+            if (isNaN(k)) k = p;
+            // "Đáp án <vị trí hiển thị>." + nội dung đáp án ở vị trí gốc k
+            danhSachPhat.push('/public/assets/audio/quiz/so-dem-' + (p + 1) + '.mp3');
+            danhSachPhat.push(base + '-o' + k + '.mp3');
+          }
+          phatTiep();
           return;
         }
       }
