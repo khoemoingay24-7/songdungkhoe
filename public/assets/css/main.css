@@ -202,3 +202,15 @@ body.page-tam .site-search button { background: var(--tam); }
   .site-search { width: 100%; }
   .site-search input[type="search"] { flex: 1; width: auto; }
 }
+
+/* Thanh tiện ích đầu trang: ngày giờ + thời tiết Đà Lạt */
+.topbar { background: var(--ink); color: #F5EFE3; font-size: 14px; }
+.topbar-inner {
+  max-width: 1080px; margin: 0 auto; padding: 6px 24px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.topbar-left { white-space: nowrap; }
+.topbar-right { white-space: nowrap; color: #D9CBA8; }
+@media (max-width: 480px) {
+  .topbar-inner { padding: 6px 16px; font-size: 13px; }
+}
