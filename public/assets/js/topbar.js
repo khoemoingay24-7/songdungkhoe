@@ -6,7 +6,10 @@
   function tick() {
     var el = document.getElementById('topbar-clock');
     if (!el) return;
-    var d = new Date();
+    // Website phục vụ độc giả Việt Nam và hiển thị thời tiết Đà Lạt nên đồng hồ
+    // luôn theo giờ Việt Nam (UTC+7, không có giờ mùa hè); dùng getHours() của
+    // trình duyệt sẽ sai với độc giả ở múi giờ khác.
+    var d = new Date(Date.now() + (420 + new Date().getTimezoneOffset()) * 60000);
     el.textContent = DAYS[d.getDay()] + ', ' + d.getDate() + '/' + (d.getMonth() + 1) +
       '/' + d.getFullYear() + ' · ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
   }
