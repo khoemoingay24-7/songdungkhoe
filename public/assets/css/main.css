@@ -240,3 +240,6 @@ body.page-tam .site-search button { background: var(--tam); }
   align-items: center; justify-content: center; }
 .nut-len-dau.hien { display: flex; }
 .nut-len-dau:hover { transform: translateY(-2px); }
+
+/* ---------- Cột "Kết nối" (hệ sinh thái) ở chân trang ---------- */
+.footer-inner .social { line-height: 2; }
