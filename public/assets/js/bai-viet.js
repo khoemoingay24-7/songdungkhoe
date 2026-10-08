@@ -21,7 +21,7 @@
 (function () {
   'use strict';
 
-  var REMARKBOX_OWNER_KEY = 'b4b0cf51-c2c8-11f1-8020-040140774501'; // mã của bác (điền 08/10/2026)
+  var REMARKBOX_OWNER_KEY = '5208740f-c2f1-11f1-895f-040140774501'; // mã mới bác đăng ký lại 08/10/2026 (namespace gắn đúng tài khoản)
 
   var khoi = document.getElementById('tuongTac');
   if (!khoi) return;
