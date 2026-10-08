@@ -88,6 +88,10 @@
         '&thread_title=' + encodeURI(document.title) +
         '&thread_uri=' + encodeURIComponent(location.href) +
         '&mode=light' + (location.hash || '');
+      var goiY = document.createElement('p');
+      goiY.className = 'goi-y-binh-luan';
+      goiY.textContent = 'Mời bạn chia sẻ cảm nghĩ bên dưới (chỉ cần điền tên và email, không cần tạo tài khoản).';
+      thread.appendChild(goiY);
       var khung = document.createElement('iframe');
       khung.id = 'remarkbox-iframe';
       khung.setAttribute('scrolling', 'no');

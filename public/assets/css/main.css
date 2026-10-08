@@ -256,3 +256,5 @@ body.page-tam .site-search button { background: var(--tam); }
 .tuong-tac-nhan { color: var(--muted); font-size: 15px; }
 .binh-luan-cho { color: var(--muted); font-size: 14px; font-style: italic; }
 #khungBinhLuan { margin-top: 12px; }
+
+.goi-y-binh-luan { color: var(--muted); font-size: 15px; margin: 4px 0 12px; }
