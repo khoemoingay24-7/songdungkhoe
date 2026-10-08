@@ -258,3 +258,12 @@ body.page-tam .site-search button { background: var(--tam); }
 #khungBinhLuan { margin-top: 12px; }
 
 .goi-y-binh-luan { color: var(--muted); font-size: 15px; margin: 4px 0 12px; }
+
+/* Hai khối Bài mới nhất trang chủ */
+.latest-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 14px 0 8px; }
+@media (max-width: 720px) { .latest-blocks { grid-template-columns: 1fr; } }
+.latest-block { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 18px 12px; }
+.xem-them { display: inline-block; padding: 10px 26px; border-radius: 999px; border: 1.5px solid var(--than); color: var(--than-deep); font-weight: 700; text-decoration: none; font-size: 16px; }
+.xem-them:hover { background: var(--than-soft); }
+.latest-block:nth-child(2) .xem-them { border-color: var(--tam); color: var(--tam-deep); }
+.latest-block:nth-child(2) .xem-them:hover { background: var(--tam-soft); }
