@@ -8,14 +8,20 @@
  * - Chia sẻ: mở Facebook / Zalo ở tab mới; "Sao chép link" chép URL bài viết.
  * - Bình luận (Remarkbox — miễn phí, không quảng cáo, độc giả bình luận không
  *   cần tạo tài khoản): bác đăng ký tại https://www.remarkbox.com (2 phút,
- *   không cần thẻ), tạo Namespace cho website rồi dán SITE ID vào
- *   REMARKBOX_SITE_ID bên dưới (hoặc gửi đoạn mã nhúng cho con tích hợp).
- *   Khi chưa có Site ID, khung bình luận hiện dòng chờ thay vì lỗi.
+ *   không cần thẻ), tạo Namespace cho website rồi vào phần cài đặt Namespace
+ *   lấy "rb_owner_key" (một chuỗi UUID) dán vào REMARKBOX_OWNER_KEY bên dưới
+ *   (hoặc gửi đoạn mã nhúng cho con tích hợp).
+ *   Khi chưa có owner key, khung bình luận hiện dòng chờ thay vì lỗi.
+ *   Nhúng theo đoạn mã chính thức của Remarkbox: iframe tới
+ *   https://my.remarkbox.com/embed?rb_owner_key=... kèm thư viện iframe-resizer.
+ *   Lưu ý: Namespace gắn với tên miền — khi đổi sang songdungkhoe.com thì cập
+ *   nhật tên miền trong cài đặt Namespace (nếu không khung bình luận có thể
+ *   không hiện).
  */
 (function () {
   'use strict';
 
-  var REMARKBOX_SITE_ID = ''; // <-- DÁN SITE ID CỦA REMARKBOX VÀO GIỮA 2 DẤU NHÁY (xem đầu file)
+  var REMARKBOX_OWNER_KEY = ''; // <-- DÁN RB_OWNER_KEY CỦA REMARKBOX VÀO GIỮA 2 DẤU NHÁY (xem đầu file)
 
   var khoi = document.getElementById('tuongTac');
   if (!khoi) return;
@@ -71,20 +77,40 @@
     });
   });
 
-  /* ---------- Khung bình luận Remarkbox ---------- */
-  var REMARKBOX_SITE_ID = ''; // <-- DÁN SITE ID CỦA REMARKBOX VÀO GIỮA 2 DẤU NHÁY
+  /* ---------- Khung bình luận Remarkbox (iframe chính thức) ---------- */
   var thread = document.getElementById('khungBinhLuan');
   var choBinhLuan = document.getElementById('binhLuanCho');
   if (thread) {
-    if (REMARKBOX_SITE_ID) {
-      thread.setAttribute('data-site-id', REMARKBOX_SITE_ID);
-      thread.setAttribute('data-thread-uri', location.href);
+    if (REMARKBOX_OWNER_KEY) {
       if (choBinhLuan) choBinhLuan.style.display = 'none';
-      var s = document.createElement('script');
-      s.async = true; s.defer = true;
-      s.src = 'https://my.remarkbox.com/static/js/remarkbox.js';
-      s.setAttribute('data-site-id', REMARKBOX_SITE_ID);
-      document.body.appendChild(s);
+      var srcBinhLuan = 'https://my.remarkbox.com/embed' +
+        '?rb_owner_key=' + encodeURIComponent(REMARKBOX_OWNER_KEY) +
+        '&thread_title=' + encodeURI(document.title) +
+        '&thread_uri=' + encodeURIComponent(location.href) +
+        '&mode=light' + (location.hash || '');
+      var khung = document.createElement('iframe');
+      khung.id = 'remarkbox-iframe';
+      khung.setAttribute('scrolling', 'no');
+      khung.setAttribute('src', srcBinhLuan);
+      khung.setAttribute('frameborder', '0');
+      khung.setAttribute('tabindex', '0');
+      khung.setAttribute('title', 'Khung bình luận');
+      khung.style.width = '100%';
+      khung.style.border = 'none';
+      thread.appendChild(khung);
+      var thuVien = document.createElement('script');
+      thuVien.src = 'https://my.remarkbox.com/static/js/iframe-resizer/iframeResizer.min.js';
+      thuVien.onload = function () {
+        try {
+          if (window.iFrameResize) {
+            iFrameResize(
+              { checkOrigin: ['https://my.remarkbox.com'], inPageLinks: true },
+              document.getElementById('remarkbox-iframe')
+            );
+          }
+        } catch (e) {}
+      };
+      document.body.appendChild(thuVien);
     } else if (choBinhLuan) {
       choBinhLuan.style.display = '';
     }
