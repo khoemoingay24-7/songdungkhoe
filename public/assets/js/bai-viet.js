@@ -21,7 +21,7 @@
 (function () {
   'use strict';
 
-  var REMARKBOX_OWNER_KEY = ''; // <-- DÁN RB_OWNER_KEY CỦA REMARKBOX VÀO GIỮA 2 DẤU NHÁY (xem đầu file)
+  var REMARKBOX_OWNER_KEY = 'b4b0cf51-c2c8-11f1-8020-040140774501'; // mã của bác (điền 08/10/2026)
 
   var khoi = document.getElementById('tuongTac');
   if (!khoi) return;
