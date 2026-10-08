@@ -255,4 +255,4 @@ body.page-tam .site-search button { background: var(--tam); }
 .tuong-tac-chia-se { display: inline-flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .tuong-tac-nhan { color: var(--muted); font-size: 15px; }
 .binh-luan-cho { color: var(--muted); font-size: 14px; font-style: italic; }
-#cusdis_thread { margin-top: 12px; }
+#khungBinhLuan { margin-top: 12px; }

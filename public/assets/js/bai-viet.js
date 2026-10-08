@@ -6,14 +6,16 @@
  *
  * - Nút Thích: lưu trên máy của người đọc (localStorage), không cần tài khoản.
  * - Chia sẻ: mở Facebook / Zalo ở tab mới; "Sao chép link" chép URL bài viết.
- * - Bình luận (Cusdis): điền CUSDIS_APP_ID bên dưới sau khi tạo tài khoản tại
- *   https://cusdis.com (miễn phí, khoảng 2 phút) rồi copy App ID vào đây.
- *   Khi chưa có App ID, khung bình luận hiện dòng chờ thay vì lỗi.
+ * - Bình luận (Remarkbox — miễn phí, không quảng cáo, độc giả bình luận không
+ *   cần tạo tài khoản): bác đăng ký tại https://www.remarkbox.com (2 phút,
+ *   không cần thẻ), tạo Namespace cho website rồi dán SITE ID vào
+ *   REMARKBOX_SITE_ID bên dưới (hoặc gửi đoạn mã nhúng cho con tích hợp).
+ *   Khi chưa có Site ID, khung bình luận hiện dòng chờ thay vì lỗi.
  */
 (function () {
   'use strict';
 
-  var CUSDIS_APP_ID = ''; // <-- DÁN APP ID CỦA CUSDIS VÀO GIỮA 2 DẤU NHÁY
+  var REMARKBOX_SITE_ID = ''; // <-- DÁN SITE ID CỦA REMARKBOX VÀO GIỮA 2 DẤU NHÁY (xem đầu file)
 
   var khoi = document.getElementById('tuongTac');
   if (!khoi) return;
@@ -69,20 +71,19 @@
     });
   });
 
-  /* ---------- Khung bình luận Cusdis ---------- */
-  var thread = document.getElementById('cusdis_thread');
+  /* ---------- Khung bình luận Remarkbox ---------- */
+  var REMARKBOX_SITE_ID = ''; // <-- DÁN SITE ID CỦA REMARKBOX VÀO GIỮA 2 DẤU NHÁY
+  var thread = document.getElementById('khungBinhLuan');
   var choBinhLuan = document.getElementById('binhLuanCho');
   if (thread) {
-    if (CUSDIS_APP_ID) {
-      thread.setAttribute('data-host', 'https://cusdis.com');
-      thread.setAttribute('data-app-id', CUSDIS_APP_ID);
-      thread.setAttribute('data-page-id', location.pathname);
-      thread.setAttribute('data-page-url', location.href);
-      thread.setAttribute('data-page-title', document.title);
+    if (REMARKBOX_SITE_ID) {
+      thread.setAttribute('data-site-id', REMARKBOX_SITE_ID);
+      thread.setAttribute('data-thread-uri', location.href);
       if (choBinhLuan) choBinhLuan.style.display = 'none';
       var s = document.createElement('script');
       s.async = true; s.defer = true;
-      s.src = 'https://cusdis.com/js/cusdis.es.js';
+      s.src = 'https://my.remarkbox.com/static/js/remarkbox.js';
+      s.setAttribute('data-site-id', REMARKBOX_SITE_ID);
       document.body.appendChild(s);
     } else if (choBinhLuan) {
       choBinhLuan.style.display = '';
