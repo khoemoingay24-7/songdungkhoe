@@ -14,6 +14,20 @@
   "card": "Ngũ Vị, Ngũ Tạng"
  },
  {
+  "title": "Tìm lại giấc ngủ ngon qua việc điều hòa ngũ vị",
+  "desc": "Mất ngủ đôi khi bắt nguồn từ mâm cơm lệch vị. Điều hòa ngũ vị buổi tối — thêm đắng nhẹ, ngọt lành, bớt cay mặn — để đưa thần về giấc ngủ sâu.",
+  "url": "/than/tim-lai-giac-ngu-ngon-qua-dieu-hoa-ngu-vi/",
+  "branch": "Dưỡng Thân",
+  "card": "Giấc Ngủ"
+ },
+ {
+  "title": "Trắc nghiệm ăn uống – Phần 3: Canh nóng",
+  "desc": "Món 3 Canh nóng: 7 câu trắc nghiệm vui về giấc ngủ, vận động và tinh thần.",
+  "url": "/than/trac-nghiem-an-uong-canh-nong/",
+  "branch": "Dưỡng Thân",
+  "card": "Trắc nghiệm"
+ },
+ {
   "title": "Trắc nghiệm ăn uống – Phần 1: Khai vị",
   "desc": "Món 1 Khai vị: 6 câu trắc nghiệm vui về ăn uống, chỉ 2 phút — mở đầu nhẹ nhàng cho thực đơn 26 câu.",
   "url": "/than/trac-nghiem-an-uong-khai-vi/",
@@ -82,6 +96,13 @@
   "url": "/tam/thay-vi-so/",
   "branch": "Dưỡng Tâm",
   "card": "Quán Chiếu"
+ },
+ {
+  "title": "Tôi là ai?",
+  "desc": "Bài thơ thiền 'Tôi là ai?' — càng đi tìm cái tôi bằng vọng tưởng càng rối bời; chỉ khi lặng lại trong chánh niệm mới thấy ra. Thẻ Thơ & Truyện, Dưỡng Tâm.",
+  "url": "/tam/toi-la-ai/",
+  "branch": "Dưỡng Tâm",
+  "card": "Thơ & Truyện"
  },
  {
   "title": "Trắc nghiệm: Nhận diện nỗi lo",
