@@ -243,3 +243,16 @@ body.page-tam .site-search button { background: var(--tam); }
 
 /* ---------- Cột "Kết nối" (hệ sinh thái) ở chân trang ---------- */
 .footer-inner .social { line-height: 2; }
+
+/* ---------- Khối Thích / Chia sẻ / Bình luận dưới bài viết ---------- */
+.bai-viet-tuong-tac { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); }
+.tuong-tac-hang { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 8px; }
+.nut-tuong-tac { padding: 8px 18px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--card); font-family: inherit; font-size: 15px; font-weight: 600;
+  cursor: pointer; color: var(--ink); }
+.nut-tuong-tac:hover { border-color: var(--tam); transform: translateY(-1px); }
+.nut-tuong-tac[aria-pressed="true"] { border-color: #D66; background: #FFF5F5; }
+.tuong-tac-chia-se { display: inline-flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tuong-tac-nhan { color: var(--muted); font-size: 15px; }
+.binh-luan-cho { color: var(--muted); font-size: 14px; font-style: italic; }
+#cusdis_thread { margin-top: 12px; }
