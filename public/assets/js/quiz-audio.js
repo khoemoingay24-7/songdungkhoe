@@ -152,7 +152,8 @@
           var base = '/public/assets/audio/quiz/' + prefix + '-q'
             + (so < 10 ? '0' + so : '' + so);
           danhSachPhat.push(base + '.mp3'); // "Câu N: ..."
-          var labels = khoi.querySelectorAll('label');
+          var boQuaDapAn = khoi.classList.contains('khong-doc-dap-an');
+          var labels = boQuaDapAn ? [] : khoi.querySelectorAll('label');
           for (var p = 0; p < labels.length; p++) {
             var inp = labels[p].querySelector('input');
             var k = inp ? parseInt(inp.value, 10) : p;
