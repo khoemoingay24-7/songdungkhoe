@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trắc nghiệm ăn uống – Phần 4: Tráng miệng | Sống Đúng Khỏe</title>
+  <meta name="description" content="Món 4 Tráng miệng: 8 câu trắc nghiệm cuối, ngọt ngào kết thúc thực đơn 30 câu.">
+  <link rel="icon" href="/public/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/assets/css/main.css">
+  <style>
+    .quiz-q { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; margin: 16px 0; }
+    .quiz-q h3 { margin-top: 0; font-size: 19px; line-height: 1.55; }
+    .quiz-q label { display: block; padding: 10px 14px; margin: 8px 0; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; font-size: 16px; line-height: 1.55; }
+    .quiz-q label:hover { border-color: var(--than); background: var(--than-soft); }
+    .quiz-explain { margin-top: 12px; padding: 12px 16px; border-radius: 10px; font-size: 15.5px; line-height: 1.65; }
+    .explain-dung { background: #EAF6EC; border: 1px solid #BFE3C6; color: #1F5C2E; }
+    .explain-sai { background: #FFF4E8; border: 1px solid #F3D9B8; color: #7A4A12; }
+    .quiz-btn { background: var(--than); color: #fff; border: none; border-radius: 999px; padding: 14px 36px; font-size: 18px; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .quiz-btn:hover { background: var(--than-deep); }
+    .quiz-result { display: none; margin-top: 24px; }
+    .quiz-result h3 { margin-top: 0; }
+    .quiz-tier { font-size: 18px; font-weight: 600; color: var(--than-deep); }
+    .review-item { border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin: 12px 0; background: #fff; }
+    .review-item h4 { margin: 0 0 8px 0; }
+    .review-dung h4 { color: #1F5C2E; }
+    .review-sai h4 { color: #7A4A12; }
+    .review-item p { margin: 6px 0; font-size: 15.5px; line-height: 1.6; }
+    .review-explain { color: var(--muted); font-style: italic; }
+    .quiz-progress { position: sticky; top: 0; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 20px; font-weight: 600; display: inline-block; margin: 12px 0; }
+</style>
+</head>
+<body class="page-than">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span class="topbar-left">📍 Đà Lạt · <span id="topbar-weather">…</span></span>
+      <span class="topbar-right" id="topbar-clock">…</span>
+    </div>
+  </div>
+<header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/public/assets/images/logo.png" alt="Logo Sống Đúng Khỏe">
+        <span>
+          <span class="brand-name">Sống Đúng Khỏe</span><br>
+          <span class="brand-tag">Dưỡng Thân Khỏe &middot; Dưỡng Tâm An</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="/">Trang chủ</a>
+        <a href="/than/" class="active">Dưỡng Thân</a>
+        <a href="/tam/">Dưỡng Tâm</a>
+        <a href="/gioithieu.html">Giới thiệu</a>
+        <a href="/lienhe.html">Liên hệ</a>
+      </nav>
+      <form class="site-search" action="/tim-kiem/" method="get" role="search">
+        <input type="search" name="q" placeholder="Tìm bài viết…" aria-label="Tìm kiếm bài viết">
+        <button type="submit">Tìm</button>
+      </form>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap-narrow">
+      <article class="article">
+        <p style="color:var(--muted);font-size:15px;">Dưỡng Thân &middot; Trắc nghiệm &middot; Phần 4/4 &middot; Ngày đăng 09/10/2026</p>
+        <h1>Trắc nghiệm ăn uống – Phần 4: Tráng miệng</h1>
+        <div class="notice">
+          <p><strong>Đến món tráng miệng rồi — ngọt ngào kết thúc!</strong> 8 câu cuối cùng nhẹ nhàng như miếng dưa hấu mát lạnh. Làm xong là bạn đã “xơi” trọn vẹn 30 câu hỏi, bỏ túi cả bộ mẹo sống khỏe. Chúc mừng bạn đã đi hết mâm!</p><p style="color:var(--muted);font-size:15px;"><em>Mỗi câu có 4 đáp án; lời giải thích hiện ngay sau khi bạn chọn.</em></p>
+        </div>
+        <p><span class="quiz-progress" id="tienDo">Đã trả lời: 0 / 8 câu</span></p>
+
+        <form id="quizForm">
+          <p id="quizActions" style="text-align:center;">
+            <button type="button" class="quiz-btn" onclick="nopBai()">Xem kết quả</button>
+          </p>
+        </form>
+
+        <div class="quiz-result notice" id="quizResult"></div>
+        <p style="text-align:center;margin-top:28px;"><a href="/than/trac-nghiem-ban-an-uong-the-nao/">&larr; Về thực đơn 4 món</a></p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="cols">
+        <div>
+          <strong>Sống Đúng Khỏe</strong><br>
+          Hợp nhất Dưỡng Thân &amp; Dưỡng Tâm<br>Email liên hệ: <a href="mailto:moidalat@gmail.com">moidalat@gmail.com</a>
+        </div>
+        <div>
+          <a href="/than/">Dưỡng Thân</a> &middot;
+          <a href="/tam/">Dưỡng Tâm</a> &middot;
+          <a href="/gioithieu.html">Giới thiệu</a> &middot;
+          <a href="/lienhe.html">Liên hệ</a>
+        </div>
+        <div class="social">
+          <strong>Kết nối</strong><br>
+          <a href="/">Website</a> &middot;
+          <a href="https://www.youtube.com/@songdungkhoe" target="_blank" rel="noopener">YouTube</a> &middot;
+          <a href="https://www.tiktok.com/@songdungkhoe" target="_blank" rel="noopener">TikTok</a> &middot;
+          <a href="https://www.facebook.com/people/Song-Dung-Khoe/61582079152734" target="_blank" rel="noopener">Facebook</a> &middot;
+          <a href="https://open.spotify.com/show/7mtZzXlXCK3uhzMaXkGNIn?si=6stKOBVyRpiiOlXpmEtY7Q" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; Sống Đúng Khỏe - Dưỡng Thân Khỏe, Dưỡng Tâm An</div>
+  </footer>
+
+  <script>
+function nhanXet(score, total) {
+  var tyLe = score / total;
+  if (tyLe === 1) return "Trọn mâm hoàn hảo! 30 câu đã xong — bạn đúng là “đầu bếp” sức khỏe của gia đình.";
+  if (tyLe >= 0.8) return "Tráng miệng ngọt ngào! Kiến thức sống khỏe của bạn rất đáng nể.";
+  if (tyLe >= 0.5) return "Bữa ăn khá ngon! Còn vài món bạn có thể quay lại “nếm” thêm qua lời giải thích.";
+  return "Ăn hết mâm là giỏi rồi! Đọc lại lời giải thích, mâm sau chắc chắn ngon hơn.";
+}
+
+
+var QUIZ = [{"q":"Để giảm lượng đường nạp vào cơ thể, thay đổi đồ uống nào dưới đây sẽ mang lại lợi ích đáng kể cho việc giảm cân và sức khỏe tổng thể?","options":["Uống sữa lắc hoặc sinh tố trái cây mua sẵn mỗi ngày.","Thêm đường vào tất cả đồ uống để tăng năng lượng.","Thay thế đồ uống có đường bằng nước lọc, trà không đường hoặc nước ép rau củ tự làm.","Uống nhiều nước ép trái cây cô đặc."],"correct":2,"explain":"Nước ngọt và đồ uống có đường là nguồn calo rỗng và đường gây tăng cân, tăng nguy cơ tiểu đường. Thay thế bằng nước lọc hoặc đồ uống không đường là cách hiệu quả để giảm lượng đường nạp vào."},{"q":"Bạn đang sống trong một thành phố lớn có mức độ ô nhiễm không khí cao. Lối sống nào dưới đây có thể giúp bạn bảo vệ sức khỏe hô hấp tốt nhất?","options":["Hạn chế ra ngoài trời hoàn toàn và không tập thể dục.","Uống nhiều cà phê để tăng cường miễn dịch.","Sử dụng khẩu trang khi ra ngoài, trồng cây xanh trong nhà, và thường xuyên vệ sinh nhà cửa để giảm bụi.","Tăng cường ăn đồ chiên rán để tạo lớp màng bảo vệ đường hô hấp."],"correct":2,"explain":"Trong môi trường ô nhiễm, việc bảo vệ đường hô hấp bằng khẩu trang, cải thiện chất lượng không khí trong nhà bằng cây xanh và vệ sinh là rất quan trọng để giảm tiếp xúc với các tác nhân gây hại."},{"q":"Để cải thiện sức khỏe tinh thần và giảm căng thẳng, đặc biệt khi bạn có thói quen lo lắng nhiều, phương pháp nào sau đây được khuyến nghị rộng rãi bởi các chuyên gia sức khỏe tâm thần?","options":["Trốn tránh các vấn đề gây lo lắng bằng cách ngủ thật nhiều.","Tăng cường ăn các món ăn yêu thích để xoa dịu cảm xúc.","Thực hành thiền định, yoga hoặc các bài tập hít thở sâu hàng ngày để làm dịu tâm trí và giảm cortisol.","Uống rượu bia để quên đi lo lắng."],"correct":2,"explain":"Các phương pháp như thiền định, yoga, và tập hít thở sâu đã được khoa học chứng minh giúp giảm căng thẳng, lo âu, và cải thiện sức khỏe tinh thần bằng cách điều hòa hệ thần kinh và giảm hormone cortisol."},{"q":"Khi bạn cảm thấy căng thẳng và muốn ăn vặt để giải tỏa. Thay vì ăn các món không lành mạnh, bạn nên lựa chọn đồ ăn nhẹ nào để vừa giải tỏa cảm xúc vừa tốt cho sức khỏe?","options":["Bánh quy ngọt và nước ngọt có ga.","Khoai tây chiên và gà rán.","Trái cây tươi, rau củ quả cắt lát (như dưa chuột, cà rốt), hoặc một nắm hạt không muối.","Kem và sô cô la sữa."],"correct":2,"explain":"Các lựa chọn này cung cấp vitamin, khoáng chất, chất xơ, giúp no lâu và cung cấp năng lượng ổn định mà không nạp quá nhiều đường, chất béo không lành mạnh, hay calo rỗng, từ đó hỗ trợ quản lý căng thẳng và cân nặng."},{"q":"Để xương chắc khỏe và phòng ngừa loãng xương khi về già, đặc biệt là với người lớn tuổi, dinh dưỡng nào sau đây là thiết yếu và nên được tăng cường?","options":["Ăn nhiều đồ ăn nhanh và thực phẩm chế biến sẵn.","Tăng cường uống trà và cà phê hàng ngày.","Bổ sung đủ Canxi (từ sữa, sữa chua, rau xanh đậm) và Vitamin D (từ ánh nắng mặt trời, cá béo) trong chế độ ăn hàng ngày.","Loại bỏ hoàn toàn chất béo khỏi chế độ ăn."],"correct":2,"explain":"Canxi và Vitamin D là hai dưỡng chất cực kỳ quan trọng cho sức khỏe xương. Canxi là thành phần chính của xương, còn Vitamin D giúp cơ thể hấp thụ Canxi hiệu quả, theo khuyến nghị của các tổ chức sức khỏe xương."},{"q":"Bạn cảm thấy mắt bị mỏi khi làm việc với máy tính trong thời gian dài. Thói quen nào sau đây giúp bạn bảo vệ và duy trì sức khỏe cho đôi mắt tốt nhất?","options":["Dùng thuốc nhỏ mắt liên tục mà không nghỉ ngơi.","Tắt đèn để mắt không bị chói.","Áp dụng quy tắc 20-20-20 (cứ 20 phút nhìn xa 20 feet (6 mét) trong 20 giây), điều chỉnh độ sáng màn hình phù hợp và chớp mắt thường xuyên.","Nhìn chằm chằm vào màn hình càng lâu càng tốt để hoàn thành công việc nhanh."],"correct":2,"explain":"Quy tắc 20-20-20 giúp mắt thư giãn sau khi nhìn gần. Điều chỉnh độ sáng màn hình phù hợp và chớp mắt thường xuyên giúp giữ ẩm cho mắt, ngăn ngừa khô mắt và mỏi mắt."},{"q":"Để có một hệ miễn dịch khỏe mạnh, đặc biệt quan trọng trong việc phòng ngừa bệnh tật, yếu tố nào dưới đây là cần thiết nhất?","options":["Uống nhiều rượu bia để diệt vi khuẩn.","Chỉ ăn một loại thực phẩm duy nhất vì cho rằng nó 'tốt nhất'.","Chế độ ăn đa dạng, ngủ đủ giấc, vận động thường xuyên, và quản lý căng thẳng hiệu quả.","Sử dụng kháng sinh liên tục để phòng bệnh."],"correct":2,"explain":"Một hệ miễn dịch khỏe mạnh đòi hỏi sự kết hợp của nhiều yếu tố: dinh dưỡng đầy đủ, giấc ngủ chất lượng, hoạt động thể chất đều đặn, và khả năng kiểm soát căng thẳng. Thiếu hụt bất kỳ yếu tố nào cũng có thể làm suy yếu miễn dịch."},{"q": "Câu đố vui: Hình dưới đây được xếp bằng que tăm thành phép tính 1 + 8 = 7. Chỉ được di chuyển ĐÚNG 1 que tăm để phép tính trở thành đúng. Hỏi phép tính đúng sau khi di chuyển là gì?", "options": ["7 + 0 = 7", "1 + 8 = 9", "7 + 8 = 15", "1 + 6 = 7"], "correct": 0, "explain": "Lấy que tăm nằm ngang trên cùng của số 8 (thành số 0), đặt lên trên số 1 thành số 7. Ta được phép tính đúng: 7 + 0 = 7. Ngọt ngào như miếng tráng miệng!", "img": "/public/assets/images/quiz/quetam-1cong8.svg", "alt": "Phép tính xếp bằng que tăm: 1 cộng 8 bằng 7", "khongDocDapAn": true}]
+
+function xaoTron(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+function txt(s) { return document.createTextNode(s); }
+
+function dungQuiz() {
+  var form = document.getElementById("quizForm");
+  QUIZ.forEach(function (cau, i) {
+    var thuTu = xaoTron(cau.options.map(function (_, k) { return k; }));
+    var div = document.createElement("div");
+    div.className = "quiz-q";
+    div.id = "q" + i;
+    var h3 = document.createElement("h3");
+    h3.appendChild(txt("Câu " + (i + 1) + ": " + cau.q));
+    div.appendChild(h3);
+    if (cau.img) {
+      var him = document.createElement("img");
+      him.src = cau.img; him.alt = cau.alt || "Hình minh họa câu đố";
+      him.style.cssText = "max-width:100%;height:auto;border-radius:12px;margin:4px 0 8px;";
+      div.appendChild(him);
+    }
+    if (cau.khongDocDapAn) div.className += " khong-doc-dap-an";
+    var wrap = document.createElement("div");
+    thuTu.forEach(function (k) {
+      var lab = document.createElement("label");
+      var inp = document.createElement("input");
+      inp.type = "radio"; inp.name = "cau" + i; inp.value = k;
+      inp.addEventListener("change", function () { hienGiaiThich(i); capNhatTienDo(); });
+      lab.appendChild(inp);
+      lab.appendChild(txt(" " + cau.options[k]));
+      wrap.appendChild(lab);
+    });
+    div.appendChild(wrap);
+    var gt = document.createElement("div");
+    gt.className = "quiz-explain"; gt.style.display = "none";
+    div.appendChild(gt);
+    form.insertBefore(div, document.getElementById("quizActions"));
+  });
+}
+
+function dapAnChon(i) {
+  var chon = document.querySelector('input[name="cau' + i + '"]:checked');
+  return chon ? parseInt(chon.value, 10) : null;
+}
+
+function hienGiaiThich(i) {
+  var chon = dapAnChon(i);
+  if (chon === null) return;
+  var cau = QUIZ[i];
+  var gt = document.querySelector("#q" + i + " .quiz-explain");
+  gt.style.display = "block";
+  gt.innerHTML = "";
+  var dung = (chon === cau.correct);
+  var b = document.createElement("strong");
+  b.appendChild(txt(dung ? "Chính xác! " : "Chưa đúng. "));
+  gt.appendChild(b);
+  gt.appendChild(txt(cau.explain));
+  gt.classList.toggle("explain-dung", dung);
+  gt.classList.toggle("explain-sai", !dung);
+}
+
+function capNhatTienDo() {
+  var n = 0;
+  QUIZ.forEach(function (_, i) { if (dapAnChon(i) !== null) n++; });
+  document.getElementById("tienDo").textContent = "Đã trả lời: " + n + " / " + QUIZ.length + " câu";
+}
+
+function nopBai() {
+  var thieu = [];
+  QUIZ.forEach(function (_, i) { if (dapAnChon(i) === null) thieu.push(i + 1); });
+  var kq = document.getElementById("quizResult");
+  kq.style.display = "block";
+  if (thieu.length) {
+    kq.innerHTML = "";
+    var p = document.createElement("p");
+    var b = document.createElement("strong");
+    b.appendChild(txt("Bạn chưa trả lời hết."));
+    p.appendChild(b);
+    p.appendChild(txt(" Hãy trả lời các câu: " + thieu.join(", ") + " nhé."));
+    kq.appendChild(p);
+    kq.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+  var diem = 0;
+  var review = document.createElement("div");
+  QUIZ.forEach(function (cau, i) {
+    var chon = dapAnChon(i);
+    var dung = (chon === cau.correct);
+    if (dung) diem++;
+    var item = document.createElement("div");
+    item.className = "review-item " + (dung ? "review-dung" : "review-sai");
+    var h4 = document.createElement("h4");
+    h4.appendChild(txt("Câu " + (i + 1) + (dung ? " — đúng" : " — chưa đúng")));
+    item.appendChild(h4);
+    var p1 = document.createElement("p");
+    p1.appendChild(txt("Bạn chọn: " + cau.options[chon]));
+    item.appendChild(p1);
+    if (!dung) {
+      var p2 = document.createElement("p");
+      var b2 = document.createElement("strong");
+      b2.appendChild(txt("Đáp án đúng: "));
+      p2.appendChild(b2);
+      p2.appendChild(txt(cau.options[cau.correct]));
+      item.appendChild(p2);
+    }
+    var p3 = document.createElement("p");
+    p3.className = "review-explain";
+    p3.appendChild(txt(cau.explain));
+    item.appendChild(p3);
+    review.appendChild(item);
+  });
+  kq.innerHTML = "";
+  var h3 = document.createElement("h3");
+  h3.appendChild(txt("Bạn đã trả lời đúng " + diem + " / " + QUIZ.length + " câu."));
+  kq.appendChild(h3);
+  var nx = document.createElement("p");
+  nx.className = "quiz-tier";
+  nx.appendChild(txt(nhanXet(diem, QUIZ.length)));
+  kq.appendChild(nx);
+  kq.appendChild(review);
+  kq.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+document.addEventListener("DOMContentLoaded", function () { dungQuiz(); capNhatTienDo(); });
+</script>
+<script src="/public/assets/js/quiz-audio.js"></script>
+  <script src="/public/assets/js/topbar.js"></script>
+</body>
+</html>
