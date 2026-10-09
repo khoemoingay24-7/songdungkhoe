@@ -22,31 +22,45 @@
  },
  {
   "title": "Trắc nghiệm ăn uống – Phần 3: Canh nóng",
-  "desc": "Món 3 Canh nóng: 7 câu trắc nghiệm vui về giấc ngủ, vận động và tinh thần.",
+  "desc": "Món 3 Canh nóng: 8 câu trắc nghiệm vui về giấc ngủ, vận động và tinh thần.",
   "url": "/than/trac-nghiem-an-uong-canh-nong/",
   "branch": "Dưỡng Thân",
   "card": "Trắc nghiệm"
  },
  {
   "title": "Trắc nghiệm ăn uống – Phần 1: Khai vị",
-  "desc": "Món 1 Khai vị: 6 câu trắc nghiệm vui về ăn uống, chỉ 2 phút — mở đầu nhẹ nhàng cho thực đơn 26 câu.",
+  "desc": "Món 1 Khai vị: 7 câu trắc nghiệm vui về ăn uống, chỉ 2 phút — mở đầu nhẹ nhàng cho thực đơn 30 câu.",
   "url": "/than/trac-nghiem-an-uong-khai-vi/",
   "branch": "Dưỡng Thân",
   "card": "Trắc nghiệm"
  },
  {
   "title": "Trắc nghiệm ăn uống – Phần 2: Món chính",
-  "desc": "Món 2 Món chính: 6 câu trắc nghiệm vui về ăn uống, ngủ nghỉ, vận động hằng ngày.",
+  "desc": "Món 2 Món chính: 7 câu trắc nghiệm vui về ăn uống, ngủ nghỉ, vận động hằng ngày.",
   "url": "/than/trac-nghiem-an-uong-mon-chinh/",
   "branch": "Dưỡng Thân",
   "card": "Trắc nghiệm"
  },
  {
+  "title": "Trắc nghiệm ăn uống – Phần 4: Tráng miệng",
+  "desc": "Món 4 Tráng miệng: 8 câu trắc nghiệm cuối, ngọt ngào kết thúc thực đơn 30 câu.",
+  "url": "/than/trac-nghiem-an-uong-trang-mieng/",
+  "branch": "Dưỡng Thân",
+  "card": "Trắc nghiệm"
+ },
+ {
   "title": "Thực đơn trắc nghiệm: Bạn ăn uống thế nào?",
-  "desc": "26 câu trắc nghiệm ăn uống được chia thành 4 món nhỏ: Khai vị, Món chính, Canh nóng, Tráng miệng — mỗi ngày một món, vừa vui vừa khỏe.",
+  "desc": "30 câu trắc nghiệm ăn uống được chia thành 4 món nhỏ: Khai vị, Món chính, Canh nóng, Tráng miệng — mỗi ngày một món, vừa vui vừa khỏe.",
   "url": "/than/trac-nghiem-ban-an-uong-the-nao/",
   "branch": "Dưỡng Thân",
   "card": ""
+ },
+ {
+  "title": "Vận động trong sự thấu hiểu: Khi Thân và Tâm cùng dắt tay nhau đi dạo",
+  "desc": "Vận động không phải cuộc đua mà là cuộc dạo chơi đầy thấu hiểu giữa Thân và Tâm: lắng nghe nhịp thở, cảm nhận từng bước chân, thu hoạch sự bình an.",
+  "url": "/than/van-dong-trong-su-thau-hieu/",
+  "branch": "Dưỡng Thân",
+  "card": "Vận Động"
  },
  {
   "title": "Vì sao ăn uống ảnh hưởng trực tiếp đến ngũ tạng?",
@@ -75,6 +89,13 @@
   "url": "/tam/audio-ve-tram-cam/",
   "branch": "Dưỡng Tâm",
   "card": ""
+ },
+ {
+  "title": "Chánh Niệm Trong Bữa Ăn: Từ Bàn Ăn Đến Bàn Tâm",
+  "desc": "Đang ăn biết đang ăn: nhìn bữa cơm dưới hai góc độ — khoa học về tác hại của việc vừa ăn vừa nói, và Chánh Pháp về chánh niệm trong từng miếng ăn.",
+  "url": "/tam/chanh-niem-trong-bua-an/",
+  "branch": "Dưỡng Tâm",
+  "card": "Sống Đang Là"
  },
  {
   "title": "Thay vì giận",
