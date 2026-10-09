@@ -32,6 +32,8 @@ PLAYER_TPL = '''<div class="nghe-bai-viet" style="background:var(--card);border:
 
 def trich_van_ban(path):
     src = open(path, encoding="utf-8").read()
+    # LOẠI khung phát audio (nếu bài đã gắn từ trước) — không đọc lời chú thích về file audio
+    src = re.sub(r'<div class="nghe-bai-viet".*?</div>\s*', '', src, flags=re.S)
     a = src.find('<article class="article">')
     b = src.find("Email liên hệ:")
     if a < 0:
