@@ -4,7 +4,7 @@ Chạy sau mỗi đợt đăng bài. Đọc chuyên mục từ dòng header củ
 import os, re, html
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-DOMAIN = "https://songdungkhoe-chinhthuc.pages.dev"
+DOMAIN = "https://songdungkhoe.com"
 
 THAN_CATS = [
     ("ngu-vi-ngu-tang", "Ngũ Vị – Ngũ Tạng", "Năm vị ứng với năm tạng, ăn sao cho hài hòa."),

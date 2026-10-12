@@ -5,7 +5,7 @@ import os, re
 from datetime import date
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-DOMAIN = "https://songdungkhoe-chinhthuc.pages.dev"
+DOMAIN = "https://songdungkhoe.com"
 
 def thu_thap():
     urls = ["/", "/than/", "/tam/"]
