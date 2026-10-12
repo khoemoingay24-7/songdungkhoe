@@ -28,6 +28,7 @@ TAM_CATS = [
 NORM = {
     "Ngũ Vị, Ngũ Tạng": "Ngũ Vị – Ngũ Tạng",
     "Thơ": "Thơ & Truyện",
+    "Sự Thật": "Sự Thật & Tin Đồn",  # bài thẻ "Sự Thật &amp; Tin Đồn" bị regex cắt tại &
 }
 CAT_BY_NAME = {}
 for slug, name, desc in THAN_CATS + TAM_CATS:
