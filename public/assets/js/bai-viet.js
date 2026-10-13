@@ -21,7 +21,11 @@
 (function () {
   'use strict';
 
-  var REMARKBOX_OWNER_KEY = '1a48afc1-c6aa-11f1-86b6-040140774501'; // namespace songdungkhoe.com — bác hoàn tất thiết lập 13/10/2026 (trước đó là key 5208740f của namespace pages.dev)
+  var REMARKBOX_OWNER_KEY = '5208740f-c2f1-11f1-895f-040140774501'; // namespace songdungkhoe-chinhthuc.pages.dev — đã bật bình luận ẩn danh 13/10/2026; bản free chỉ có 1 namespace nên dùng chung cho mọi tên miền
+
+  // Dùng URL chuẩn pages.dev làm thread_uri để khung bình luận trên mọi tên miền
+  // (songdungkhoe.com, www, pages.dev) cùng trỏ về một luồng đã bật ẩn danh.
+  var threadUri = location.href.replace(/^https:\/\/(www\.)?songdungkhoe\.com/i, 'https://songdungkhoe-chinhthuc.pages.dev');
 
   var khoi = document.getElementById('tuongTac');
   if (!khoi) return;
@@ -86,7 +90,7 @@
       var srcBinhLuan = 'https://my.remarkbox.com/embed' +
         '?rb_owner_key=' + encodeURIComponent(REMARKBOX_OWNER_KEY) +
         '&thread_title=' + encodeURI(document.title) +
-        '&thread_uri=' + encodeURIComponent(location.href) +
+        '&thread_uri=' + encodeURIComponent(threadUri) +
         '&mode=light' + (location.hash || '');
       var goiY = document.createElement('p');
       goiY.className = 'goi-y-binh-luan';
