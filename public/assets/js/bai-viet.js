@@ -90,7 +90,7 @@
         '&mode=light' + (location.hash || '');
       var goiY = document.createElement('p');
       goiY.className = 'goi-y-binh-luan';
-      goiY.textContent = 'Mời bạn chia sẻ cảm nghĩ bên dưới (chỉ cần điền tên và email, không cần tạo tài khoản).';
+      goiY.textContent = 'Mời bạn chia sẻ cảm nghĩ bên dưới (chỉ cần điền tên, không cần tạo tài khoản).';
       thread.appendChild(goiY);
       var khung = document.createElement('iframe');
       khung.id = 'remarkbox-iframe';
