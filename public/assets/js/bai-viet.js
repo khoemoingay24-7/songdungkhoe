@@ -21,7 +21,7 @@
 (function () {
   'use strict';
 
-  var REMARKBOX_OWNER_KEY = '5208740f-c2f1-11f1-895f-040140774501'; // mã mới bác đăng ký lại 08/10/2026 (namespace gắn đúng tài khoản)
+  var REMARKBOX_OWNER_KEY = '1a48afc1-c6aa-11f1-86b6-040140774501'; // namespace songdungkhoe.com — bác tạo mới 13/10/2026 sau khi trỏ tên miền
 
   var khoi = document.getElementById('tuongTac');
   if (!khoi) return;
