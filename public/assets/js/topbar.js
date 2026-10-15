@@ -56,6 +56,36 @@
   loadWeather();
 })();
 
+/* ---------- Câu châm ngôn mỗi ngày (giữa thanh tiện ích) ---------- */
+(function () {
+  var QUOTES = [
+    'Sức khỏe là vốn quý nhất của đời người.',
+    'Ăn đúng, ngủ đủ, sống an vui.',
+    'Mỗi sớm mai thức dậy là một món quà.',
+    'Biết ơn hôm nay, an lạc ngày mai.',
+    'Thân khỏe thì tâm mới an.',
+    'Đi chậm lại để sống sâu hơn.',
+    'Còn hơi thở là còn bình an.',
+    'Cảm ơn cơ thể đã đồng hành cùng ta mỗi ngày.',
+    'Sống đơn giản, lòng nhẹ nhàng.',
+    'Biết đủ là giàu có.',
+    'Tâm an thì vạn sự an.',
+    'Giấc ngủ ngon là liều thuốc bổ rẻ nhất.',
+    'Hôm nay đáng trân trọng như chính nó.',
+    'Nhẹ nhàng với mình, tử tế với người.'
+  ];
+  var inner = document.querySelector('.topbar-inner');
+  var right = document.getElementById('topbar-clock');
+  if (!inner || !right) return;
+  var mid = document.createElement('span');
+  mid.className = 'topbar-center';
+  mid.id = 'topbar-quote';
+  var now = new Date();
+  var day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+  mid.textContent = '\u201c' + QUOTES[day % QUOTES.length] + '\u201d';
+  inner.insertBefore(mid, right);
+})();
+
 /* ---------- Nút "Về đầu trang" (hiện mọi trang) ---------- */
 (function () {
   var nut = document.createElement('button');
