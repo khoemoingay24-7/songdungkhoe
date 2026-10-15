@@ -1,5 +1,12 @@
 [
  {
+  "title": "Buổi Sáng Thức Dậy: Hãy Chào Hỏi \"Người Bạn Thân\" Trước Khi Chạm Vào Điện Thoại",
+  "desc": "Khoảnh khắc vừa tỉnh giấc là thời điểm quan trọng nhất trong ngày. Thay vì với tay lấy điện thoại, hãy dành 5 phút chào hỏi cơ thể — người bạn đồng hành tận tụy nhất — bằng nụ cười, hơi thở và vài động tác khởi động nhẹ nhàng.",
+  "url": "/than/buoi-sang-thuc-day-chao-hoi-nguoi-ban-than/",
+  "branch": "Dưỡng Thân",
+  "card": "Vận Động"
+ },
+ {
   "title": "Cứ thả lỏng, rồi giấc ngủ sẽ đến theo tự nhiên",
   "desc": "Càng mong ngủ được, mắt lại càng mở tráo trác. Cùng nhìn lại giấc ngủ với thái độ mới: nhẹ nhàng, chấp nhận và buông bỏ — để giấc ngủ đến theo tự nhiên.",
   "url": "/than/cu-tha-long-roi-giac-ngu-se-den-theo-tu-nhien/",
@@ -126,6 +133,13 @@
   "card": ""
  },
  {
+  "title": "Buông Bỏ Không Phải Là Bỏ Cuộc: Cách Sống Nhẹ Lòng Và Tự Do Hơn Mỗi Ngày",
+  "desc": "Buông bỏ không phải là bỏ cuộc, chịu thua hay mặc kệ mọi thứ. Buông bỏ là vẫn làm hết phần của mình, rồi không nắm chặt phần còn lại nữa — và đây là ba cách thực hành buông bỏ trong đời thường.",
+  "url": "/tam/buong-bo-khong-phai-la-bo-cuoc/",
+  "branch": "Dưỡng Tâm",
+  "card": "Sống Đang Là"
+ },
+ {
   "title": "Chánh Niệm Trong Bữa Ăn: Từ Bàn Ăn Đến Bàn Tâm",
   "desc": "Đang ăn biết đang ăn: nhìn bữa cơm dưới hai góc độ — khoa học về tác hại của việc vừa ăn vừa nói, và Chánh Pháp về chánh niệm trong từng miếng ăn.",
   "url": "/tam/chanh-niem-trong-bua-an/",
@@ -199,6 +213,13 @@
   "title": "Trắc nghiệm: Nhận diện nỗi sợ",
   "desc": "8 câu hỏi nhỏ để nhận diện nỗi sợ — mỗi câu đều có lời giải thích nhẹ nhàng. Trắc nghiệm đi kèm bài viết “Thay vì sợ”, nhánh Dưỡng Tâm.",
   "url": "/tam/trac-nghiem-nhan-dien-noi-so/",
+  "branch": "Dưỡng Tâm",
+  "card": "Trắc nghiệm"
+ },
+ {
+  "title": "Trắc nghiệm: Thay vì chứng minh…",
+  "desc": "10 câu hỏi nhỏ để thấy rõ ranh giới giữa giải thích và chứng minh — mỗi câu đều có lời giải thích nhẹ nhàng. Trắc nghiệm đi kèm bài viết “Thay vì chứng minh…”, nhánh Dưỡng Tâm.",
+  "url": "/tam/trac-nghiem-thay-vi-chung-minh/",
   "branch": "Dưỡng Tâm",
   "card": "Trắc nghiệm"
  },
