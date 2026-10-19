@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trắc nghiệm: Thay vì chứng minh… | Sống Đúng Khỏe</title>
+  <meta name="description" content="10 câu hỏi nhỏ để thấy rõ ranh giới giữa giải thích và chứng minh — mỗi câu đều có lời giải thích nhẹ nhàng. Trắc nghiệm đi kèm bài viết “Thay vì chứng minh…”, nhánh Dưỡng Tâm.">
+  <link rel="icon" href="/public/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/assets/css/main.css">
+<style>
+    .quiz-q { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; margin: 16px 0; }
+    .quiz-q h3 { margin-top: 0; font-size: 19px; line-height: 1.55; }
+    .quiz-q label { display: block; padding: 10px 14px; margin: 8px 0; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; font-size: 16px; line-height: 1.55; }
+    .quiz-q label:hover { border-color: var(--tam); background: var(--tam-soft); }
+    .quiz-q.da-khoa label { cursor: not-allowed; }
+    .quiz-q.da-khoa label:hover { border-color: var(--line); background: transparent; }
+    .quiz-explain { margin-top: 12px; padding: 12px 16px; border-radius: 10px; font-size: 15.5px; line-height: 1.65; }
+    .explain-dung { background: #EAF6EC; border: 1px solid #BFE3C6; color: #1F5C2E; }
+    .explain-sai { background: #FFF4E8; border: 1px solid #F3D9B8; color: #7A4A12; }
+    .quiz-btn { background: var(--tam); color: #fff; border: none; border-radius: 999px; padding: 14px 36px; font-size: 18px; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .quiz-btn:hover { background: var(--tam-deep); }
+    .quiz-result { display: none; margin-top: 24px; }
+    .quiz-result h3 { margin-top: 0; }
+    .quiz-tier { font-size: 18px; font-weight: 600; color: var(--tam-deep); }
+    .review-item { border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin: 12px 0; background: #fff; }
+    .review-item h4 { margin: 0 0 8px 0; }
+    .review-dung h4 { color: #1F5C2E; }
+    .review-sai h4 { color: #7A4A12; }
+    .review-item p { margin: 6px 0; font-size: 15.5px; line-height: 1.6; }
+    .review-explain { color: var(--muted); font-style: italic; }
+    .quiz-progress { position: sticky; top: 0; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 20px; font-weight: 600; display: inline-block; margin: 12px 0; }
+</style>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Trắc nghiệm: Thay vì chứng minh… | Sống Đúng Khỏe">
+  <meta property="og:description" content="10 câu hỏi nhỏ để thấy rõ ranh giới giữa giải thích và chứng minh — mỗi câu đều có lời giải thích nhẹ nhàng. Trắc nghiệm đi kèm bài viết “Thay vì chứng minh…”, nhánh Dưỡng Tâm.">
+  <meta property="og:url" content="https://songdungkhoe.com/tam/trac-nghiem-thay-vi-chung-minh/">
+  <meta property="og:image" content="https://songdungkhoe.com/public/assets/images/tam-thay-vi-chung-minh.jpg">
+</head>
+<body class="page-tam">
+<div class="topbar">
+    <div class="topbar-inner">
+      <span class="topbar-left">📍 Đà Lạt · <span id="topbar-weather">…</span></span>
+      <span class="topbar-right" id="topbar-clock">…</span>
+    </div>
+  </div>
+<header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/public/assets/images/logo.png" alt="Logo Sống Đúng Khỏe">
+        <span>
+          <span class="brand-name">Sống Đúng Khỏe</span><br>
+          <span class="brand-tag">Dưỡng Thân Khỏe &middot; Dưỡng Tâm An</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="/">Trang chủ</a>
+        <a href="/than/">Dưỡng Thân</a>
+        <a href="/tam/" class="active">Dưỡng Tâm</a>
+        <a href="/gioithieu.html">Giới thiệu</a>
+        <a href="/lienhe.html">Liên hệ</a>
+      </nav>
+      <form class="site-search" action="/tim-kiem/" method="get" role="search">
+        <input type="search" name="q" placeholder="Tìm bài viết…" aria-label="Tìm kiếm bài viết">
+        <button type="submit">Tìm</button>
+      </form>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap-narrow">
+      <article class="article">
+        <p style="color:var(--muted);font-size:15px;">Dưỡng Tâm &middot; Trắc nghiệm &middot; Ngày đăng: 19/10/2026</p>
+        <h1>Trắc nghiệm: Thay vì chứng minh…</h1>
+        <img class="hero-img" src="/public/assets/images/tam-thay-vi-chung-minh.jpg" alt="Tranh màu nước: một người phụ nữ ngồi yên lặng bên bàn tre, tay chống cằm, ánh mắt trầm tư, chén trà và hoa sứ — minh họa trắc nghiệm Thay vì chứng minh…">
+        <p class="img-cap">Dừng lại một chút trước khi nói — minh họa trắc nghiệm.</p>
+        <div class="notice">
+          <p><strong>10 câu hỏi nhỏ để thấy rõ ranh giới giữa giải thích và chứng minh</strong> — chỉ mất khoảng 3 phút. Mỗi câu đều có lời giải thích nhẹ nhàng như một lời thủ thỉ. Không chấm điểm khắt khe đâu, cứ thong thả mà làm nhé! Trắc nghiệm đi kèm bài viết <a href="/tam/thay-vi-chung-minh/">“Thay vì chứng minh…”</a>.</p>
+        </div>
+        <p><span class="quiz-progress" id="tienDo">Đã trả lời: 0 / 10 câu</span></p>
+
+        <form id="quizForm">
+          <p id="quizActions" style="text-align:center;">
+            <button type="button" class="quiz-btn" onclick="nopBai()">Xem kết quả</button>
+          </p>
+        </form>
+
+        <div class="quiz-result notice" id="quizResult"></div>
+        <p style="text-align:center;margin-top:28px;">
+          <a href="/tam/thay-vi-chung-minh/">&larr; Về bài viết “Thay vì chứng minh…”</a> &middot;
+          <a href="/tam/">Dưỡng Tâm</a>
+        </p>
+      </article>
+    </section>
+  </main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+      <div class="cols">
+        <div>
+          <strong>Sống Đúng Khỏe</strong><br>
+          Hợp nhất Dưỡng Thân &amp; Dưỡng Tâm<br>Email liên hệ: <a href="mailto:moidalat@gmail.com">moidalat@gmail.com</a>
+        </div>
+        <div>
+          <a href="/than/">Dưỡng Thân</a> &middot;
+          <a href="/tam/">Dưỡng Tâm</a> &middot;
+          <a href="/gioithieu.html">Giới thiệu</a> &middot;
+          <a href="/lienhe.html">Liên hệ</a>
+        </div>
+        <div class="social">
+          <strong>Kết nối</strong><br>
+          <a href="/">Website</a> &middot;
+          <a href="https://www.youtube.com/@songdungkhoe" target="_blank" rel="noopener">YouTube</a> &middot;
+          <a href="https://www.tiktok.com/@songdungkhoe" target="_blank" rel="noopener">TikTok</a> &middot;
+          <a href="https://www.facebook.com/people/Song-Dung-Khoe/61582079152734" target="_blank" rel="noopener">Facebook</a> &middot;
+          <a href="https://open.spotify.com/show/7mtZzXlXCK3uhzMaXkGNIn?si=6stKOBVyRpiiOlXpmEtY7Q" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; Sống Đúng Khỏe - Dưỡng Thân Khỏe, Dưỡng Tâm An</div>
+  </footer>
+<script>
+function nhanXet(score, total) {
+  var tyLe = score / total;
+  if (tyLe === 1) return "Tuyệt vời! Bạn thấy rõ ranh giới giữa giải thích và chứng minh — chỉ cần thấy thôi thúc muốn chứng tỏ đang có mặt, vậy là đủ.";
+  if (tyLe >= 0.8) return "Rất tốt! Bạn thấy khá rõ ranh giới giữa giải thích và chứng minh rồi.";
+  if (tyLe >= 0.5) return "Khá tốt! Bạn đã bắt đầu thấy được thôi thúc muốn chứng tỏ — hãy đọc lại lời giải thích để hiểu sâu hơn nhé.";
+  return "Đừng nản! Hãy đọc lại bài viết và lời giải thích để hiểu sâu hơn — mỗi câu trả lời là một cơ hội hiểu mình hơn.";
+}
+
+var QUIZ = [
+ {
+  "q": "Mục đích chính của việc \"giải thích\" là gì?",
+  "options": [
+   {
+    "t": "Làm cho sự việc trở nên rõ ràng để người nghe hiểu đúng.",
+    "g": "Chính xác! Giải thích tập trung vào việc truyền đạt thông tin sao cho đối phương nắm bắt được vấn đề, không đặt nặng việc họ có đồng tình hay không."
+   },
+   {
+    "t": "Tìm cách chứng tỏ mình là người có kiến thức sâu rộng.",
+    "g": "Đây là biểu hiện của bản ngã muốn thể hiện \"ta đây\", một hình thức của việc chứng minh."
+   },
+   {
+    "t": "Thuyết phục người nghe phải đồng ý với quan điểm của mình.",
+    "g": "Việc ép buộc người khác đồng ý thuộc về bản chất của chứng minh chứ không phải giải thích thuần túy."
+   },
+   {
+    "t": "Đưa ra các bằng chứng để người khác thấy mình đúng.",
+    "g": "Sử dụng bằng chứng để khẳng định cái đúng của bản thân là đặc điểm nhận dạng của hành động chứng minh."
+   }
+  ],
+  "correct": 0
+ },
+ {
+  "q": "Điểm khác biệt then chốt giữa \"chứng minh\" và \"giải thích\" nằm ở đâu?",
+  "options": [
+   {
+    "t": "Thời điểm mà cuộc đối thoại diễn ra.",
+    "g": "Thời điểm không quyết định bản chất của hành động mà là tâm thế của người thực hiện."
+   },
+   {
+    "t": "Mục đích ngầm bên dưới của người nói.",
+    "g": "Chính xác! Dù hình thức có thể giống nhau, nhưng ý định muốn thắng thua hay muốn làm rõ sự thật là điểm phân biệt cốt yếu."
+   },
+   {
+    "t": "Ngôn ngữ và từ ngữ sử dụng trong khi nói.",
+    "g": "Chứng minh thường mượn đúng \"bộ áo\" của giải thích về mặt lời lẽ."
+   },
+   {
+    "t": "Giọng điệu ôn tồn hay gay gắt của người nói.",
+    "g": "Chứng minh vẫn có thể sử dụng giọng điệu ôn tồn để che giấu mục đích thực sự bên dưới."
+   }
+  ],
+  "correct": 1
+ },
+ {
+  "q": "Hình thức thể hiện \"ta đây\" được mô tả như thế nào?",
+  "options": [
+   {
+    "t": "Là một nỗ lực để giúp người nghe hiểu thêm về vấn đề.",
+    "g": "Hành động này thực chất không mang lại lợi ích cho người nghe mà chỉ để thỏa mãn cá nhân."
+   },
+   {
+    "t": "Chỉ xảy ra khi có người khác chất vấn hoặc buộc tội mình.",
+    "g": "Hình thức này xảy ra ngay cả khi không ai đòi hỏi hay nghi ngờ."
+   },
+   {
+    "t": "Một phản xạ tự nhiên để bảo vệ bản thân khỏi sự sai sót.",
+    "g": "Việc bảo vệ bản thân khỏi lỗi lầm liên quan nhiều hơn đến hình thức chống chế."
+   },
+   {
+    "t": "Sự thôi thúc muốn người khác thấy mình biết, mình đúng, mình hơn.",
+    "g": "Chính xác! Đây là biểu hiện của bản ngã, muốn được công nhận và thể hiện giá trị bản thân một cách không cần thiết."
+   }
+  ],
+  "correct": 3
+ },
+ {
+  "q": "Phản xạ \"chống chế\" thường xuất hiện vào thời điểm nào?",
+  "options": [
+   {
+    "t": "Trước khi thực hiện một hành động sai lầm.",
+    "g": "Chống chế là phản ứng sau khi một sự việc không hợp lý đã xảy ra."
+   },
+   {
+    "t": "Khi người khác đã đưa ra đầy đủ bằng chứng sai phạm.",
+    "g": "Chống chế có thể xuất hiện sớm hơn, ngay khi bản thân cảm thấy sự không hợp lý từ phía mình."
+   },
+   {
+    "t": "Khi ta chưa kịp nhận thức được mình đang làm gì.",
+    "g": "Đây là một thói quen cũ chạy nhanh hơn cả nhận thức."
+   },
+   {
+    "t": "Ngay khi bản thân đã nhận ra hành động của mình là chưa đúng.",
+    "g": "Chính xác! Phản xạ này đến ngay cả khi \"cái biết\" về lỗi sai vừa có mặt."
+   }
+  ],
+  "correct": 3
+ },
+ {
+  "q": "Làm thế nào để nhận ra mình đang \"chứng minh\" thay vì \"giải thích\"?",
+  "options": [
+   {
+    "t": "Đợi đến vài ngày sau để suy ngẫm lại toàn bộ sự việc.",
+    "g": "Sự phản tỉnh này có thể được phát hiện ra rất nhanh ngay sau khi hành động xảy ra."
+   },
+   {
+    "t": "Cảm nhận sự ray rứt nhẹ hoặc câu hỏi tự vấn trong lòng ngay sau đó.",
+    "g": "Chính xác! Tiếng nói thầm \"Mình vừa làm vậy để làm gì?\" là tín hiệu của sự phản tỉnh vừa xuất hiện."
+   },
+   {
+    "t": "Quan sát xem lời lẽ của mình có ôn tồn hay không.",
+    "g": "Giọng điệu có thể đánh lừa vì chứng minh thường mượn vỏ bọc của giải thích."
+   },
+   {
+    "t": "Dựa vào phản ứng gật đầu đồng ý của người nghe.",
+    "g": "Việc chờ đợi sự chịu thua của người khác là dấu hiệu của chứng minh."
+   }
+  ],
+  "correct": 1
+ },
+ {
+  "q": "Vai trò của \"sự ray rứt\" được đề cập là gì?",
+  "options": [
+   {
+    "t": "Một hình thức tự trừng phạt để ngăn chặn lỗi lầm tương lai.",
+    "g": "Sự ray rứt không đến để trừng phạt hay bắt lỗi."
+   },
+   {
+    "t": "Một công cụ để ép buộc bản thân phải thay đổi ngay lập tức.",
+    "g": "Việc ép buộc bản thân thay đổi đôi khi lại trở thành một hình thức chứng minh khác."
+   },
+   {
+    "t": "Một cảm giác tiêu cực cần phải loại bỏ để tâm hồn thanh thản.",
+    "g": "Thay vì loại bỏ, ta chỉ cần nhận diện sự hiện diện của nó là đủ."
+   },
+   {
+    "t": "Dấu hiệu cho thấy sự phản tỉnh đang có mặt và thấy rõ điều vừa xảy ra.",
+    "g": "Chính xác! Cảm giác này đơn giản là sự tỉnh thức, giúp ta nhìn nhận lại động cơ của hành động."
+   }
+  ],
+  "correct": 3
+ },
+ {
+  "q": "Tại sao không cần phải tự hứa \"Từ nay mình sẽ không làm vậy nữa\"?",
+  "options": [
+   {
+    "t": "Vì sự ray rứt sẽ tự động biến mất mà không cần làm gì.",
+    "g": "Ray rứt là sự nhắc nhở, hành động nhận biết mới là chìa khóa."
+   },
+   {
+    "t": "Vì tập khí quá sâu dày, không thể thay đổi được.",
+    "g": "Tập khí có thể nhận diện được, vấn đề không phải là không thể thay đổi mà là cách tiếp cận."
+   },
+   {
+    "t": "Vì lời hứa đó thường không có giá trị thực tế lâu dài.",
+    "g": "Đây không phải là lý do chính được đưa ra."
+   },
+   {
+    "t": "Vì đó cũng là một cách \"chứng minh\" với chính mình.",
+    "g": "Chính xác! Việc cố gắng khẳng định mình sẽ thay đổi thực chất là đang cố chứng tỏ một hình ảnh tốt đẹp với bản thân."
+   }
+  ],
+  "correct": 3
+ },
+ {
+  "q": "Khi nhận ra mình đang chống chế, bước tiếp theo cần làm là gì?",
+  "options": [
+   {
+    "t": "Cố gắng đè nén cảm giác muốn chứng tỏ đó lại.",
+    "g": "Đè nén không phải là cách được gợi ý; thay vào đó là sự quan sát tỉnh thức."
+   },
+   {
+    "t": "Chỉ cần thấy và biết sự ray rứt hoặc thôi thúc đó đang có mặt.",
+    "g": "Chính xác! Sự nhận biết thuần túy, không thêm thắt hành động nào khác, được coi là đủ để đối diện với tập khí."
+   },
+   {
+    "t": "Phân tích sâu hơn lý do tại sao mình lại có tập khí đó.",
+    "g": "Việc phân tích quá mức có thể dẫn đến sự tự vấn lan man thay vì chỉ đơn giản là thấy."
+   },
+   {
+    "t": "Lập tức xin lỗi người nghe và giải thích lại từ đầu.",
+    "g": "Không yêu cầu các hành động bên ngoài mà tập trung vào nhận thức bên trong."
+   }
+  ],
+  "correct": 1
+ },
+ {
+  "q": "Từ \"tập khí\" trong ngữ cảnh này có thể hiểu là gì?",
+  "options": [
+   {
+    "t": "Những thói quen và phản xạ tâm lý đã bám rễ sâu dày.",
+    "g": "Chính xác! Đó là những phản xạ cũ, chạy nhanh hơn cả nhận thức và khó có thể hết ngay lập tức."
+   },
+   {
+    "t": "Kỹ năng thuyết phục người khác trong giao tiếp.",
+    "g": "Tập khí mang tính chất bản năng và thói quen, không phải là một kỹ năng được rèn luyện có ý thức."
+   },
+   {
+    "t": "Sự minh mẫn của trí tuệ khi giải quyết vấn đề.",
+    "g": "Ngược lại, tập khí thường che lấp sự minh mẫn bằng các phản xạ tự động của bản ngã."
+   },
+   {
+    "t": "Một trạng thái hối hận tạm thời sau khi làm sai.",
+    "g": "Sự hối hận (ray rứt) là cái thấy được tập khí, chứ không phải bản thân tập khí."
+   }
+  ],
+  "correct": 0
+ },
+ {
+  "q": "Vấn đề cốt lõi trong việc đối diện với thói quen \"chứng minh\" là gì?",
+  "options": [
+   {
+    "t": "Làm sao để không bao giờ lặp lại hành động chứng minh nữa.",
+    "g": "Vấn đề không phải là làm sao để đừng bao giờ chứng minh nữa vì tập khí rất sâu."
+   },
+   {
+    "t": "Việc nhận ra ngay khi sự ray rứt vừa xuất hiện.",
+    "g": "Chính xác! Sự tỉnh thức kịp thời là yếu tố quan trọng nhất để không để tập khí lặp lại một cách máy móc."
+   },
+   {
+    "t": "Học cách giải thích sao cho người khác không thấy khó chịu.",
+    "g": "Đây vẫn chỉ là cải thiện hình thức bên ngoài, chưa chạm đến gốc rễ của việc chứng minh."
+   },
+   {
+    "t": "Phải luôn đúng trong mọi cuộc đối thoại để không cần chứng minh.",
+    "g": "Nhu cầu luôn đúng chính là biểu hiện của bản ngã cần được chuyển hóa."
+   }
+  ],
+  "correct": 1
+ }
+];
+
+function xaoTron(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+function txt(s) { return document.createTextNode(s); }
+
+function dungQuiz() {
+  var form = document.getElementById("quizForm");
+  QUIZ.forEach(function (cau, i) {
+    var thuTu = xaoTron(cau.options.map(function (_, k) { return k; }));
+    var div = document.createElement("div");
+    div.className = "quiz-q";
+    div.id = "q" + i;
+    var h3 = document.createElement("h3");
+    h3.appendChild(txt("Câu " + (i + 1) + ": " + cau.q));
+    div.appendChild(h3);
+    if (cau.img) {
+      var him = document.createElement("img");
+      him.src = cau.img; him.alt = cau.alt || "Hình minh họa câu đố";
+      him.style.cssText = "max-width:100%;height:auto;border-radius:12px;margin:4px 0 8px;";
+      div.appendChild(him);
+    }
+    if (cau.khongDocDapAn) div.className += " khong-doc-dap-an";
+    var wrap = document.createElement("div");
+    thuTu.forEach(function (k) {
+      var lab = document.createElement("label");
+      var inp = document.createElement("input");
+      inp.type = "radio"; inp.name = "cau" + i; inp.value = k;
+      inp.addEventListener("change", function () { hienGiaiThich(i); capNhatTienDo(); khoaCauHoi(i); });
+      lab.appendChild(inp);
+      lab.appendChild(txt(" " + cau.options[k].t));
+      wrap.appendChild(lab);
+    });
+    div.appendChild(wrap);
+    var gt = document.createElement("div");
+    gt.className = "quiz-explain"; gt.style.display = "none";
+    div.appendChild(gt);
+    form.insertBefore(div, document.getElementById("quizActions"));
+  });
+}
+
+function dapAnChon(i) {
+  var chon = document.querySelector('input[name="cau' + i + '"]:checked');
+  return chon ? parseInt(chon.value, 10) : null;
+}
+
+function hienGiaiThich(i) {
+  var chon = dapAnChon(i);
+  if (chon === null) return;
+  var cau = QUIZ[i];
+  var gt = document.querySelector("#q" + i + " .quiz-explain");
+  gt.style.display = "block";
+  gt.innerHTML = "";
+  var dung = (chon === cau.correct);
+  var b = document.createElement("strong");
+  if (dung) {
+    // Lời giải thích đáp án đúng của bác đã mở đầu bằng "Chính xác! " — chỉ thêm tiền tố khi chưa có để tránh lặp.
+    if (cau.options[cau.correct].g.indexOf("Chính xác!") !== 0) {
+      b.appendChild(txt("Chính xác! "));
+      gt.appendChild(b);
+    }
+    gt.appendChild(txt(cau.options[cau.correct].g));
+  } else {
+    b.appendChild(txt("Chưa đúng. "));
+    gt.appendChild(b);
+    gt.appendChild(txt(cau.options[chon].g + " "));
+    var b2 = document.createElement("strong");
+    b2.appendChild(txt("Đáp án đúng: "));
+    gt.appendChild(b2);
+    gt.appendChild(txt(cau.options[cau.correct].t + " — " + cau.options[cau.correct].g));
+  }
+  gt.classList.toggle("explain-dung", dung);
+  gt.classList.toggle("explain-sai", !dung);
+}
+
+function khoaCauHoi(i) {
+  var q = document.getElementById("q" + i);
+  q.classList.add("da-khoa");
+  q.querySelectorAll('input[type="radio"]').forEach(function (inp) { inp.disabled = true; });
+}
+
+function capNhatTienDo() {
+  var n = 0;
+  QUIZ.forEach(function (_, i) { if (dapAnChon(i) !== null) n++; });
+  document.getElementById("tienDo").textContent = "Đã trả lời: " + n + " / " + QUIZ.length + " câu";
+}
+
+function nopBai() {
+  var thieu = [];
+  QUIZ.forEach(function (_, i) { if (dapAnChon(i) === null) thieu.push(i + 1); });
+  var kq = document.getElementById("quizResult");
+  kq.style.display = "block";
+  if (thieu.length) {
+    kq.innerHTML = "";
+    var p = document.createElement("p");
+    var b = document.createElement("strong");
+    b.appendChild(txt("Bạn chưa trả lời hết."));
+    p.appendChild(b);
+    p.appendChild(txt(" Hãy trả lời các câu: " + thieu.join(", ") + " nhé."));
+    kq.appendChild(p);
+    kq.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+  var diem = 0;
+  var review = document.createElement("div");
+  QUIZ.forEach(function (cau, i) {
+    var chon = dapAnChon(i);
+    var dung = (chon === cau.correct);
+    if (dung) diem++;
+    var item = document.createElement("div");
+    item.className = "review-item " + (dung ? "review-dung" : "review-sai");
+    var h4 = document.createElement("h4");
+    h4.appendChild(txt("Câu " + (i + 1) + (dung ? " — đúng" : " — chưa đúng")));
+    item.appendChild(h4);
+    var p1 = document.createElement("p");
+    p1.appendChild(txt("Bạn chọn: " + cau.options[chon].t));
+    item.appendChild(p1);
+    if (!dung) {
+      var p2 = document.createElement("p");
+      var b2 = document.createElement("strong");
+      b2.appendChild(txt("Đáp án đúng: "));
+      p2.appendChild(b2);
+      p2.appendChild(txt(cau.options[cau.correct].t));
+      item.appendChild(p2);
+    }
+    var p3 = document.createElement("p");
+    p3.className = "review-explain";
+    p3.appendChild(txt(cau.options[cau.correct].g));
+    item.appendChild(p3);
+    review.appendChild(item);
+  });
+  kq.innerHTML = "";
+  var h3 = document.createElement("h3");
+  h3.appendChild(txt("Bạn đã trả lời đúng " + diem + " / " + QUIZ.length + " câu."));
+  kq.appendChild(h3);
+  var nx = document.createElement("p");
+  nx.className = "quiz-tier";
+  nx.appendChild(txt(nhanXet(diem, QUIZ.length)));
+  kq.appendChild(nx);
+  kq.appendChild(review);
+  kq.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+document.addEventListener("DOMContentLoaded", function () { dungQuiz(); capNhatTienDo(); });
+</script>
+<script src="/public/assets/js/quiz-audio.js"></script>
+  <script src="/public/assets/js/topbar.js"></script>
+</body>
+</html>

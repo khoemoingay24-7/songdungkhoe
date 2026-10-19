@@ -102,7 +102,8 @@
     'trac-nghiem-an-uong-canh-nong': 'mon3',
     'trac-nghiem-an-uong-trang-mieng': 'mon4',
     'trac-nghiem-nhan-dien-noi-so': 'so',
-    'trac-nghiem-nhan-dien-noi-lo': 'lo'
+    'trac-nghiem-nhan-dien-noi-lo': 'lo',
+    'trac-nghiem-thay-vi-chung-minh': 'chung-minh'
   };
   var audioThuSan = null;
   var danhSachPhat = []; // playlist các file mp3 đang chờ phát
