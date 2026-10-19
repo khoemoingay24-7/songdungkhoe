@@ -116,6 +116,9 @@ def build_rss(base, episodes):
     )
     ET.SubElement(ch, "itunes:explicit").text = "no"
     ET.SubElement(ch, "itunes:type").text = "episodic"
+    owner = ET.SubElement(ch, "itunes:owner")
+    ET.SubElement(owner, "itunes:name").text = "Sống Đúng Khỏe"
+    ET.SubElement(owner, "itunes:email").text = "moidalat@gmail.com"
     cat = ET.SubElement(ch, "itunes:category", {"text": "Health & Fitness"})
     ET.SubElement(cat, "itunes:category", {"text": "Alternative Health"})
     ET.SubElement(ch, "itunes:image", {"href": f"https://{base}/public/assets/images/logo.png"})

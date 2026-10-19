@@ -9,6 +9,10 @@
     <itunes:summary>Nghe đọc các bài viết Dưỡng Thân và Dưỡng Tâm của website Sống Đúng Khỏe.</itunes:summary>
     <itunes:explicit>no</itunes:explicit>
     <itunes:type>episodic</itunes:type>
+    <itunes:owner>
+      <itunes:name>Sống Đúng Khỏe</itunes:name>
+      <itunes:email>moidalat@gmail.com</itunes:email>
+    </itunes:owner>
     <itunes:category text="Health &amp; Fitness">
       <itunes:category text="Alternative Health" />
     </itunes:category>
