@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sống Đúng Khỏe — Nghe bài viết</title>
+    <link>https://songdungkhoe.com/</link>
+    <description>Nghe đọc các bài viết Dưỡng Thân và Dưỡng Tâm của website Sống Đúng Khỏe: đông y dưỡng sinh, giấc ngủ, vận động, chánh niệm và sống an lành mỗi ngày.</description>
+    <language>vi-VN</language>
+    <itunes:author>Sống Đúng Khỏe</itunes:author>
+    <itunes:summary>Nghe đọc các bài viết Dưỡng Thân và Dưỡng Tâm của website Sống Đúng Khỏe.</itunes:summary>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <itunes:category text="Health &amp; Fitness">
+      <itunes:category text="Alternative Health" />
+    </itunes:category>
+    <itunes:image href="https://songdungkhoe.com/public/assets/images/logo.png" />
+    <item>
+      <title>Triết lý ăn đúng: Điều hòa để chữa lành, không cực đoan để gây hại</title>
+      <link>https://songdungkhoe.com/than/triet-ly-an-dung-dieu-hoa-de-chua-lanh/</link>
+      <guid isPermaLink="false">songdungkhoe-triet-ly-an-dung-dieu-hoa-de-chua-lanh</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Bài 6 chuỗi Ngũ Vị – Ngũ Tạng (bài kết): sức khỏe không đến từ kiêng khem cực đoan mà từ sự điều hòa — ăn đủ năm vị, lắng nghe cơ thể, để mâm cơm trở thành nơi chữa lành.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/than-triet-ly-an-dung-dieu-hoa-de-chua-lanh.mp3" type="audio/mpeg" length="312795" />
+      <itunes:duration>300</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Thay vì chứng minh…</title>
+      <link>https://songdungkhoe.com/tam/thay-vi-chung-minh/</link>
+      <guid isPermaLink="false">songdungkhoe-thay-vi-chung-minh</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Bài 5 chuỗi 'Thay Vì…': ranh giới mỏng giữa giải thích và chứng minh — thấy được thôi thúc muốn chứng tỏ, chỉ cần thấy vậy thôi, không cần thêm bước nào nữa.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/tam-thay-vi-chung-minh.mp3" type="audio/mpeg" length="2811326" />
+      <itunes:duration>183</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>“Thuốc đắng dã tật” – nhưng đắng quá có thực sự tốt?</title>
+      <link>https://songdungkhoe.com/than/thuoc-dang-da-tat-nhung-dang-qua-co-thuc-su-tot/</link>
+      <guid isPermaLink="false">songdungkhoe-thuoc-dang-da-tat-nhung-dang-qua-co-thuc-su-tot</guid>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Bài 5 chuỗi Ngũ Vị – Ngũ Tạng: vị đắng là vị thuốc quý cho tạng Tim, nhưng dùng quá đà sẽ quay sang tàn phá Tỳ Vị, làm khô kiệt khí huyết. Học cách dùng vị đắng “vừa vặn” như người xưa.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/than-thuoc-dang-da-tat-nhung-dang-qua-co-thuc-su-tot.mp3" type="audio/mpeg" length="5392164" />
+      <itunes:duration>347</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Quan sát tư thế: thân đang ở đâu, tâm biết ở đó</title>
+      <link>https://songdungkhoe.com/tam/quan-sat-tu-the-than-o-dau-tam-biet-o-do/</link>
+      <guid isPermaLink="false">songdungkhoe-quan-sat-tu-the-than-o-dau-tam-biet-o-do</guid>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Bài 2 chuỗi 37 Phương Pháp: không cần ngồi yên mới có thể tỉnh thức. Chỉ cần biết mình đang đi, đang đứng, đang ngồi hay đang nằm — mang sự có mặt vào từng chuyển động quen thuộc mỗi ngày.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/tam-quan-sat-tu-the-than-o-dau-tam-biet-o-do.mp3" type="audio/mpeg" length="4559487" />
+      <itunes:duration>295</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Trái tim đang “tâm sự” gì với bạn? Cách lắng nghe nhịp đập để bình ổn huyết áp</title>
+      <link>https://songdungkhoe.com/than/trai-tim-dang-tam-su-gi-voi-ban/</link>
+      <guid isPermaLink="false">songdungkhoe-trai-tim-dang-tam-su-gi-voi-ban</guid>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Sau hơi thở, hãy lắng nghe nhịp đập trái tim — “phong vũ biểu” báo trước biến động của thân thể. Bài thực hành 3 phút giúp bạn nhận diện sớm cơn bão huyết áp và tìm lại nhịp đập bình an.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/than-trai-tim-dang-tam-su-gi-voi-ban.mp3" type="audio/mpeg" length="2821723" />
+      <itunes:duration>184</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Thoát Khỏi Rắc Rối, Phiền Não: Bắt Đầu Từ Những Việc Rất Nhỏ</title>
+      <link>https://songdungkhoe.com/tam/thoat-khoi-rac-roi-phien-nao/</link>
+      <guid isPermaLink="false">songdungkhoe-thoat-khoi-rac-roi-phien-nao</guid>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Cuộc sống ngày nào cũng có chuyện phiền. Không có phép màu nào cả — chỉ có sáu việc rất nhỏ: xem đầu óc đang “ăn” gì, gọi tên điều đang nghĩ, giao cho tay chân một việc có ích, chăm cái thân một chút…</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/tam-thoat-khoi-rac-roi-phien-nao.mp3" type="audio/mpeg" length="4320100" />
+      <itunes:duration>282</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Vào mùa hạ nên ăn uống thế nào? Nghệ thuật “thanh nhiệt” mà không làm tổn thương Tỳ vị</title>
+      <link>https://songdungkhoe.com/than/vao-mua-ha-nen-an-uong-the-nao/</link>
+      <guid isPermaLink="false">songdungkhoe-vao-mua-ha-nen-an-uong-the-nao</guid>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Trời càng nóng, ta càng thèm đồ lạnh — nhưng ăn kem, uống nước đá có thể làm tổn thương Tỳ vị. Cùng tìm hiểu nghệ thuật “thanh nhiệt” đúng cách: ăn đồ mát mà vẫn giữ ấm cho bụng, theo từng nhóm đối tượng và vùng khí hậu.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/than-vao-mua-ha-nen-an-uong-the-nao.mp3" type="audio/mpeg" length="3327135" />
+      <itunes:duration>217</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Tâm mình đang ở đâu?</title>
+      <link>https://songdungkhoe.com/tam/tam-minh-dang-o-dau/</link>
+      <guid isPermaLink="false">songdungkhoe-tam-minh-dang-o-dau</guid>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Tay đang rửa chén mà đầu đã chạy tới cuộc họp hôm qua — gần một nửa thời gian ta sống mà như không sống. Bài viết mời bạn làm một việc rất nhỏ: biết mình đang nghĩ gì, để mở ra khoảng cách nhẹ nhõm đầu tiên.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/tam-tam-minh-dang-o-dau.mp3" type="audio/mpeg" length="4293143" />
+      <itunes:duration>279</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Buổi Sáng Thức Dậy: Hãy Chào Hỏi "Người Bạn Thân" Trước Khi Chạm Vào Điện Thoại</title>
+      <link>https://songdungkhoe.com/than/buoi-sang-thuc-day-chao-hoi-nguoi-ban-than/</link>
+      <guid isPermaLink="false">songdungkhoe-buoi-sang-thuc-day-chao-hoi-nguoi-ban-than</guid>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Khoảnh khắc vừa tỉnh giấc là thời điểm quan trọng nhất trong ngày. Thay vì với tay lấy điện thoại, hãy dành 5 phút chào hỏi cơ thể — người bạn đồng hành tận tụy nhất — bằng nụ cười, hơi thở và vài động tác khởi động nhẹ nhàng.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/than-buoi-sang-thuc-day-chao-hoi-nguoi-ban-than.mp3" type="audio/mpeg" length="2951394" />
+      <itunes:duration>192</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Buông Bỏ Không Phải Là Bỏ Cuộc: Cách Sống Nhẹ Lòng Và Tự Do Hơn Mỗi Ngày</title>
+      <link>https://songdungkhoe.com/tam/buong-bo-khong-phai-la-bo-cuoc/</link>
+      <guid isPermaLink="false">songdungkhoe-buong-bo-khong-phai-la-bo-cuoc</guid>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Buông bỏ không phải là bỏ cuộc, chịu thua hay mặc kệ mọi thứ. Buông bỏ là vẫn làm hết phần của mình, rồi không nắm chặt phần còn lại nữa — và đây là ba cách thực hành buông bỏ trong đời thường.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/tam-buong-bo-khong-phai-la-bo-cuoc.mp3" type="audio/mpeg" length="4485192" />
+      <itunes:duration>292</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Cứ thả lỏng, rồi giấc ngủ sẽ đến theo tự nhiên</title>
+      <link>https://songdungkhoe.com/than/cu-tha-long-roi-giac-ngu-se-den-theo-tu-nhien/</link>
+      <guid isPermaLink="false">songdungkhoe-cu-tha-long-roi-giac-ngu-se-den-theo-tu-nhien</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Càng mong ngủ được, mắt lại càng mở tráo trác. Cùng nhìn lại giấc ngủ với thái độ mới: nhẹ nhàng, chấp nhận và buông bỏ — để giấc ngủ đến theo tự nhiên.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/than-cu-tha-long-roi-giac-ngu-se-den-theo-tu-nhien.mp3" type="audio/mpeg" length="3841644" />
+      <itunes:duration>248</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Hòn Đá Cản Đường</title>
+      <link>https://songdungkhoe.com/tam/hon-da-can-duong/</link>
+      <guid isPermaLink="false">songdungkhoe-hon-da-can-duong</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Một hòn đá chắn giữa lối đi — lỗi ở hòn đá, hay ở lòng ta muốn nó không ở đó? Một truyện ngắn và lời ngẫm về sự kháng cự trong tâm.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/tam-hon-da-can-duong.mp3" type="audio/mpeg" length="1123407" />
+      <itunes:duration>73</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Quy luật Tương sinh – Tương khắc trong bộ máy cơ thể</title>
+      <link>https://songdungkhoe.com/than/quy-luat-tuong-sinh-tuong-khac-trong-bo-may-co-the/</link>
+      <guid isPermaLink="false">songdungkhoe-quy-luat-tuong-sinh-tuong-khac-trong-bo-may-co-the</guid>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Bài 4 chuỗi Ngũ Vị – Ngũ Tạng: vì sao một tạng suy yếu lại kéo theo cả hệ thống? Hiểu vòng tròn tương sinh – tương khắc để ăn uống đúng cách, nuôi dưỡng vòng tròn sự sống.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/than-quy-luat-tuong-sinh-tuong-khac-trong-bo-may-co-the.mp3" type="audio/mpeg" length="4659901" />
+      <itunes:duration>303</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>Thay vì hoài nghi</title>
+      <link>https://songdungkhoe.com/tam/thay-vi-hoai-nghi/</link>
+      <guid isPermaLink="false">songdungkhoe-thay-vi-hoai-nghi</guid>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 +0700</pubDate>
+      <description>Bài 4 chuỗi “Thay Vì…”: hoài nghi giống như sương mù — càng đứng yên nhìn ngó, sương càng dày đặc. Cách duy nhất để đi qua là bước tiếp một bước trước mắt.</description>
+      <enclosure url="https://songdungkhoe.com/public/assets/audio/bai-viet/tam-thay-vi-hoai-nghi.mp3" type="audio/mpeg" length="2224423" />
+      <itunes:duration>185</itunes:duration>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+  </channel>
+</rss>
