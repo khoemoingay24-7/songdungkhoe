@@ -78,9 +78,15 @@ def collect_episodes():
             title = html.unescape(t.group(1)).split("|")[0].strip() if t else name
             md = re.search(r'<meta name="description" content="(.*?)"', src, re.S)
             desc = html.unescape(md.group(1)).strip() if md else title
+            headings = []
+            for h in re.findall(r"<h2[^>]*>(.*?)</h2>", src, re.S):
+                h = html.unescape(re.sub(r"<[^>]+>", "", h)).strip()
+                if h and "nghe bài viết" not in h.lower() and h.lower() != "lưu ý":
+                    headings.append(h)
             episodes.append({
                 "title": title,
                 "desc": desc,
+                "headings": headings[:8],
                 "url": f"https://{base}/{branch}/{name}/",
                 "audio_url": f"https://{base}{audio_path}",
                 "audio_file": full_audio,
@@ -130,7 +136,12 @@ def build_rss(base, episodes):
         guid = ET.SubElement(item, "guid", {"isPermaLink": "false"})
         guid.text = f"songdungkhoe-{ep['url'].rstrip('/').rsplit('/', 1)[-1]}"
         ET.SubElement(item, "pubDate").text = rfc822(ep["date"])
-        ET.SubElement(item, "description").text = ep["desc"]
+        mo_ta_day_du = ep["desc"]
+        if ep.get("headings"):
+            mo_ta_day_du += "\n\nCác ý chính trong bài:\n" + "\n".join(f"• {h}" for h in ep["headings"])
+        mo_ta_day_du += f"\n\nĐọc bài viết đầy đủ tại: {ep['url']}"
+        ET.SubElement(item, "description").text = mo_ta_day_du
+        ET.SubElement(item, "itunes:summary").text = ep["desc"]
         enc = ET.SubElement(item, "enclosure", {
             "url": ep["audio_url"],
             "type": "audio/mpeg",
