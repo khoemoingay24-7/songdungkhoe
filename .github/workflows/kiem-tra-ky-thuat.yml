@@ -1,0 +1,24 @@
+name: Kiểm tra kỹ thuật
+
+# "Người phụ việc" tự động: mỗi lần đẩy bài (hoặc mỗi tuần một lần),
+# kiểm tra link hỏng, ảnh thiếu chú thích, tiêu đề/mô tả trùng,
+# sitemap thiếu trang và sót tên miền cũ trong link chuẩn/OG.
+# Chỉ BÁO lỗi, không chặn đăng bài — Cloudflare vẫn deploy bình thường.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 2 * * 1" # Thứ Hai 09:00 giờ Việt Nam
+
+jobs:
+  kiem-tra:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Kiểm tra kỹ thuật
+        run: python3 .github/scripts/kiem-tra-web.py
