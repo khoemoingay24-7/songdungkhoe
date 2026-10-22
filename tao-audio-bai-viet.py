@@ -91,6 +91,15 @@ def main():
         return 3
     print(f"[audio] MP3 xong: {mp3_rel} ({os.path.getsize(mp3_abs)//1024} KB)")
 
+    # Phối nhạc nền chuẩn (bác duyệt 22/10/2026): nhạc Suno của bác mở đầu + kết thúc,
+    # nhạc đệm chữ ký né giọng ở giữa. Lỗi phối thì giữ bản giọng thuần và báo MIX_LOI.
+    r2 = subprocess.run(
+        [sys.executable, os.path.join(REPO, "phoi-nhac.py"), mp3_abs],
+        capture_output=True, text=True, timeout=1800)
+    print(r2.stdout[-400:])
+    if r2.returncode != 0:
+        print(f"[audio] MIX_LOI: phoi-nhac.py loi (stderr: {r2.stderr[-300:]}), giu ban giong thuan")
+
     # gắn khung phát vào HTML
     src = open(html_path, encoding="utf-8").read()
     if "nghe-bai-viet" in src:
