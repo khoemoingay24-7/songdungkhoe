@@ -112,6 +112,9 @@ def main():
                   f'\n  <meta property="og:description" content="{html.escape(desc)}">'
                   f'\n  <meta property="og:url" content="{url_tuyet_doi}">'
                   f'\n  <meta property="og:image" content="{DOMAIN}/public/assets/images/logo.png">')
+            # canonical: gỡ canonical của trang nhánh (kế thừa từ head mẫu) rồi gắn đúng URL chuyên mục
+            head2 = re.sub(r'\n *<link rel="canonical"[^>]*>', '', head2, count=1)
+            og += f'\n  <link rel="canonical" href="{url_tuyet_doi}">'
             head2 = head2.replace("</head>", og + "\n</head>", 1)
             # active nav
             head2 = re.sub(r'<a href="/(than|tam)/"( class="active")?>',
