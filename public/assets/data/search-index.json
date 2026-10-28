@@ -49,6 +49,13 @@
   "card": "Giấc Ngủ"
  },
  {
+  "title": "Giấc Ngủ Đang \"Nói Chuyện\" Gì Với Bạn?",
+  "desc": "Đừng ép mình ngủ — hãy học cách lắng nghe cơ thể trong bóng tối. Giấc ngủ là bản báo cáo sức khỏe ban đêm: cách đọc tín hiệu từ huyết áp, tiền đình, đường huyết và bài thực hành 5 phút trước khi ngủ.",
+  "url": "/than/giac-ngu-dang-noi-chuyen-gi-voi-ban/",
+  "branch": "Dưỡng Thân",
+  "card": "Cơ Thể Lên Tiếng"
+ },
+ {
   "title": "Giải mã Ngũ vị: Chua – Đắng – Ngọt – Cay – Mặn",
   "desc": "Chua, Đắng, Ngọt, Cay, Mặn — năm vị quen thuộc trên đầu lưỡi mỗi ngày mang năng lượng và tính chất riêng để điều hòa cơ thể. Cùng giải mã từng vị và tạng phủ tương ứng trong bài thứ ba chuỗi Ngũ vị - Ngũ tạng.",
   "url": "/than/giai-ma-ngu-vi-chua-dang-ngot-cay-man/",
@@ -269,6 +276,13 @@
   "title": "Khi Giận Dâng Lên: Làm Gì Trong 3 Phút Đầu?",
   "desc": "Bạn đọc hỏi: nóng tính, giận lên là nói những câu rồi hối hận cả ngày. 5 bước thực hành cho 3 phút đầu — khóa miệng lại, thở ra thật chậm, gọi tên cơn giận — và một bài thơ ngắn để khép lại.",
   "url": "/tam/khi-gian-dang-len-lam-gi-trong-3-phut-dau/",
+  "branch": "Dưỡng Tâm",
+  "card": "Hỏi Đáp"
+ },
+ {
+  "title": "Lo Lắng Chuyện Chưa Xảy Ra: Gỡ Từng Sợi Rối",
+  "desc": "Chuyện chưa xảy ra mà đầu óc cứ dựng lên đủ kịch bản xấu? Nỗi lo giống cuộn chỉ rối — gỡ từng sợi một: viết ra giấy, hỏi mình, làm một việc nhỏ, hẹn giờ lo, kéo mình về hiện tại.",
+  "url": "/tam/lo-lang-chuyen-chua-xay-ra/",
   "branch": "Dưỡng Tâm",
   "card": "Hỏi Đáp"
  },
