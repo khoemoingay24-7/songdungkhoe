@@ -274,3 +274,12 @@ body.page-tam .site-search button { background: var(--tam); }
 .xem-them:hover { background: var(--than-soft); }
 .latest-block:nth-child(2) .xem-them { border-color: var(--tam); color: var(--tam-deep); }
 .latest-block:nth-child(2) .xem-them:hover { background: var(--tam-soft); }
+
+/* Góc Video Ngắn — trang chủ (thêm 29/10/2026, nhúng Reel Instagram chính thức) */
+.video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 14px 0 8px; }
+@media (max-width: 720px) { .video-grid { grid-template-columns: 1fr; } }
+.video-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 16px 10px; }
+.video-card h4 { margin: 0 0 6px; font-size: 18px; line-height: 1.5; }
+.video-card h4 a { color: var(--ink); text-decoration: none; }
+.video-card .video-meta { color: var(--muted); font-size: 14px; margin: 0 0 10px; }
+.video-card .instagram-media { margin: 0 auto !important; min-width: 0 !important; }
