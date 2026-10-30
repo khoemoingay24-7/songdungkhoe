@@ -186,6 +186,30 @@ body.page-home .site-footer { border-top: 5px solid transparent;
 body.page-than .site-search button { background: var(--than); }
 body.page-tam .site-search button { background: var(--tam); }
 
+/* Gợi ý từ khóa dưới ô tìm kiếm (hiện khi bấm vào ô) */
+.site-search { position: relative; }
+.search-suggest {
+  display: none;
+  position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: var(--shadow); padding: 10px 12px; z-index: 60;
+  font-size: 14px; color: var(--muted);
+  flex-wrap: wrap; gap: 6px; align-items: center;
+}
+.site-search:focus-within .search-suggest { display: flex; }
+.search-suggest a {
+  color: var(--ink); background: #F4ECDA;
+  padding: 4px 10px; border-radius: 999px; text-decoration: none; white-space: nowrap;
+}
+.search-suggest a:hover { text-decoration: underline; }
+
+/* Dòng nhắn gửi trên thẻ hai nhánh */
+.branch-card .card-body .card-msg {
+  margin-top: 12px; font-style: italic; font-size: 15px;
+}
+.branch-card.than .card-body .card-msg { color: var(--than-deep); }
+.branch-card.tam .card-body .card-msg { color: var(--tam-deep); }
+
 /* Trang kết quả tìm kiếm */
 .search-page-form { display: flex; gap: 8px; margin: 16px 0; }
 .search-page-form input[type="search"] {
