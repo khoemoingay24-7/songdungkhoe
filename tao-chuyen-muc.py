@@ -91,14 +91,19 @@ def main():
           <p>{html.escape(b["desc"])}</p>
         </a>''' for b in ds) or '        <p style="color:var(--muted)">Chuyên mục đang được bổ sung bài viết — mời bạn quay lại sau.</p>'
             url_tuyet_doi = f"{DOMAIN}/{branch}/{slug}/"
-            # Khối tặng ebook (chỉ chuyên mục Giấc Ngủ — bền qua các lần tái tạo trang)
+            # Khối tặng ebook (bảng chung thẻ -> ấn bản; bền qua các lần tái tạo trang)
+            EBOOKS = {
+                "giac-ngu": ("Giấc Ngủ", "ebooks/giac-ngu.pdf", "Ấn bản tháng 11/2026"),
+                "quan-chieu": ("Quán Chiếu", "ebooks/quan-chieu.pdf", "Ấn bản tháng 11/2026"),
+            }
             khoi_ebook = ""
-            if slug == "giac-ngu":
-                khoi_ebook = """
+            if slug in EBOOKS:
+                ten_ebook, pdf_ebook, an_ban = EBOOKS[slug]
+                khoi_ebook = f"""
       <div style="background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:18px 0;">
         <p style="margin:0 0 8px;">🎁 <strong>Ebook tặng bạn đọc</strong></p>
-        <p style="margin:0 0 12px;">Cảm ơn bạn đã dành thời gian đọc và đồng hành cùng Sống Đúng Khỏe. Ebook Giấc Ngủ — mục tải về có trên trang songdungkhoe — bấm vào là tải về ngay, không cần để lại email, không mất phí.</p>
-        <p style="margin:0;"><a class="xem-them" href="https://media.songdungkhoe.com/ebooks/giac-ngu.pdf" target="_blank" rel="noopener">Tải ebook Giấc Ngủ (PDF · Ấn bản tháng 11/2026) ↓</a></p>
+        <p style="margin:0 0 12px;">Cảm ơn bạn đã dành thời gian đọc và đồng hành cùng Sống Đúng Khỏe. Ebook {ten_ebook} — mục tải về có trên trang songdungkhoe — bấm vào là tải về ngay, không cần để lại email, không mất phí.</p>
+        <p style="margin:0;"><a class="xem-them" href="https://media.songdungkhoe.com/{pdf_ebook}" target="_blank" rel="noopener">Tải ebook {ten_ebook} (PDF · {an_ban}) ↓</a></p>
       </div>"""
             main_html = f'''<main>
 <!-- TRANG-CHUYEN-MUC -->

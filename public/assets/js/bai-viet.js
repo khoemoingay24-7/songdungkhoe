@@ -125,30 +125,39 @@
   }
 })();
 
-/* ---------- Thẻ tặng ebook Giấc Ngủ (hiện theo hành vi đọc) ----------
- * Chỉ chạy trên bài viết thuộc chuyên mục Giấc Ngủ (nhận biết qua dòng
- * breadcrumb đầu bài). Sau 90 giây đọc bài, hiện một thẻ nhỏ góc dưới phải
- * với đúng câu tặng của bác; chỉ hiện 1 lần mỗi người đọc (localStorage),
- * bấm tắt hoặc bấm tải đều ghi nhớ để không hiện lại. Không thu thập gì
- * của người đọc, không cần email, không mất phí.
+/* ---------- Thẻ tặng ebook (hiện theo hành vi đọc) ----------
+ * Bảng chung thẻ -> ấn bản. Chỉ chạy trên bài viết thuộc một thẻ có ebook
+ * (nhận biết qua dòng breadcrumb đầu bài). Sau 90 giây đọc bài, hiện một
+ * thẻ nhỏ góc dưới phải với đúng câu tặng của bác; chỉ hiện 1 lần mỗi
+ * người đọc cho mỗi cuốn (localStorage riêng từng cuốn), bấm tắt hoặc bấm
+ * tải đều ghi nhớ để không hiện lại. Không thu thập gì của người đọc,
+ * không cần email, không mất phí.
  */
 (function () {
   'use strict';
-  var KHOA = 'sdk-ebook-giac-ngu-da-hien';
-  try { if (localStorage.getItem(KHOA) === '1') return; } catch (e) { return; }
+  var EBOOKS = {
+    'Giấc Ngủ': { khoa: 'sdk-ebook-giac-ngu-da-hien', pdf: 'https://media.songdungkhoe.com/ebooks/giac-ngu.pdf', mau: '#2E6F40' },
+    'Quán Chiếu': { khoa: 'sdk-ebook-quan-chieu-da-hien', pdf: 'https://media.songdungkhoe.com/ebooks/quan-chieu.pdf', mau: '#8C5A2B' }
+  };
   var bai = document.querySelector('article');
   if (!bai) return;
   var dongDau = bai.querySelector('p');
-  if (!dongDau || dongDau.textContent.indexOf('Giấc Ngủ') === -1) return;
-  function ghiNho() { try { localStorage.setItem(KHOA, '1'); } catch (e) {} }
+  if (!dongDau) return;
+  var ten = null, sach = null;
+  for (var k in EBOOKS) {
+    if (dongDau.textContent.indexOf(k) !== -1) { ten = k; sach = EBOOKS[k]; break; }
+  }
+  if (!sach) return;
+  try { if (localStorage.getItem(sach.khoa) === '1') return; } catch (e) { return; }
+  function ghiNho() { try { localStorage.setItem(sach.khoa, '1'); } catch (e) {} }
   function hienThe() {
     if (document.getElementById('the-tang-ebook')) return;
     var the = document.createElement('div');
     the.id = 'the-tang-ebook';
     the.setAttribute('role', 'dialog');
-    the.setAttribute('aria-label', 'Quà tặng ebook Giấc Ngủ');
+    the.setAttribute('aria-label', 'Quà tặng ebook ' + ten);
     the.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:9999;max-width:340px;' +
-      'background:#FDFBF7;border:1.5px solid #2E6F40;border-radius:14px;' +
+      'background:#FDFBF7;border:1.5px solid ' + sach.mau + ';border-radius:14px;' +
       'box-shadow:0 6px 24px rgba(0,0,0,.18);padding:16px 18px;' +
       'font-family:inherit;font-size:15px;line-height:1.6;color:#222;';
     the.innerHTML =
@@ -157,11 +166,11 @@
       '<button type="button" aria-label="Đóng" style="border:none;background:none;font-size:20px;line-height:1;cursor:pointer;padding:0 2px;">×</button>' +
       '</div>' +
       '<p style="margin:8px 0 12px;">Cảm ơn bạn đã dành thời gian đọc và đồng hành cùng Sống Đúng Khỏe. ' +
-      'Ebook Giấc Ngủ — mục tải về có trên trang songdungkhoe — bấm vào là tải về ngay, ' +
+      'Ebook ' + ten + ' — mục tải về có trên trang songdungkhoe — bấm vào là tải về ngay, ' +
       'không cần để lại email, không mất phí.</p>' +
-      '<p style="margin:0;"><a href="https://media.songdungkhoe.com/ebooks/giac-ngu.pdf" target="_blank" rel="noopener" ' +
-      'style="display:inline-block;background:#2E6F40;color:#fff;padding:9px 16px;border-radius:8px;text-decoration:none;font-weight:bold;">' +
-      'Tải ebook Giấc Ngủ (PDF)</a></p>';
+      '<p style="margin:0;"><a href="' + sach.pdf + '" target="_blank" rel="noopener" ' +
+      'style="display:inline-block;background:' + sach.mau + ';color:#fff;padding:9px 16px;border-radius:8px;text-decoration:none;font-weight:bold;">' +
+      'Tải ebook ' + ten + ' (PDF)</a></p>';
     var nutDong = the.querySelector('button');
     nutDong.addEventListener('click', function () { ghiNho(); the.remove(); });
     var nutTai = the.querySelector('a');
