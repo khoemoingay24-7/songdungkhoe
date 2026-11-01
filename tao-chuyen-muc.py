@@ -91,12 +91,21 @@ def main():
           <p>{html.escape(b["desc"])}</p>
         </a>''' for b in ds) or '        <p style="color:var(--muted)">Chuyên mục đang được bổ sung bài viết — mời bạn quay lại sau.</p>'
             url_tuyet_doi = f"{DOMAIN}/{branch}/{slug}/"
+            # Khối tặng ebook (chỉ chuyên mục Giấc Ngủ — bền qua các lần tái tạo trang)
+            khoi_ebook = ""
+            if slug == "giac-ngu":
+                khoi_ebook = """
+      <div style="background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:18px 0;">
+        <p style="margin:0 0 8px;">🎁 <strong>Ebook tặng bạn đọc</strong></p>
+        <p style="margin:0 0 12px;">Cảm ơn bạn đã dành thời gian đọc và đồng hành cùng Sống Đúng Khỏe. Ebook Giấc Ngủ — mục tải về có trên trang songdungkhoe — bấm vào là tải về ngay, không cần để lại email, không mất phí.</p>
+        <p style="margin:0;"><a class="xem-them" href="https://media.songdungkhoe.com/ebooks/giac-ngu.pdf" target="_blank" rel="noopener">Tải ebook Giấc Ngủ (PDF · Ấn bản tháng 11/2026) ↓</a></p>
+      </div>"""
             main_html = f'''<main>
 <!-- TRANG-CHUYEN-MUC -->
     <section class="wrap-narrow">
       <p style="color:var(--muted);font-size:15px;"><a href="/{branch}/">{BRANCH_LABEL[branch]}</a> &middot; Chuyên mục</p>
       <h1>{html.escape(name)}</h1>
-      <p class="article-desc">{html.escape(desc)}</p>
+      <p class="article-desc">{html.escape(desc)}</p>{khoi_ebook}
       <div class="cat-grid">
 {cards}
       </div>
