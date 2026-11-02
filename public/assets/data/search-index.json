@@ -28,6 +28,13 @@
   "card": "Giấc Ngủ"
  },
  {
+  "title": "Dạ Dày Đang “Nói” Gì Với Bạn? Lắng Nghe Để Kiểm Soát Đường Huyết Và Huyết Áp",
+  "desc": "Dạ dày là “bộ não thứ hai”, người gác cổng của đường huyết và huyết áp. Biết lắng nghe dạ dày trước, trong và sau bữa ăn để ăn vừa đủ, người nhẹ nhõm.",
+  "url": "/than/da-day-dang-noi-gi-voi-ban/",
+  "branch": "Dưỡng Thân",
+  "card": "Cơ Thể Lên Tiếng"
+ },
+ {
   "title": "Đi Bộ & Đi Bộ Chân Đất: Lợi Ích Tự Nhiên Và Kỹ Thuật Thực Hành Đúng",
   "desc": "Hướng dẫn chi tiết lợi ích của việc đi bộ, đi bộ chân đất tiếp đất tự nhiên và kỹ thuật thực hành an toàn giúp tăng cường sức khỏe, thư giãn tâm trí mỗi ngày.",
   "url": "/than/di-bo-di-bo-chan-dat/",
@@ -413,6 +420,13 @@
   "card": "Quán Chiếu"
  },
  {
+  "title": "Thay Vì Tiếc Nuối: Nhân Là Trì Hoãn, Quả Là Tiếc Nuối",
+  "desc": "Tiếc nuối không tự nhiên mà có — nó là quả của sự trì hoãn. Thấy được cái nhân “để từ từ” ngay khi nó đang gieo là chỗ duy nhất ta còn can thiệp được.",
+  "url": "/tam/thay-vi-tiec-nuoi/",
+  "branch": "Dưỡng Tâm",
+  "card": "Quán Chiếu"
+ },
+ {
   "title": "Thoát Khỏi Rắc Rối, Phiền Não: Bắt Đầu Từ Những Việc Rất Nhỏ",
   "desc": "Cuộc sống ngày nào cũng có chuyện phiền. Không có phép màu nào cả — chỉ có sáu việc rất nhỏ: xem đầu óc đang “ăn” gì, gọi tên điều đang nghĩ, giao cho tay chân một việc có ích, chăm cái thân một chút…",
   "url": "/tam/thoat-khoi-rac-roi-phien-nao/",
@@ -444,6 +458,13 @@
   "title": "Trắc nghiệm: Thay vì chứng minh…",
   "desc": "10 câu hỏi nhỏ để thấy rõ ranh giới giữa giải thích và chứng minh — mỗi câu đều có lời giải thích nhẹ nhàng. Trắc nghiệm đi kèm bài viết “Thay vì chứng minh…”, nhánh Dưỡng Tâm.",
   "url": "/tam/trac-nghiem-thay-vi-chung-minh/",
+  "branch": "Dưỡng Tâm",
+  "card": "Trắc nghiệm"
+ },
+ {
+  "title": "Trắc nghiệm: Thay vì tiếc nuối…",
+  "desc": "10 câu hỏi nhỏ để nhìn thẳng vào sự trì hoãn — cái nhân gieo mầm tiếc nuối — mỗi câu đều có lời giải thích nhẹ nhàng. Trắc nghiệm đi kèm bài viết “Thay vì tiếc nuối…”, nhánh Dưỡng Tâm.",
+  "url": "/tam/trac-nghiem-thay-vi-tiec-nuoi/",
   "branch": "Dưỡng Tâm",
   "card": "Trắc nghiệm"
  },

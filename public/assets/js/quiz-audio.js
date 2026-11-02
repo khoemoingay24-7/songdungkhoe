@@ -104,6 +104,7 @@
     'trac-nghiem-nhan-dien-noi-so': 'so',
     'trac-nghiem-nhan-dien-noi-lo': 'lo',
     'trac-nghiem-thay-vi-chung-minh': 'chung-minh'
+    , 'trac-nghiem-thay-vi-tiec-nuoi': 'tiec-nuoi'
   };
   var audioThuSan = null;
   var danhSachPhat = []; // playlist các file mp3 đang chờ phát
