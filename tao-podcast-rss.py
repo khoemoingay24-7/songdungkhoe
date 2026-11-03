@@ -3,7 +3,8 @@
 tao-podcast-rss.py — tạo file podcast.rss chuẩn podcast cho website Sống Đúng Khỏe.
 
 Quét các bài viết trong than/ và tam/ có gắn file audio (audio Vbee do
-tao-audio-bai-viet.py tạo), lọc từ ngày 13/10/2026 trở đi, sắp xếp mới nhất
+tao-audio-bai-viet.py tạo, hoặc audio ngoài trên R2 từ bài Mùa Thu 02 trở đi),
+lọc từ ngày 13/10/2026 trở đi, sắp xếp mới nhất
 trước, ghi ra podcast.rss ở thư mục gốc repo — sẵn sàng đưa vào Spotify.
 
 Chạy mỗi khi đăng bài mới (các job release đều gọi script này):
@@ -35,16 +36,41 @@ def base_url():
 
 
 def audio_duration(path):
-    """Thời lượng mp3 (giây) bằng ffprobe; None nếu không đọc được."""
+    """Thời lượng mp3 (giây) bằng ffprobe; None nếu không đọc được.
+    path có thể là file local hoặc URL ngoài (ffprobe đọc được cả hai;
+    URL ngoài cần UA trình duyệt vì Cloudflare chặn UA mặc định)."""
+    cmd = ["ffprobe", "-v", "error"]
+    if path.startswith("http"):
+        cmd += ["-user_agent", BROWSER_UA]
+    cmd += ["-show_entries", "format=duration", "-of", "csv=p=0", path]
     try:
         out = subprocess.run(
-            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
-             "-of", "csv=p=0", path],
-            capture_output=True, text=True, timeout=30,
+            cmd, capture_output=True, text=True, timeout=60,
         ).stdout.strip()
         return int(float(out))
     except Exception:
         return None
+
+
+BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+              "AppleWebKit/537.36 (KHTML, like Gecko) "
+              "Chrome/124.0 Safari/537.36")
+
+
+def remote_content_length(url):
+    """Độ dài file ngoài (byte) bằng HTTP HEAD; None nếu không lấy được.
+    Cần UA trình duyệt vì Cloudflare chặn UA mặc định của Python."""
+    import urllib.request
+    for _ in range(2):
+        try:
+            req = urllib.request.Request(
+                url, method="HEAD", headers={"User-Agent": BROWSER_UA})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                n = resp.headers.get("Content-Length")
+                return int(n) if n else None
+        except Exception:
+            continue
+    return None
 
 
 def collect_episodes():
@@ -61,12 +87,25 @@ def collect_episodes():
             src = open(p, encoding="utf-8").read()
             if "<!-- TRANG-CHUYEN-MUC -->" in src:
                 continue
-            m = re.search(r'<audio[^>]*src="(/public/assets/audio/bai-viet/[^"]+\.mp3)"', src)
+            m = re.search(r'<audio[^>]*src="([^"]+\.mp3)"', src)
             if not m:
                 continue
             audio_path = m.group(1)
-            full_audio = os.path.join(REPO, audio_path.lstrip("/"))
-            if not os.path.isfile(full_audio):
+            if audio_path.startswith("http"):
+                # Audio ngoài (R2): lấy độ dài bằng HEAD, không cần file local
+                full_audio = None
+                audio_length = remote_content_length(audio_path)
+                if audio_length is None:
+                    print(f"CẢNH BÁO: không lấy được độ dài audio ngoài {audio_path}, bỏ qua bài {name}")
+                    continue
+                audio_url = audio_path
+            elif audio_path.startswith("/public/assets/audio/bai-viet/"):
+                full_audio = os.path.join(REPO, audio_path.lstrip("/"))
+                if not os.path.isfile(full_audio):
+                    continue
+                audio_length = os.path.getsize(full_audio)
+                audio_url = f"https://{base}{audio_path}"
+            else:
                 continue
             d = re.search(r"Ngày đăng:\s*(\d{2})/(\d{2})/(\d{4})", src)
             if not d:
@@ -88,8 +127,9 @@ def collect_episodes():
                 "desc": desc,
                 "headings": headings[:8],
                 "url": f"https://{base}/{branch}/{name}/",
-                "audio_url": f"https://{base}{audio_path}",
+                "audio_url": audio_url,
                 "audio_file": full_audio,
+                "audio_length": audio_length,
                 "date": ngay,
             })
     # mới nhất trước (chuẩn podcast)
@@ -145,9 +185,9 @@ def build_rss(base, episodes):
         enc = ET.SubElement(item, "enclosure", {
             "url": ep["audio_url"],
             "type": "audio/mpeg",
-            "length": str(os.path.getsize(ep["audio_file"])),
+            "length": str(ep["audio_length"]),
         })
-        dur = audio_duration(ep["audio_file"])
+        dur = audio_duration(ep["audio_file"] or ep["audio_url"])
         if dur:
             ET.SubElement(item, "itunes:duration").text = str(dur)
         ET.SubElement(item, "itunes:episodeType").text = "full"
