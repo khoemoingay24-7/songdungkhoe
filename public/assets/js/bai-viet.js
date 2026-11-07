@@ -184,6 +184,9 @@
     oBay.autocomplete = 'off';
     oBay.setAttribute('aria-hidden', 'true');
     oBay.className = 'o-bay-binh-luan';
+    // Ẩn hẳn ngay trong mã (không chờ file CSS): trình duyệt giữ bản CSS cũ
+    // trong bộ nhớ tạm thì ô bẫy vẫn không hiện ra.
+    oBay.style.display = 'none';
 
     var nutGui = document.createElement('button');
     nutGui.type = 'submit';

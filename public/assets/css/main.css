@@ -319,10 +319,10 @@ body.page-tam .site-search button { background: var(--tam); }
 .form-binh-luan { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
 .form-binh-luan label { display: block; font-weight: 700; font-size: 16px; margin: 12px 0 6px; }
 .form-binh-luan label:first-child { margin-top: 0; }
-.form-binh-luan input[type="text"], .form-binh-luan textarea { width: 100%; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px; font-family: inherit; font-size: 17px; line-height: 1.6; color: var(--ink); background: var(--bg); }
+.form-binh-luan input[type="text"], .form-binh-luan textarea { width: 100%; max-width: 600px; box-sizing: border-box; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px; font-family: inherit; font-size: 17px; line-height: 1.6; color: var(--ink); background: var(--bg); }
 .form-binh-luan input[type="text"]:focus, .form-binh-luan textarea:focus { outline: none; border-color: var(--than); }
 .form-binh-luan textarea { resize: vertical; min-height: 110px; }
-.o-bay-binh-luan { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.o-bay-binh-luan { display: none; }
 .nut-gui-binh-luan { margin-top: 14px; padding: 12px 26px; border: none; border-radius: 999px; background: var(--than); color: #fff; font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer; }
 .nut-gui-binh-luan:hover { background: var(--than-deep); }
 .nut-gui-binh-luan:disabled { opacity: .6; cursor: wait; }
