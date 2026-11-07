@@ -6,26 +6,15 @@
  *
  * - Nút Thích: lưu trên máy của người đọc (localStorage), không cần tài khoản.
  * - Chia sẻ: mở Facebook / Zalo ở tab mới; "Sao chép link" chép URL bài viết.
- * - Bình luận (Remarkbox — miễn phí, không quảng cáo, độc giả bình luận không
- *   cần tạo tài khoản): bác đăng ký tại https://www.remarkbox.com (2 phút,
- *   không cần thẻ), tạo Namespace cho website rồi vào phần cài đặt Namespace
- *   lấy "rb_owner_key" (một chuỗi UUID) dán vào REMARKBOX_OWNER_KEY bên dưới
- *   (hoặc gửi đoạn mã nhúng cho con tích hợp).
- *   Khi chưa có owner key, khung bình luận hiện dòng chờ thay vì lỗi.
- *   Nhúng theo đoạn mã chính thức của Remarkbox: iframe tới
- *   https://my.remarkbox.com/embed?rb_owner_key=... kèm thư viện iframe-resizer.
- *   Lưu ý: Namespace gắn với tên miền — khi đổi sang songdungkhoe.com thì cập
- *   nhật tên miền trong cài đặt Namespace (nếu không khung bình luận có thể
- *   không hiện).
+ * - Bình luận (tự dựng trên Cloudflare D1 + Pages Function — miễn phí, tiếng
+ *   Việt 100%, không quảng cáo, độc giả bình luận không cần tạo tài khoản):
+ *   khung hiển thị + form gửi ở đây; API ở /functions/api/comments.js;
+ *   dữ liệu trong D1 "bình luận-db" (bảng comments, Binding DB). Mọi bình
+ *   luận đều chờ duyệt mới hiện; bác duyệt/xóa tại /quan-tri-binh-luan/
+ *   (cần mã ADMIN_TOKEN đặt trong Pages → Environment variables).
  */
 (function () {
   'use strict';
-
-  var REMARKBOX_OWNER_KEY = '5208740f-c2f1-11f1-895f-040140774501'; // namespace songdungkhoe-chinhthuc.pages.dev — đã bật bình luận ẩn danh 13/10/2026; bản free chỉ có 1 namespace nên dùng chung cho mọi tên miền
-
-  // Dùng URL chuẩn pages.dev làm thread_uri để khung bình luận trên mọi tên miền
-  // (songdungkhoe.com, www, pages.dev) cùng trỏ về một luồng đã bật ẩn danh.
-  var threadUri = location.href.replace(/^https:\/\/(www\.)?songdungkhoe\.com/i, 'https://songdungkhoe-chinhthuc.pages.dev');
 
   var khoi = document.getElementById('tuongTac');
   if (!khoi) return;
@@ -81,47 +70,166 @@
     });
   });
 
-  /* ---------- Khung bình luận Remarkbox (iframe chính thức) ---------- */
-  var thread = document.getElementById('khungBinhLuan');
-  var choBinhLuan = document.getElementById('binhLuanCho');
-  if (thread) {
-    if (REMARKBOX_OWNER_KEY) {
-      if (choBinhLuan) choBinhLuan.style.display = 'none';
-      var srcBinhLuan = 'https://my.remarkbox.com/embed' +
-        '?rb_owner_key=' + encodeURIComponent(REMARKBOX_OWNER_KEY) +
-        '&thread_title=' + encodeURI(document.title) +
-        '&thread_uri=' + encodeURIComponent(threadUri) +
-        '&mode=light' + (location.hash || '');
-      var goiY = document.createElement('p');
-      goiY.className = 'goi-y-binh-luan';
-      goiY.textContent = 'Mời bạn chia sẻ cảm nghĩ bên dưới (chỉ cần điền tên, không cần tạo tài khoản).';
-      thread.appendChild(goiY);
-      var khung = document.createElement('iframe');
-      khung.id = 'remarkbox-iframe';
-      khung.setAttribute('scrolling', 'no');
-      khung.setAttribute('src', srcBinhLuan);
-      khung.setAttribute('frameborder', '0');
-      khung.setAttribute('tabindex', '0');
-      khung.setAttribute('title', 'Khung bình luận');
-      khung.style.width = '100%';
-      khung.style.border = 'none';
-      thread.appendChild(khung);
-      var thuVien = document.createElement('script');
-      thuVien.src = 'https://my.remarkbox.com/static/js/iframe-resizer/iframeResizer.min.js';
-      thuVien.onload = function () {
-        try {
-          if (window.iFrameResize) {
-            iFrameResize(
-              { checkOrigin: ['https://my.remarkbox.com'], inPageLinks: true },
-              document.getElementById('remarkbox-iframe')
-            );
-          }
-        } catch (e) {}
+  /* ---------- Khung bình luận tự dựng (Cloudflare D1 + /api/comments) ----------
+   * Gửi/đọc qua API Pages Function; mọi bình luận chờ duyệt mới hiện.
+   * Tên + nội dung hiển thị bằng textContent (không chèn HTML người đọc gửi).
+   * Dùng XMLHttpRequest cho tương thích cả trình duyệt cũ của độc giả lớn tuổi. */
+  var khungBL = document.getElementById('khungBinhLuan');
+  var choBL = document.getElementById('binhLuanCho');
+  if (choBL) choBL.style.display = 'none'; // dòng chờ của khung cũ, nếu còn sót
+  if (khungBL) {
+    var duongDanBai = location.pathname;
+
+    function goiApi(phuongThuc, duongDan, duLieu, hamGoi) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(phuongThuc, duongDan, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4) return;
+        var data = null;
+        try { data = JSON.parse(xhr.responseText); } catch (e) {}
+        hamGoi(data);
       };
-      document.body.appendChild(thuVien);
-    } else if (choBinhLuan) {
-      choBinhLuan.style.display = '';
+      xhr.onerror = function () { hamGoi(null); };
+      xhr.send(duLieu ? JSON.stringify(duLieu) : null);
     }
+
+    function dinhDangNgay(iso) {
+      try {
+        return new Date(iso).toLocaleString('vi-VN', {
+          timeZone: 'Asia/Ho_Chi_Minh', day: '2-digit', month: '2-digit',
+          year: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+      } catch (e) { return iso; }
+    }
+
+    var goiY = document.createElement('p');
+    goiY.className = 'goi-y-binh-luan';
+    goiY.textContent = 'Mời bạn chia sẻ cảm nghĩ bên dưới (chỉ cần điền tên, không cần tạo tài khoản).';
+    khungBL.appendChild(goiY);
+
+    var danhSach = document.createElement('div');
+    danhSach.className = 'danh-sach-binh-luan';
+    khungBL.appendChild(danhSach);
+
+    function veBinhLuan(bl) {
+      var khoiBL = document.createElement('div');
+      khoiBL.className = 'binh-luan';
+      var dau = document.createElement('p');
+      dau.className = 'binh-luan-dau';
+      var ten = document.createElement('strong');
+      ten.textContent = bl.name;
+      var ngay = document.createElement('span');
+      ngay.className = 'binh-luan-ngay';
+      ngay.textContent = ' · ' + dinhDangNgay(bl.created_at);
+      dau.appendChild(ten);
+      dau.appendChild(ngay);
+      var noiDung = document.createElement('p');
+      noiDung.className = 'binh-luan-noi-dung';
+      noiDung.textContent = bl.content;
+      khoiBL.appendChild(dau);
+      khoiBL.appendChild(noiDung);
+      return khoiBL;
+    }
+
+    function taiBinhLuan() {
+      danhSach.textContent = 'Đang tải bình luận...';
+      goiApi('GET', '/api/comments?page=' + encodeURIComponent(duongDanBai), null, function (data) {
+        danhSach.textContent = '';
+        if (!data || !data.ok) {
+          danhSach.textContent = 'Chưa tải được bình luận, bạn thử tải lại trang nhé.';
+          return;
+        }
+        if (!data.comments || data.comments.length === 0) {
+          var trong = document.createElement('p');
+          trong.className = 'chua-co-binh-luan';
+          trong.textContent = 'Chưa có bình luận nào — bạn là người đầu tiên chia sẻ nhé.';
+          danhSach.appendChild(trong);
+          return;
+        }
+        data.comments.forEach(function (bl) { danhSach.appendChild(veBinhLuan(bl)); });
+      });
+    }
+
+    var form = document.createElement('form');
+    form.className = 'form-binh-luan';
+    form.setAttribute('novalidate', 'novalidate');
+
+    var nhanTen = document.createElement('label');
+    nhanTen.setAttribute('for', 'tenBinhLuan');
+    nhanTen.textContent = 'Tên của bạn';
+    var oTen = document.createElement('input');
+    oTen.id = 'tenBinhLuan';
+    oTen.type = 'text';
+    oTen.maxLength = 50;
+    oTen.required = true;
+    oTen.autocomplete = 'name';
+    oTen.placeholder = 'Ví dụ: Minh Nguyễn';
+
+    var nhanNoiDung = document.createElement('label');
+    nhanNoiDung.setAttribute('for', 'noiDungBinhLuan');
+    nhanNoiDung.textContent = 'Bình luận của bạn';
+    var oNoiDung = document.createElement('textarea');
+    oNoiDung.id = 'noiDungBinhLuan';
+    oNoiDung.rows = 4;
+    oNoiDung.maxLength = 1000;
+    oNoiDung.required = true;
+    oNoiDung.placeholder = 'Chia sẻ cảm nghĩ của bạn về bài viết...';
+
+    // Ô bẫy chống thư rác (người thật không thấy, bot hay điền).
+    var oBay = document.createElement('input');
+    oBay.type = 'text';
+    oBay.name = 'website';
+    oBay.tabIndex = -1;
+    oBay.autocomplete = 'off';
+    oBay.setAttribute('aria-hidden', 'true');
+    oBay.className = 'o-bay-binh-luan';
+
+    var nutGui = document.createElement('button');
+    nutGui.type = 'submit';
+    nutGui.className = 'nut-gui-binh-luan';
+    nutGui.textContent = 'Gửi bình luận';
+
+    var trangThai = document.createElement('p');
+    trangThai.className = 'trang-thai-binh-luan';
+    trangThai.setAttribute('role', 'status');
+
+    form.appendChild(nhanTen);
+    form.appendChild(oTen);
+    form.appendChild(nhanNoiDung);
+    form.appendChild(oNoiDung);
+    form.appendChild(oBay);
+    form.appendChild(nutGui);
+    form.appendChild(trangThai);
+    khungBL.appendChild(form);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var ten = oTen.value.trim();
+      var noiDung = oNoiDung.value.trim();
+      if (!ten) { trangThai.textContent = 'Bạn ghi tên nhé.'; oTen.focus(); return; }
+      if (!noiDung) { trangThai.textContent = 'Bạn viết bình luận nhé.'; oNoiDung.focus(); return; }
+      nutGui.disabled = true;
+      nutGui.textContent = 'Đang gửi...';
+      trangThai.textContent = '';
+      goiApi('POST', '/api/comments',
+        { page: duongDanBai, name: ten, content: noiDung, website: oBay.value },
+        function (data) {
+          nutGui.disabled = false;
+          nutGui.textContent = 'Gửi bình luận';
+          if (data && data.ok) {
+            trangThai.textContent = data.message || 'Cảm ơn bạn! Bình luận của bạn đang chờ duyệt.';
+            oTen.value = '';
+            oNoiDung.value = '';
+          } else if (data && data.error) {
+            trangThai.textContent = data.error;
+          } else {
+            trangThai.textContent = 'Không gửi được, bạn kiểm tra mạng rồi thử lại nhé.';
+          }
+        });
+    });
+
+    taiBinhLuan();
   }
 })();
 

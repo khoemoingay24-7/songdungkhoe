@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Duyệt bình luận — Sống Đúng Khỏe</title>
+<style>
+  body { margin: 0; background: #FDFBF7; color: #2C2620;
+    font-family: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif; font-size: 18px; line-height: 1.7; }
+  .hop { max-width: 760px; margin: 0 auto; padding: 28px 18px 60px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  .mo-ta { color: #6E6459; font-size: 15px; margin: 0 0 20px; }
+  .hop-nhap-ma { background: #fff; border: 1px solid #E9E1D3; border-radius: 14px; padding: 18px; }
+  .hop-nhap-ma label { display: block; font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+  input[type="password"], input[type="text"] { width: 100%; box-sizing: border-box; padding: 12px 14px;
+    border: 1.5px solid #E9E1D3; border-radius: 10px; font-family: inherit; font-size: 17px; }
+  button { padding: 11px 24px; border: none; border-radius: 999px; background: #2E6F40; color: #fff;
+    font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 12px; }
+  button:hover { background: #1E5230; }
+  button:disabled { opacity: .6; cursor: wait; }
+  button.nut-xoa { background: #A33; }
+  button.nut-xoa:hover { background: #822; }
+  button.nut-phu { background: #fff; color: #2C2620; border: 1px solid #E9E1D3; }
+  .trang-thai { margin: 12px 0 0; font-size: 15px; color: #6E6459; }
+  .tab { display: flex; gap: 10px; margin: 24px 0 12px; flex-wrap: wrap; }
+  .tab button { margin-top: 0; }
+  .tab button.dang-chon { background: #8C5A2B; }
+  .binh-luan { background: #fff; border: 1px solid #E9E1D3; border-radius: 14px; padding: 14px 16px; margin-bottom: 12px; }
+  .binh-luan-duong-dan { font-size: 14px; color: #6E6459; word-break: break-all; margin: 0 0 4px; }
+  .binh-luan-dau { margin: 0 0 4px; font-size: 16px; }
+  .binh-luan-ngay { color: #6E6459; font-weight: 400; font-size: 14px; }
+  .binh-luan-noi-dung { margin: 0 0 10px; font-size: 17px; white-space: pre-wrap; word-break: break-word; }
+  .binh-luan .nut-xoa, .binh-luan button { margin: 0 8px 0 0; padding: 8px 18px; font-size: 15px; }
+  .trong { color: #6E6459; font-style: italic; }
+  .an { display: none !important; }
+</style>
+</head>
+<body>
+<div class="hop">
+  <h1>Duyệt bình luận</h1>
+  <p class="mo-ta">Trang này chỉ dành cho quản trị viên Sống Đúng Khỏe. Bình luận của độc giả chỉ hiện ra trên web sau khi bác bấm “Duyệt” ở đây.</p>
+
+  <div class="hop-nhap-ma" id="hopNhapMa">
+    <label for="maQuanTri">Mã quản trị</label>
+    <input type="password" id="maQuanTri" autocomplete="current-password" placeholder="Nhập mã ADMIN_TOKEN đã đặt trong Cloudflare">
+    <button type="button" id="nutMo">Mở trang duyệt</button>
+    <p class="trang-thai" id="trangThaiMa"></p>
+  </div>
+
+  <div id="hopDuyet" class="an">
+    <div class="tab">
+      <button type="button" id="tabCho" class="dang-chon">Chờ duyệt (<span id="demCho">0</span>)</button>
+      <button type="button" id="tabDaDuyet" class="nut-phu">Đã duyệt (<span id="demDaDuyet">0</span>)</button>
+      <button type="button" id="nutTaiLai" class="nut-phu">Tải lại</button>
+      <button type="button" id="nutThoat" class="nut-phu">Thoát</button>
+    </div>
+    <div id="danhSach"></div>
+    <p class="trang-thai" id="trangThaiDanhSach"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var KHOA_MA = 'sdk-quan-tri-binh-luan-ma';
+  var ma = '';
+  try { ma = sessionStorage.getItem(KHOA_MA) || ''; } catch (e) {}
+  var tabHienTai = 'pending';
+
+  var oMa = document.getElementById('maQuanTri');
+  var nutMo = document.getElementById('nutMo');
+  var trangThaiMa = document.getElementById('trangThaiMa');
+  var hopNhapMa = document.getElementById('hopNhapMa');
+  var hopDuyet = document.getElementById('hopDuyet');
+  var danhSach = document.getElementById('danhSach');
+  var trangThaiDanhSach = document.getElementById('trangThaiDanhSach');
+  var tabCho = document.getElementById('tabCho');
+  var tabDaDuyet = document.getElementById('tabDaDuyet');
+
+  function dinhDangNgay(iso) {
+    try {
+      return new Date(iso).toLocaleString('vi-VN', {
+        timeZone: 'Asia/Ho_Chi_Minh', day: '2-digit', month: '2-digit',
+        year: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+    } catch (e) { return iso; }
+  }
+
+  function goiApi(duongDan, tuyChon, hamGoi) {
+    fetch(duongDan, tuyChon || {})
+      .then(function (res) { return res.json().then(function (data) { return { status: res.status, data: data }; }); })
+      .then(hamGoi)
+      .catch(function () { hamGoi(null); });
+  }
+
+  function tieuDe() {
+    return { 'Authorization': 'Bearer ' + ma, 'Content-Type': 'application/json' };
+  }
+
+  function hienDanhSach(items) {
+    danhSach.textContent = '';
+    if (!items || items.length === 0) {
+      var p = document.createElement('p');
+      p.className = 'trong';
+      p.textContent = tabHienTai === 'pending'
+        ? 'Không có bình luận nào đang chờ duyệt.'
+        : 'Chưa có bình luận nào đã duyệt.';
+      danhSach.appendChild(p);
+      return;
+    }
+    items.forEach(function (bl) {
+      var khoi = document.createElement('div');
+      khoi.className = 'binh-luan';
+      var duongDan = document.createElement('p');
+      duongDan.className = 'binh-luan-duong-dan';
+      duongDan.textContent = bl.page_id;
+      var dau = document.createElement('p');
+      dau.className = 'binh-luan-dau';
+      var ten = document.createElement('strong');
+      ten.textContent = bl.name;
+      var ngay = document.createElement('span');
+      ngay.className = 'binh-luan-ngay';
+      ngay.textContent = ' · ' + dinhDangNgay(bl.created_at);
+      dau.appendChild(ten);
+      dau.appendChild(ngay);
+      var noiDung = document.createElement('p');
+      noiDung.className = 'binh-luan-noi-dung';
+      noiDung.textContent = bl.content;
+      khoi.appendChild(duongDan);
+      khoi.appendChild(dau);
+      khoi.appendChild(noiDung);
+      if (tabHienTai === 'pending') {
+        var nutDuyet = document.createElement('button');
+        nutDuyet.type = 'button';
+        nutDuyet.textContent = 'Duyệt';
+        nutDuyet.addEventListener('click', function () { tacVu('approve', bl.id, nutDuyet); });
+        khoi.appendChild(nutDuyet);
+      }
+      var nutXoa = document.createElement('button');
+      nutXoa.type = 'button';
+      nutXoa.className = 'nut-xoa';
+      nutXoa.textContent = 'Xóa';
+      nutXoa.addEventListener('click', function () {
+        if (confirm('Xóa bình luận này? (không khôi phục được)')) tacVu('delete', bl.id, nutXoa);
+      });
+      khoi.appendChild(nutXoa);
+      danhSach.appendChild(khoi);
+    });
+  }
+
+  function taiDanhSach() {
+    trangThaiDanhSach.textContent = 'Đang tải...';
+    goiApi('/api/comments?scope=' + tabHienTai, { headers: tieuDe() }, function (kq) {
+      if (!kq) { trangThaiDanhSach.textContent = 'Không tải được, bạn kiểm tra mạng rồi thử lại nhé.'; return; }
+      if (kq.status === 401) { trangThaiDanhSach.textContent = 'Mã không đúng, bạn nhập lại mã rồi bấm “Mở trang duyệt”.'; return; }
+      if (kq.status === 503) { trangThaiDanhSach.textContent = 'Chưa đặt mã quản trị (ADMIN_TOKEN) trong Cloudflare Pages.'; return; }
+      if (!kq.data || !kq.data.ok) { trangThaiDanhSach.textContent = 'Có lỗi xảy ra, bạn thử tải lại nhé.'; return; }
+      trangThaiDanhSach.textContent = '';
+      hienDanhSach(kq.data.comments);
+      capNhatDem();
+    });
+  }
+
+  function capNhatDem() {
+    goiApi('/api/comments?scope=pending', { headers: tieuDe() }, function (kq) {
+      if (kq && kq.data && kq.data.ok) document.getElementById('demCho').textContent = kq.data.comments.length;
+    });
+    goiApi('/api/comments?scope=approved', { headers: tieuDe() }, function (kq) {
+      if (kq && kq.data && kq.data.ok) document.getElementById('demDaDuyet').textContent = kq.data.comments.length;
+    });
+  }
+
+  function tacVu(action, id, nut) {
+    nut.disabled = true;
+    goiApi('/api/comments', {
+      method: 'POST', headers: tieuDe(), body: JSON.stringify({ action: action, id: id })
+    }, function (kq) {
+      nut.disabled = false;
+      if (!kq || !kq.data || !kq.data.ok) {
+        trangThaiDanhSach.textContent = 'Không làm được, bạn thử lại nhé.';
+        return;
+      }
+      taiDanhSach();
+    });
+  }
+
+  function moTrangDuyet() {
+    ma = oMa.value.trim();
+    if (!ma) { trangThaiMa.textContent = 'Bạn nhập mã quản trị nhé.'; oMa.focus(); return; }
+    try { sessionStorage.setItem(KHOA_MA, ma); } catch (e) {}
+    trangThaiMa.textContent = '';
+    hopNhapMa.classList.add('an');
+    hopDuyet.classList.remove('an');
+    taiDanhSach();
+  }
+
+  nutMo.addEventListener('click', moTrangDuyet);
+  oMa.addEventListener('keydown', function (e) { if (e.key === 'Enter') moTrangDuyet(); });
+  tabCho.addEventListener('click', function () {
+    tabHienTai = 'pending';
+    tabCho.classList.add('dang-chon'); tabCho.classList.remove('nut-phu');
+    tabDaDuyet.classList.remove('dang-chon'); tabDaDuyet.classList.add('nut-phu');
+    taiDanhSach();
+  });
+  tabDaDuyet.addEventListener('click', function () {
+    tabHienTai = 'approved';
+    tabDaDuyet.classList.add('dang-chon'); tabDaDuyet.classList.remove('nut-phu');
+    tabCho.classList.remove('dang-chon'); tabCho.classList.add('nut-phu');
+    taiDanhSach();
+  });
+  document.getElementById('nutTaiLai').addEventListener('click', taiDanhSach);
+  document.getElementById('nutThoat').addEventListener('click', function () {
+    try { sessionStorage.removeItem(KHOA_MA); } catch (e) {}
+    ma = '';
+    hopDuyet.classList.add('an');
+    hopNhapMa.classList.remove('an');
+    oMa.value = '';
+    oMa.focus();
+  });
+
+  if (ma) { oMa.value = ma; moTrangDuyet(); } else { oMa.focus(); }
+})();
+</script>
+</body>
+</html>
