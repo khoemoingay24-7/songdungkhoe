@@ -9,6 +9,7 @@
 //   GET  /api/comments?page=/than/slug/        -> bình luận ĐÃ DUYỆT của bài
 //   POST /api/comments {page, name, content}   -> gửi bình luận (chờ duyệt)
 //   GET  /api/comments?scope=pending|approved  -> (quản trị) danh sách
+//   GET  /api/comments?scope=count              -> (công khai) chỉ số lượng chờ duyệt
 //   POST /api/comments {action:"approve"|"delete", id} -> (quản trị)
 //
 // Quản trị: header Authorization: Bearer <ADMIN_TOKEN> — mã này bác tự đặt
@@ -107,6 +108,16 @@ async function docDanhSachQuanTri(db, request, env, url) {
   return json({ ok: true, comments: ds.results || [] });
 }
 
+// ---------- Đếm số bình luận chờ duyệt (công khai, chỉ trả về con số) ----------
+// Không cần mã quản trị, không trả tên hay nội dung — chỉ để con kiểm tra mỗi
+// sáng rồi nhắc bác khi có bình luận mới. Ai gọi cũng chỉ thấy một con số.
+async function demChoDuyet(db) {
+  var dem = await db.prepare(
+    'SELECT COUNT(*) AS n FROM comments WHERE approved = 0'
+  ).first();
+  return json({ ok: true, pending: (dem && dem.n) || 0 });
+}
+
 // ---------- Gửi bình luận mới (công khai, chờ duyệt) ----------
 async function guiBinhLuan(db, request, body) {
   // Ô bẫy honeypot: bot hay điền, người thật không thấy ô này.
@@ -178,7 +189,11 @@ export async function onRequest(context) {
     await ensureSchema(db);
 
     if (method === 'GET') {
-      if (url.searchParams.get('scope')) {
+      var scope = url.searchParams.get('scope');
+      if (scope === 'count') {
+        return demChoDuyet(db);
+      }
+      if (scope) {
         return docDanhSachQuanTri(db, request, env, url);
       }
       return docCongKhai(db, url);
