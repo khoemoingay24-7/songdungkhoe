@@ -12,6 +12,11 @@
  *   dữ liệu trong D1 "bình luận-db" (bảng comments, Binding DB). Mọi bình
  *   luận đều chờ duyệt mới hiện; bác duyệt/xóa tại /quan-tri-binh-luan/
  *   (cần mã ADMIN_TOKEN đặt trong Pages → Environment variables).
+ * - Bộ đếm lượt xem (từ 08/11/2026, cùng D1 "bình luận-db", bảng
+ *   page_views, API ở /functions/api/views.js): mỗi lần mở bài viết cộng
+ *   +1 (đếm tất cả lượt tải, kể cả tải lại trang/bot — theo ý bác, để con
+ *   số tăng nhanh, hiệu ứng đám đông) rồi hiện "👁️ N lượt xem" cạnh
+ *   ngày đăng đầu bài. Logic ở cuối file này.
  */
 (function () {
   'use strict';
@@ -290,4 +295,66 @@
     ghiNho();
   }
   setTimeout(hienThe, 90000);
+})();
+
+/* ---------- Bộ đếm lượt xem bài viết (Cloudflare D1 + /api/views) ----------
+ * Mỗi lần mở bài viết: POST /api/views {page} cộng +1 rồi chèn
+ * "👁️ N lượt xem" vào dòng ngày đăng đầu bài (cạnh "Ngày đăng: ...").
+ * Theo ý bác (08/11/2026): đếm TẤT CẢ lượt tải (kể cả tải lại trang, bot,
+ * trình cào) — không lọc trùng IP, không lọc bot — để con số tăng nhanh
+ * và sinh động (hiệu ứng đám đông / Social Proof). Số hiển thị theo
+ * định dạng Việt Nam (dấu chấm phân cách hàng nghìn). Chỉ chạy trên
+ * trang bài viết (/than/... hoặc /tam/...); lỗi mạng thì lặng lẽ không
+ * hiện gì, không làm phiền độc giả. Dùng XMLHttpRequest cho tương thích
+ * cả trình duyệt cũ của độc giả lớn tuổi. */
+(function () {
+  'use strict';
+  var duongDan = location.pathname;
+  if (duongDan.indexOf('/than/') !== 0 && duongDan.indexOf('/tam/') !== 0) return;
+  var bai = document.querySelector('article');
+  if (!bai) return;
+  var dongNgay = bai.querySelector('p');
+  if (!dongNgay || dongNgay.textContent.indexOf('Ngày đăng') === -1) return;
+  if (document.getElementById('luotXemBai')) return;
+
+  function dinhDangSo(n) {
+    try { return n.toLocaleString('vi-VN'); } catch (e) { return String(n); }
+  }
+  function hienSo(n) {
+    if (document.getElementById('luotXemBai')) return;
+    var khoang = document.createElement('span');
+    khoang.id = 'luotXemBai';
+    khoang.className = 'luot-xem';
+    khoang.textContent = ' · 👁️ ' + dinhDangSo(n) + ' lượt xem';
+    dongNgay.appendChild(khoang);
+  }
+  function goiApiViews(phuongThuc, duLieu, hamGoi) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(phuongThuc, '/api/views', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) return;
+      var data = null;
+      try { data = JSON.parse(xhr.responseText); } catch (e) {}
+      hamGoi(data);
+    };
+    xhr.onerror = function () { hamGoi(null); };
+    xhr.send(duLieu ? JSON.stringify(duLieu) : null);
+  }
+  // POST cộng +1 rồi hiện con số mới; nếu POST lỗi thì thử GET đọc số cũ,
+  // vẫn lỗi thì lặng lẽ không hiện gì.
+  goiApiViews('POST', { page: duongDan }, function (data) {
+    if (data && data.ok && typeof data.views === 'number') { hienSo(data.views); return; }
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/api/views?page=' + encodeURIComponent(duongDan), true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) return;
+      try {
+        var d = JSON.parse(xhr.responseText);
+        if (d && d.ok && typeof d.views === 'number') hienSo(d.views);
+      } catch (e) {}
+    };
+    xhr.onerror = function () {};
+    xhr.send(null);
+  });
 })();

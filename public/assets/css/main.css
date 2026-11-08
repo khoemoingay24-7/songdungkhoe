@@ -327,3 +327,8 @@ body.page-tam .site-search button { background: var(--tam); }
 .nut-gui-binh-luan:hover { background: var(--than-deep); }
 .nut-gui-binh-luan:disabled { opacity: .6; cursor: wait; }
 .trang-thai-binh-luan { margin: 12px 0 0; font-size: 15px; color: var(--muted); }
+
+/* ---------- Bộ đếm lượt xem bài viết (D1 + /api/views, thêm 08/11/2026) ----------
+   Hiện cạnh ngày đăng đầu bài; cùng cỡ chữ với dòng ngày đăng, số đậm hơn
+   một chút cho dễ thấy. */
+.luot-xem { white-space: nowrap; font-weight: 600; }
