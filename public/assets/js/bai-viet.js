@@ -16,7 +16,11 @@
  *   page_views, API ở /functions/api/views.js): mỗi lần mở bài viết cộng
  *   +1 (đếm tất cả lượt tải, kể cả tải lại trang/bot — theo ý bác, để con
  *   số tăng nhanh, hiệu ứng đám đông) rồi hiện "👁️ N lượt xem" cạnh
- *   ngày đăng đầu bài. Logic ở cuối file này.
+ *   ngày đăng đầu bài, kèm banner chúc mừng "🎉 Chúc mừng bạn là người
+ *   thứ N..." ngay dưới tiêu đề. Banner chỉ hiện 1 LẦN mỗi phiên đọc
+ *   (sessionStorage, khóa 'sdk-banner-chuc-mung-da-hien'); bấm × tắt
+ *   cho hết phiên. "Người thứ N" là cách nói ấm áp theo ý bác — thực
+ *   chất N là tổng lượt xem. Logic ở cuối file này.
  */
 (function () {
   'use strict';
@@ -297,16 +301,23 @@
   setTimeout(hienThe, 90000);
 })();
 
-/* ---------- Bộ đếm lượt xem bài viết (Cloudflare D1 + /api/views) ----------
- * Mỗi lần mở bài viết: POST /api/views {page} cộng +1 rồi chèn
- * "👁️ N lượt xem" vào dòng ngày đăng đầu bài (cạnh "Ngày đăng: ...").
+/* ---------- Bộ đếm lượt xem + banner chúc mừng (Cloudflare D1 + /api/views) ----------
+ * Mỗi lần mở bài viết: POST /api/views {page} cộng +1 rồi:
+ *  - chèn "👁️ N lượt xem" vào dòng ngày đăng đầu bài (cạnh "Ngày đăng: ...");
+ *  - hiện banner chúc mừng "🎉 Chúc mừng bạn là người thứ N luôn tìm hiểu
+ *    thông tin để chăm sóc chính mình!" ngay dưới tiêu đề.
  * Theo ý bác (08/11/2026): đếm TẤT CẢ lượt tải (kể cả tải lại trang, bot,
  * trình cào) — không lọc trùng IP, không lọc bot — để con số tăng nhanh
  * và sinh động (hiệu ứng đám đông / Social Proof). Số hiển thị theo
- * định dạng Việt Nam (dấu chấm phân cách hàng nghìn). Chỉ chạy trên
- * trang bài viết (/than/... hoặc /tam/...); lỗi mạng thì lặng lẽ không
- * hiện gì, không làm phiền độc giả. Dùng XMLHttpRequest cho tương thích
- * cả trình duyệt cũ của độc giả lớn tuổi. */
+ * định dạng Việt Nam (dấu chấm phân cách hàng nghìn). "Người thứ N" ở
+ * đây là cách nói ấm áp theo ý bác — thực chất N là tổng lượt xem.
+ * Chống nhàm: banner chỉ hiện 1 LẦN trong mỗi phiên đọc (sessionStorage)
+ * — mở bài đầu tiên thì thấy lời chúc, mở các bài tiếp theo trong cùng
+ * phiên thì chỉ còn dòng "👁️ N lượt xem" lặng lẽ. Sang phiên mới (mở
+ * lại trình duyệt/tab mới) thì lại chúc một lần nữa. Bấm nút × cũng tắt
+ * banner cho hết phiên. Chỉ chạy trên trang bài viết (/than/... hoặc
+ * /tam/...); lỗi mạng thì lặng lẽ không hiện gì. Dùng XMLHttpRequest cho
+ * tương thích cả trình duyệt cũ của độc giả lớn tuổi. */
 (function () {
   'use strict';
   var duongDan = location.pathname;
@@ -315,18 +326,54 @@
   if (!bai) return;
   var dongNgay = bai.querySelector('p');
   if (!dongNgay || dongNgay.textContent.indexOf('Ngày đăng') === -1) return;
-  if (document.getElementById('luotXemBai')) return;
+
+  var KHOA_PHIAN = 'sdk-banner-chuc-mung-da-hien';
+
+  function nhoPhien(giaTri) {
+    try { sessionStorage.setItem(KHOA_PHIAN, giaTri); } catch (e) {}
+  }
+  function daHienPhienNay() {
+    try { return sessionStorage.getItem(KHOA_PHIAN) === '1'; } catch (e) { return false; }
+  }
 
   function dinhDangSo(n) {
     try { return n.toLocaleString('vi-VN'); } catch (e) { return String(n); }
   }
-  function hienSo(n) {
+  function hienSoLuotXem(n) {
     if (document.getElementById('luotXemBai')) return;
     var khoang = document.createElement('span');
     khoang.id = 'luotXemBai';
     khoang.className = 'luot-xem';
     khoang.textContent = ' · 👁️ ' + dinhDangSo(n) + ' lượt xem';
     dongNgay.appendChild(khoang);
+  }
+  function hienBanner(n) {
+    if (document.getElementById('bannerChucMung')) return;
+    if (daHienPhienNay()) return;
+    var tieuDe = bai.querySelector('h1');
+    if (!tieuDe) return;
+    var khung = document.createElement('div');
+    khung.id = 'bannerChucMung';
+    khung.className = 'banner-chuc-mung';
+    if (dongNgay.textContent.indexOf('Dưỡng Tâm') !== -1) khung.className += ' nhanh-tam';
+    khung.setAttribute('role', 'status');
+    var cau = document.createElement('span');
+    cau.textContent = '🎉 Chúc mừng bạn là người thứ ' + dinhDangSo(n) +
+      ' luôn tìm hiểu thông tin để chăm sóc chính mình!';
+    var nutDong = document.createElement('button');
+    nutDong.type = 'button';
+    nutDong.className = 'nut-dong-banner';
+    nutDong.setAttribute('aria-label', 'Đóng lời chúc mừng');
+    nutDong.textContent = '×';
+    nutDong.addEventListener('click', function () { khung.remove(); });
+    khung.appendChild(cau);
+    khung.appendChild(nutDong);
+    tieuDe.parentNode.insertBefore(khung, tieuDe.nextSibling);
+    nhoPhien('1');
+  }
+  function hienKetQua(n) {
+    hienSoLuotXem(n);
+    hienBanner(n);
   }
   function goiApiViews(phuongThuc, duLieu, hamGoi) {
     var xhr = new XMLHttpRequest();
@@ -344,14 +391,14 @@
   // POST cộng +1 rồi hiện con số mới; nếu POST lỗi thì thử GET đọc số cũ,
   // vẫn lỗi thì lặng lẽ không hiện gì.
   goiApiViews('POST', { page: duongDan }, function (data) {
-    if (data && data.ok && typeof data.views === 'number') { hienSo(data.views); return; }
+    if (data && data.ok && typeof data.views === 'number') { hienKetQua(data.views); return; }
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/views?page=' + encodeURIComponent(duongDan), true);
     xhr.onreadystatechange = function () {
       if (xhr.readyState !== 4) return;
       try {
         var d = JSON.parse(xhr.responseText);
-        if (d && d.ok && typeof d.views === 'number') hienSo(d.views);
+        if (d && d.ok && typeof d.views === 'number') hienKetQua(d.views);
       } catch (e) {}
     };
     xhr.onerror = function () {};

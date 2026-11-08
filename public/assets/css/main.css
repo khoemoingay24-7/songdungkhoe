@@ -332,3 +332,12 @@ body.page-tam .site-search button { background: var(--tam); }
    Hiện cạnh ngày đăng đầu bài; cùng cỡ chữ với dòng ngày đăng, số đậm hơn
    một chút cho dễ thấy. */
 .luot-xem { white-space: nowrap; font-weight: 600; }
+
+/* ---------- Banner chúc mừng "người thứ N" (thêm 08/11/2026) ----------
+   Khung nhỏ dưới tiêu đề bài viết; hiện 1 lần mỗi phiên đọc (xem
+   bai-viet.js). Màu theo nhánh: Thân xanh lá, Tâm nâu trầm. */
+.banner-chuc-mung { display: flex; gap: 10px; align-items: flex-start; background: #EFF6EF; border: 1.5px solid var(--than); border-radius: 14px; padding: 14px 16px; margin: 14px 0; font-size: 17px; line-height: 1.6; color: var(--ink); animation: hien-dan-banner 0.6s ease; }
+.banner-chuc-mung.nhanh-tam { background: #F9F1E3; border-color: var(--tam); }
+.banner-chuc-mung .nut-dong-banner { margin-left: auto; border: none; background: none; font-size: 22px; line-height: 1; cursor: pointer; color: var(--muted); padding: 0 2px; flex-shrink: 0; }
+@keyframes hien-dan-banner { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .banner-chuc-mung { animation: none; } }
