@@ -184,13 +184,16 @@ def build_rss(base, episodes):
         mo_ta_day_du = ep["desc"]
         if ep.get("headings"):
             mo_ta_day_du += "\n\nCác ý chính trong bài:\n" + "\n".join(f"• {h}" for h in ep["headings"])
-        # Link bài viết dạng neo chữ (thay cho dải URL dài trước đây).
-        # Ghi chú: ElementTree tự escape thẻ <a> thành thực thể XML; khi app
-        # podcast đọc RSS, nội dung mô tả vẫn là thẻ <a> thật nên Spotify
-        # hiển thị thành link bấm được (chỉ hỗ trợ https). Lưu ý: app Apple
-        # Podcasts bản mới không vẽ link neo chữ — chữ vẫn hiện nhưng không
-        # bấm được; muốn link bấm được mọi app thì phải để nguyên URL đầy đủ.
-        mo_ta_day_du += f'\n\n<a href="{ep["url"]}">Đọc bài viết đầy đủ tại đây</a>'
+        # Link bài viết: neo chữ gọn cho đẹp mắt + dòng URL đầy đủ ngay dưới
+        # để link bấm được ở mọi app (Apple Podcasts bản mới không vẽ link
+        # neo chữ — chỉ URL viết đầy đủ mới tự thành link bấm được ở đó;
+        # Spotify bấm được cả hai dạng). Ghi chú: ElementTree tự escape thẻ
+        # <a> thành thực thể XML; khi app podcast đọc RSS, nội dung mô tả
+        # vẫn là thẻ <a> thật.
+        mo_ta_day_du += (
+            f'\n\n<a href="{ep["url"]}">Đọc bài viết đầy đủ tại đây</a>'
+            f"\n{ep['url']}"
+        )
         mo_ta_day_du += (
             "\n\nNếu thấy bài nghe hữu ích, bạn nhấn [Theo dõi] kênh để không bỏ lỡ "
             "các bài viết tiếp theo nhé!"
