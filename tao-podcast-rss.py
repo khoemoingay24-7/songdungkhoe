@@ -152,13 +152,18 @@ def build_rss(base, episodes):
     ET.SubElement(ch, "title").text = "Sống Đúng Khỏe — Nghe bài viết"
     ET.SubElement(ch, "link").text = f"https://{base}/"
     ET.SubElement(ch, "description").text = (
-        "Nghe đọc các bài viết Dưỡng Thân và Dưỡng Tâm của website Sống Đúng Khỏe: "
-        "đông y dưỡng sinh, giấc ngủ, vận động, chánh niệm và sống an lành mỗi ngày."
+        "Kênh chính thức của Sống Đúng Khỏe. Nơi chia sẻ các bài viết audio về "
+        "Dưỡng Thân & Dưỡng Tâm: nhịp sinh học, giấc ngủ, chánh niệm và lối sống "
+        "an lành. Phát sóng định kỳ hàng tuần. Đọc thêm bài viết chi tiết tại "
+        "songdungkhoe.com."
     )
     ET.SubElement(ch, "language").text = "vi-VN"
     ET.SubElement(ch, "itunes:author").text = "Sống Đúng Khỏe"
     ET.SubElement(ch, "itunes:summary").text = (
-        "Nghe đọc các bài viết Dưỡng Thân và Dưỡng Tâm của website Sống Đúng Khỏe."
+        "Kênh chính thức của Sống Đúng Khỏe. Nơi chia sẻ các bài viết audio về "
+        "Dưỡng Thân & Dưỡng Tâm: nhịp sinh học, giấc ngủ, chánh niệm và lối sống "
+        "an lành. Phát sóng định kỳ hàng tuần. Đọc thêm bài viết chi tiết tại "
+        "songdungkhoe.com."
     )
     ET.SubElement(ch, "itunes:explicit").text = "no"
     ET.SubElement(ch, "itunes:type").text = "episodic"
@@ -179,7 +184,17 @@ def build_rss(base, episodes):
         mo_ta_day_du = ep["desc"]
         if ep.get("headings"):
             mo_ta_day_du += "\n\nCác ý chính trong bài:\n" + "\n".join(f"• {h}" for h in ep["headings"])
-        mo_ta_day_du += f"\n\nĐọc bài viết đầy đủ tại: {ep['url']}"
+        # Link bài viết dạng neo chữ (thay cho dải URL dài trước đây).
+        # Ghi chú: ElementTree tự escape thẻ <a> thành thực thể XML; khi app
+        # podcast đọc RSS, nội dung mô tả vẫn là thẻ <a> thật nên Spotify
+        # hiển thị thành link bấm được (chỉ hỗ trợ https). Lưu ý: app Apple
+        # Podcasts bản mới không vẽ link neo chữ — chữ vẫn hiện nhưng không
+        # bấm được; muốn link bấm được mọi app thì phải để nguyên URL đầy đủ.
+        mo_ta_day_du += f'\n\n<a href="{ep["url"]}">Đọc bài viết đầy đủ tại đây</a>'
+        mo_ta_day_du += (
+            "\n\nNếu thấy bài nghe hữu ích, bạn nhấn [Theo dõi] kênh để không bỏ lỡ "
+            "các bài viết tiếp theo nhé!"
+        )
         ET.SubElement(item, "description").text = mo_ta_day_du
         ET.SubElement(item, "itunes:summary").text = ep["desc"]
         enc = ET.SubElement(item, "enclosure", {
