@@ -7,25 +7,18 @@
   "card": "Sự Thật & Tin Đồn"
  },
  {
-  "title": "Bơi Lội: Môn Thể Thao Toàn Diện, Ít Áp Lực Lên Khớp Nhất",
-  "desc": "Khám phá lợi ích tuyệt vời của bơi lội đối với sức khỏe tim mạch, xương khớp và cơ bắp. Hướng dẫn bơi lội an toàn và hiệu quả cho mọi lứa tuổi.",
-  "url": "/than/boi-loi-it-ap-luc-len-xuong-khop/",
-  "branch": "Dưỡng Thân",
-  "card": "Vận Động"
- },
- {
-  "title": "Bị Người Khác Nói Lời Khó Nghe: Nhận Hay Bỏ?",
-  "desc": "Bị người khác nói nặng lời, đau cả ngày? Cách phân biệt lời có ích và lời trút giận, giữ phần đúng, bỏ phần cay, không tự làm đau mình thêm.",
-  "url": "/tam/bi-noi-loi-kho-nghe-nhan-hay-bo/",
-  "branch": "Dưỡng Tâm",
-  "card": "Hỏi Đáp"
- },
- {
   "title": "Bổ Sung Vitamin Tổng Hợp Là Đủ?",
   "desc": "Một viên vitamin tổng hợp mỗi ngày có bù được cho bữa ăn thiếu rau? Bài viết thuộc chuỗi Sự Thật & Tin Đồn giúp bạn phân biệt khi nào cần bổ sung, khi nào chỉ cần ăn uống đủ chất.",
   "url": "/than/bo-sung-vitamin-tong-hop-la-du/",
   "branch": "Dưỡng Thân",
   "card": "Sự Thật & Tin Đồn"
+ },
+ {
+  "title": "Bơi Lội: Môn Thể Thao Toàn Diện & Ít Áp Lực Lên Xương Khớp",
+  "desc": "Khám phá lợi ích tuyệt vời của bơi lội đối với sức khỏe tim mạch, xương khớp và cơ bắp. Hướng dẫn bơi lội an toàn và hiệu quả cho mọi lứa tuổi.",
+  "url": "/than/boi-loi-it-ap-luc-len-xuong-khop/",
+  "branch": "Dưỡng Thân",
+  "card": "Vận Động"
  },
  {
   "title": "Buổi Sáng Thức Dậy: Hãy Chào Hỏi \"Người Bạn Thân\" Trước Khi Chạm Vào Điện Thoại",
@@ -40,13 +33,6 @@
   "url": "/than/cang-it-duong-cang-tot/",
   "branch": "Dưỡng Thân",
   "card": "Sự Thật & Tin Đồn"
- },
- {
-  "title": "Cách Lấy Lại Nhịp Sinh Học Chuẩn Khi Bạn Lỡ Thức Khuya Kéo Dài",
-  "desc": "Lỡ thức khuya kéo dài khiến đồng hồ sinh học lệch nhịp, gây mệt mỏi và mất ngủ ban đêm. Các bước đơn giản giúp bạn tái thiết lập nhịp sinh học tự nhiên và lấy lại giấc ngủ ngon.",
-  "url": "/than/lay-lai-nhip-sinh-hoc/",
-  "branch": "Dưỡng Thân",
-  "card": "Giấc Ngủ"
  },
  {
   "title": "Chạy Bộ Cho Người Mới Bắt Đầu: Hướng Dẫn Từ Con Số 0 An Toàn",
@@ -70,6 +56,13 @@
   "card": "Cơ Thể Lên Tiếng"
  },
  {
+  "title": "Những Dấu Hiệu Báo Động Trái Tim Đang Quá Tải Vào Mùa Hạ",
+  "desc": "Trời nắng gắt, trái tim phải gồng mình tản nhiệt. Nhận biết sớm 5 dấu hiệu báo động — hồi hộp, chóng mặt, nặng ngực, vã mồ hôi lạnh, hụt hơi — để bảo vệ tim mạch qua mùa Hạ.",
+  "url": "/than/dau-hieu-bao-dong-trai-tim-qua-tai-vao-mua-ha/",
+  "branch": "Dưỡng Thân",
+  "card": "Theo Mùa"
+ },
+ {
   "title": "Đi Bộ & Đi Bộ Chân Đất: Lợi Ích Tự Nhiên Và Kỹ Thuật Thực Hành Đúng",
   "desc": "Hướng dẫn chi tiết lợi ích của việc đi bộ, đi bộ chân đất tiếp đất tự nhiên và kỹ thuật thực hành an toàn giúp tăng cường sức khỏe, thư giãn tâm trí mỗi ngày.",
   "url": "/than/di-bo-di-bo-chan-dat/",
@@ -89,6 +82,13 @@
   "url": "/than/dong-ho-sinh-hoc-la-gi/",
   "branch": "Dưỡng Thân",
   "card": "Giấc Ngủ"
+ },
+ {
+  "title": "Dưỡng Phế Mùa Thu – Bí Quyết Bảo Vệ Hô Hấp Cho Người Việt Mọi Miền",
+  "desc": "Thu về, không khí hanh khô làm đường hô hấp nhạy cảm hơn: khô họng, ho hắng, dị ứng tái phát. Giữ ấm đường thở, ăn nhuận phế và tập thở đúng cách là những cách đơn giản để tạng Phế khỏe mạnh suốt mùa thu.",
+  "url": "/than/duong-phe-mua-thu/",
+  "branch": "Dưỡng Thân",
+  "card": "Theo Mùa"
  },
  {
   "title": "Giấc Ngủ Đang \"Nói Chuyện\" Gì Với Bạn?",
@@ -133,6 +133,20 @@
   "card": "Theo Mùa"
  },
  {
+  "title": "Làn Da Và Nhiệt Độ Đang Mách Bảo Gì Với Bạn?",
+  "desc": "Làn da báo tin đầu tiên khi khí huyết gặp trở ngại: tay chân lạnh, mặt đỏ bừng, da khô ngứa. Lắng nghe da mỗi ngày bằng ba việc nhỏ, đơn giản mà làm được ngay.",
+  "url": "/than/lan-da-va-nhiet-do-dang-mach-bao-gi-voi-ban/",
+  "branch": "Dưỡng Thân",
+  "card": "Cơ Thể Lên Tiếng"
+ },
+ {
+  "title": "Cách Lấy Lại Nhịp Sinh Học Chuẩn Khi Bạn Lỡ Thức Khuya Kéo Dài",
+  "desc": "Lỡ thức khuya kéo dài khiến đồng hồ sinh học lệch nhịp, gây mệt mỏi và mất ngủ ban đêm. Các bước đơn giản giúp bạn tái thiết lập nhịp sinh học tự nhiên và lấy lại giấc ngủ ngon.",
+  "url": "/than/lay-lai-nhip-sinh-hoc/",
+  "branch": "Dưỡng Thân",
+  "card": "Giấc Ngủ"
+ },
+ {
   "title": "Mùa Hạ và Tâm Hỏa – Khi cơ thể quá tải bởi nắng nóng",
   "desc": "Mùa Hạ thuộc hành Hỏa, tương ứng với tạng Tâm. Nắng nóng quá độ khiến trái tim dễ rơi vào trạng thái quá tải — hiểu về 'Tâm hỏa' để giữ mát cho tim giữa ngày hè.",
   "url": "/than/mua-ha-va-tam-hoa/",
@@ -168,6 +182,13 @@
   "card": "Cơ Thể Lên Tiếng"
  },
  {
+  "title": "Tập Thể Dục Bụng Để Giảm Mỡ Bụng? — Bí Mật Về 'Giảm Mỡ Cục Bộ'",
+  "desc": "Muốn bụng nhỏ thì tập bụng? Cơ thể không đốt mỡ theo ý mình: mỡ được huy động từ kho chung toàn thân. Muốn bụng nhỏ, hãy tập toàn thân và ăn cho đúng.",
+  "url": "/than/tap-the-duc-bung-de-giam-mo-bung/",
+  "branch": "Dưỡng Thân",
+  "card": "Sự Thật & Tin Đồn"
+ },
+ {
   "title": "Tập Thể Dục Mùa Hạ Thế Nào Để Không Bị Kiệt Sức?",
   "desc": "Tập thể dục mùa Hạ sao cho không kiệt sức? Chọn thời điểm vàng cho tim mạch, bù nước đúng cách và những lưu ý an toàn để vận động bền bỉ suốt mùa nóng.",
   "url": "/than/tap-the-duc-mua-ha-khong-kiet-suc/",
@@ -189,6 +210,13 @@
   "card": "Vận Động"
  },
  {
+  "title": "Thời Điểm Tập Thể Dục Tốt Nhất Trong Ngày Để Buổi Tối Ngủ Ngon Giấc",
+  "desc": "Tập thể dục đúng thời điểm giúp cơ thể giải phóng năng lượng dư thừa, tăng cường chất lượng giấc ngủ sâu. Tìm hiểu khung giờ tập luyện lý tưởng để đêm xuống là bạn ngủ ngon tròn giấc.",
+  "url": "/than/thoi-diem-tap-the-duc-tot-nhat-de-ngu-ngon/",
+  "branch": "Dưỡng Thân",
+  "card": "Giấc Ngủ"
+ },
+ {
   "title": "Thói quen đón ánh nắng mặt trời buổi sáng: “liều thuốc” tự nhiên giúp đêm ngủ sâu",
   "desc": "Tắm nắng buổi sáng không chỉ cung cấp Vitamin D mà còn là “chiếc công tắc” tự nhiên giúp cài đặt lại đồng hồ sinh học, gia tăng sản xuất Melatonin để bạn dễ dàng đi vào giấc ngủ sâu và trọn vẹn mỗi đêm.",
   "url": "/than/thoi-quen-don-anh-nang-buoi-sang/",
@@ -201,6 +229,13 @@
   "url": "/than/thuoc-dang-da-tat-nhung-dang-qua-co-thuc-su-tot/",
   "branch": "Dưỡng Thân",
   "card": "Ngũ Vị – Ngũ Tạng"
+ },
+ {
+  "title": "Tim khỏe với mùa Hạ: lòng bao dung và sự tĩnh lặng – vị thuốc mát lành",
+  "desc": "Mùa Hạ nóng cả ngoài trời lẫn trong lòng. Bao dung và mười lăm phút tĩnh lặng mỗi ngày là vị thuốc mát lành giúp trái tim nhẹ nhõm, ngủ ngon hơn.",
+  "url": "/than/tim-khoe-voi-mua-ha-long-bao-dung-va-su-tinh-lang/",
+  "branch": "Dưỡng Thân",
+  "card": "Theo Mùa"
  },
  {
   "title": "Tìm lại giấc ngủ ngon qua việc điều hòa ngũ vị",
@@ -329,6 +364,13 @@
   "card": "Sống Đang Là"
  },
  {
+  "title": "Bị Nói Lời Khó Nghe: Nhận Hay Bỏ? 6 Cách Giữ Lòng Nhẹ",
+  "desc": "Bị người khác nói nặng lời, đau cả ngày? Cách phân biệt lời có ích và lời trút giận, giữ phần đúng, bỏ phần cay, không tự làm đau mình thêm.",
+  "url": "/tam/bi-noi-loi-kho-nghe-nhan-hay-bo/",
+  "branch": "Dưỡng Tâm",
+  "card": "Hỏi Đáp"
+ },
+ {
   "title": "Buồn Không Rõ Lý Do: Cứ Để Nó Ở Đó Một Lát",
   "desc": "Buồn mà không rõ lý do là chuyện nhiều người gặp. Thử gọi tên nỗi buồn, ngồi cạnh nó năm phút và vài việc nhỏ để lòng nhẹ lại.",
   "url": "/tam/buon-khong-ro-ly-do/",
@@ -339,6 +381,13 @@
   "title": "Buông Bỏ Không Phải Là Bỏ Cuộc: Cách Sống Nhẹ Lòng Và Tự Do Hơn Mỗi Ngày",
   "desc": "Buông bỏ không phải là bỏ cuộc, chịu thua hay mặc kệ mọi thứ. Buông bỏ là vẫn làm hết phần của mình, rồi không nắm chặt phần còn lại nữa — và đây là ba cách thực hành buông bỏ trong đời thường.",
   "url": "/tam/buong-bo-khong-phai-la-bo-cuoc/",
+  "branch": "Dưỡng Tâm",
+  "card": "Sống Đang Là"
+ },
+ {
+  "title": "Buông Bỏ Tham Ái — Khi Muốn Mãi Không Thôi, Lòng Mình Mệt Lúc Nào Không Hay",
+  "desc": "Muốn mãi không thôi, lòng mình mệt lúc nào không hay. Phân biệt muốn với thương, và ba việc nhỏ để nới lỏng cái nắm — để niềm vui hôm nay được trọn vẹn.",
+  "url": "/tam/buong-bo-tham-ai/",
   "branch": "Dưỡng Tâm",
   "card": "Sống Đang Là"
  },
@@ -378,6 +427,13 @@
   "card": "Thơ & Truyện"
  },
  {
+  "title": "Cơ Thể Thay Đổi Theo Tuổi Tác: Cách Đón Nhận Và Trân Trọng",
+  "desc": "Tóc bạc, nếp nhăn, sức khỏe đổi thay là chuyện tự nhiên. Tìm cách đón nhận tuổi tác nhẹ lòng và trân trọng cơ thể khi còn khỏe, qua vài việc nhỏ hôm nay.",
+  "url": "/tam/co-the-thay-doi-theo-tuoi-tac-cach-don-nhan-va-tran-trong/",
+  "branch": "Dưỡng Tâm",
+  "card": "37 Phương Pháp: Bản đồ cho Thân và Tâm"
+ },
+ {
   "title": "Hai Mũi Tên",
   "desc": "Chuyện xảy ra làm ta đau một phần, còn mấy phần là ta tự làm mình đau thêm? Hình ảnh hai mũi tên giúp nhận ra phần suy diễn, trách móc mình tự thêm vào — và một việc nhỏ để bắt quả tang mũi tên thứ hai mỗi ngày.",
   "url": "/tam/hai-mui-ten/",
@@ -390,6 +446,13 @@
   "url": "/tam/hai-nu-cuoi-trong-gio-lang/",
   "branch": "Dưỡng Tâm",
   "card": "Thơ & Truyện"
+ },
+ {
+  "title": "Hay so sánh mình với người khác: Cách thôi thấy mình thua kém",
+  "desc": "Vì sao nhìn người ta hơn mình lại thấy lòng nặng? Hiểu cái cân hỏng của sự so sánh và thử một việc nhỏ để thấy lại những gì mình đang có.",
+  "url": "/tam/hay-so-sanh-minh-voi-nguoi-khac-cach-thoi-thua-kem/",
+  "branch": "Dưỡng Tâm",
+  "card": "Thân Khỏe – Tâm An"
  },
  {
   "title": "Hơi Thở, Người Bạn Luôn Ở Ngay Đây",
@@ -455,13 +518,6 @@
   "card": "37 Phương Pháp: Bản đồ cho Thân và Tâm"
  },
  {
-  "title": "Những Dấu Hiệu Báo Động Trái Tim Đang Quá Tải Vào Mùa Hạ",
-  "desc": "Trời nắng gắt, trái tim phải gồng mình tản nhiệt. Nhận biết sớm 5 dấu hiệu báo động — hồi hộp, chóng mặt, nặng ngực, vã mồ hôi lạnh, hụt hơi — để bảo vệ tim mạch qua mùa Hạ.",
-  "url": "/than/dau-hieu-bao-dong-trai-tim-qua-tai-vao-mua-ha/",
-  "branch": "Dưỡng Thân",
-  "card": "Theo Mùa"
- },
- {
   "title": "Quan sát tư thế: thân đang ở đâu, tâm biết ở đó",
   "desc": "Bài 2 chuỗi 37 Phương Pháp: không cần ngồi yên mới có thể tỉnh thức. Chỉ cần biết mình đang đi, đang đứng, đang ngồi hay đang nằm — mang sự có mặt vào từng chuyển động quen thuộc mỗi ngày.",
   "url": "/tam/quan-sat-tu-the-than-o-dau-tam-biet-o-do/",
@@ -495,6 +551,13 @@
   "url": "/tam/than-minh-duoc-lam-tu-bon-chat-lieu/",
   "branch": "Dưỡng Tâm",
   "card": "37 Phương Pháp: Bản đồ cho Thân và Tâm"
+ },
+ {
+  "title": "Thay vì buông xuôi…",
+  "desc": "Buông xuôi và buông tay trông giống hệt nhau, nhưng một bên dừng trong mệt mỏi, một bên dừng trong sáng rõ. Bài viết chỉ cách phân biệt để dừng đúng lúc, nhẹ lòng.",
+  "url": "/tam/thay-vi-buong-xuoi/",
+  "branch": "Dưỡng Tâm",
+  "card": "Quán Chiếu"
  },
  {
   "title": "Thay vì chứng minh…",
@@ -616,59 +679,10 @@
   "card": "37 Phương Pháp: Bản đồ cho Thân và Tâm"
  },
  {
-  "title": "Tim khỏe với mùa Hạ: lòng bao dung và sự tĩnh lặng – vị thuốc mát lành",
-  "desc": "Mùa Hạ nóng cả ngoài trời lẫn trong lòng. Bao dung và mười lăm phút tĩnh lặng mỗi ngày là vị thuốc mát lành giúp trái tim nhẹ nhõm, ngủ ngon hơn.",
-  "url": "/than/tim-khoe-voi-mua-ha-long-bao-dung-va-su-tinh-lang/",
-  "branch": "Dưỡng Thân",
-  "card": "Theo Mùa"
- },
- {
-  "title": "Hay so sánh mình với người khác: Cách thôi thấy mình thua kém",
-  "desc": "Vì sao nhìn người ta hơn mình lại thấy lòng nặng? Hiểu cái cân hỏng của sự so sánh và thử một việc nhỏ để thấy lại những gì mình đang có.",
-  "url": "/tam/hay-so-sanh-minh-voi-nguoi-khac-cach-thoi-thua-kem/",
-  "branch": "Dưỡng Tâm",
-  "card": "Thân Khỏe – Tâm An"
- },
- {
-  "title": "Làn Da Và Nhiệt Độ Đang Mách Bảo Gì Với Bạn?",
-  "desc": "Làn da báo tin đầu tiên khi khí huyết gặp trở ngại: tay chân lạnh, mặt đỏ bừng, da khô ngứa. Lắng nghe da mỗi ngày bằng ba việc nhỏ, đơn giản mà làm được ngay.",
-  "url": "/than/lan-da-va-nhiet-do-dang-mach-bao-gi-voi-ban/",
-  "branch": "Dưỡng Thân",
-  "card": "Cơ Thể Lên Tiếng"
- },
- {
   "title": "“Vậy à?” — Hai Chữ Nhẹ Tênh Mà Gỡ Được Cả Gánh Nặng",
   "desc": "Bị đổ oan mà chỉ đáp “Vậy à?” — câu chuyện thiền sư Hakuin và hai chữ nhẹ tênh giúp lòng không còn bị lời người khác cầm lái. Một thực hành nhỏ cho mỗi ngày.",
   "url": "/tam/vay-a-hakuin/",
   "branch": "Dưỡng Tâm",
   "card": "Thơ & Truyện"
- },
- {
-  "title": "Tập Thể Dục Bụng Để Giảm Mỡ Bụng? — Bí Mật Về 'Giảm Mỡ Cục Bộ'",
-  "desc": "Muốn bụng nhỏ thì tập bụng? Cơ thể không đốt mỡ theo ý mình: mỡ được huy động từ kho chung toàn thân. Muốn bụng nhỏ, hãy tập toàn thân và ăn cho đúng.",
-  "url": "/than/tap-the-duc-bung-de-giam-mo-bung/",
-  "branch": "Dưỡng Thân",
-  "card": "Sự Thật & Tin Đồn"
- },
- {
-  "title": "Buông Bỏ Tham Ái — Khi Muốn Mãi Không Thôi, Lòng Mình Mệt Lúc Nào Không Hay",
-  "desc": "Muốn mãi không thôi, lòng mình mệt lúc nào không hay. Phân biệt muốn với thương, và ba việc nhỏ để nới lỏng cái nắm — để niềm vui hôm nay được trọn vẹn.",
-  "url": "/tam/buong-bo-tham-ai/",
-  "branch": "Dưỡng Tâm",
-  "card": "Sống Đang Là"
- },
- {
-  "title": "Thời Điểm Tập Thể Dục Tốt Nhất Trong Ngày Để Buổi Tối Ngủ Ngon Giấc",
-  "desc": "Tập thể dục đúng thời điểm giúp cơ thể giải phóng năng lượng dư thừa, tăng cường chất lượng giấc ngủ sâu. Tìm hiểu khung giờ tập luyện lý tưởng để đêm xuống là bạn ngủ ngon tròn giấc.",
-  "url": "/than/thoi-diem-tap-the-duc-tot-nhat-de-ngu-ngon/",
-  "branch": "Dưỡng Thân",
-  "card": "Giấc Ngủ"
- },
- {
-  "title": "Cơ Thể Thay Đổi Theo Tuổi Tác: Cách Đón Nhận Và Trân Trọng",
-  "desc": "Tóc bạc, nếp nhăn, sức khỏe đổi thay là chuyện tự nhiên. Tìm cách đón nhận tuổi tác nhẹ lòng và trân trọng cơ thể khi còn khỏe, qua vài việc nhỏ hôm nay.",
-  "url": "/tam/co-the-thay-doi-theo-tuoi-tac-cach-don-nhan-va-tran-trong/",
-  "branch": "Dưỡng Tâm",
-  "card": "37 Phương Pháp: Bản đồ cho Thân và Tâm"
  }
 ]
