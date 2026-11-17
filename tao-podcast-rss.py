@@ -61,7 +61,8 @@ def remote_content_length(url):
     """Độ dài file ngoài (byte) bằng HTTP HEAD; None nếu không lấy được.
     Cần UA trình duyệt vì Cloudflare chặn UA mặc định của Python."""
     import urllib.request
-    for _ in range(2):
+    import time
+    for attempt in range(4):
         try:
             req = urllib.request.Request(
                 url, method="HEAD", headers={"User-Agent": BROWSER_UA})
@@ -69,6 +70,8 @@ def remote_content_length(url):
                 n = resp.headers.get("Content-Length")
                 return int(n) if n else None
         except Exception:
+            if attempt < 3:
+                time.sleep(1)
             continue
     return None
 
