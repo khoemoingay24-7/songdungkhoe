@@ -38,6 +38,39 @@ for slug, name, desc in THAN_CATS: BRANCH_OF[name] = "than"
 for slug, name, desc in TAM_CATS: BRANCH_OF[name] = "tam"
 BRANCH_LABEL = {"than": "Dưỡng Thân", "tam": "Dưỡng Tâm"}
 
+def sach_mo_ta(desc):
+    """Sa-pô hiển thị trên thẻ: lấy từ meta description của bài, gạt nhãn
+    quản lý nội bộ ("Bài N", "chuỗi", "nhánh", "Thẻ ...") và rút gọn tối đa
+    170 ký tự (cắt tại ranh giới từ + "…"). File bài KHÔNG bị sửa."""
+    s = desc.strip()
+    # Bỏ tiền tố "Bài N chuỗi X:" / "Bài N chuỗi X (ghi chú):" ở đầu
+    s = re.sub(r"^Bài \d+ chuỗi [^:()]+(?:\([^)]*\))?:\s*", "", s)
+    # "Bài viết thuộc chuỗi X giúp bạn" -> "Bài viết giúp bạn"
+    s = re.sub(r"Bài viết thuộc chuỗi .+? giúp bạn", "Bài viết giúp bạn", s)
+    # Bỏ câu cuối "Bài thứ ... trong chuỗi X." / "trong bài thứ ... chuỗi X."
+    s = re.sub(r"\s*Bài thứ \S+ trong chuỗi [^—.]*\.\s*$", "", s)
+    s = re.sub(r"\s*trong bài thứ \S+ chuỗi [^—.]*\.\s*$", "", s)
+    # Bỏ mệnh đề giữa câu "Bài mở đầu/thứ ... chuỗi "X" —"
+    s = re.sub(r"\s*Bài (?:mở đầu|thứ \S+) (?:trong )?chuỗi [“\"][^”\"]+[”\"] —\s*", " ", s)
+    # Bỏ "Bài mở thẻ X: " giữa câu
+    s = re.sub(r"\s*Bài mở thẻ [^:]+:\s*", " ", s)
+    # Bỏ dòng thẻ cuối " Thẻ X, Dưỡng Tâm."
+    s = re.sub(r"\s*Thẻ [^.]*\.\s*$", "", s)
+    # Bỏ ", nhánh Dưỡng Thân/Tâm." cuối câu
+    s = re.sub(r",\s*nhánh Dưỡng (?:Thân|Tâm)\.\s*$", ".", s)
+    # Viết hoa đầu câu sau dấu chấm (khi câu trước bị gạt bỏ)
+    s = re.sub(r"(^|[.?!]\s+)([a-zàáâãèéêìíòóôõùúýăđĩũơưạảấầẩẫậắằẳẵặẹẻẽềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ])",
+               lambda m: m.group(1) + m.group(2).upper(), s)
+    s = re.sub(r"\s+", " ", s).strip()
+    if s and s[-1] not in ".!?…\"”":
+        s += "."
+    # Rút gọn tối đa 170 ký tự, cắt tại ranh giới từ
+    if len(s) > 170:
+        cut = s[:167]
+        i = cut.rfind(" ")
+        s = (cut[:i] if i > 120 else cut) + "…"
+    return s
+
 def doc_bai(branch, dirname):
     p = os.path.join(ROOT, branch, dirname, "index.html")
     src = open(p, encoding="utf-8").read()
@@ -61,8 +94,23 @@ def doc_bai(branch, dirname):
         return None
     d = re.search(r"Ngày đăng:?\s*(\d{2}/\d{2}/\d{4})", src)
     ngay = d.group(1) if d else ""
-    return {"title": title, "desc": desc, "cat": cat,
-            "url": f"/{branch}/{dirname}/", "ngay": ngay}
+    # Ảnh hero: <img class="hero-img">; nếu bài không có (quiz/trang audio),
+    # lấy ảnh đầu tiên trong bài trừ logo; không có ảnh thì bỏ trống.
+    img = re.search(r'<img class="hero-img" src="([^"]+)" alt="([^"]*)"', src)
+    anh, alt = (img.group(1), html.unescape(img.group(2))) if img else ("", "")
+    if not anh:
+        for m_img in re.finditer(r'<img[^>]+src="([^"]+)"(?:[^>]*alt="([^"]*)")?', src):
+            if "logo.png" in m_img.group(1):
+                continue
+            anh = m_img.group(1)
+            alt = html.unescape(m_img.group(2)) if m_img.group(2) else "Ảnh minh họa bài viết"
+            break
+    # Audio giọng đọc của bài (khung phát trong bài); quiz/trang audio không có.
+    au = re.search(r'<audio[^>]*src="([^"]+)"', src)
+    audio = au.group(1) if au else ""
+    return {"title": title, "desc": sach_mo_ta(desc), "cat": cat,
+            "url": f"/{branch}/{dirname}/", "ngay": ngay,
+            "anh": anh, "alt": alt, "audio": audio, "slug": dirname}
 
 def template_parts(branch):
     """Tách template trang nhánh thành (trước <main>, sau </main>)."""
@@ -85,11 +133,28 @@ def main():
         nav_active = "than" if branch == "than" else "tam"
         for slug, name, desc in cats:
             ds = [b for b in bai_viet if b["cat"] == name]
-            cards = "\n".join(
-                f'''        <a class="cat-card" href="{b["url"]}">
-          <h3>{html.escape(b["title"])}</h3>
-          <p>{html.escape(b["desc"])}</p>
-        </a>''' for b in ds) or '        <p style="color:var(--muted)">Chuyên mục đang được bổ sung bài viết — mời bạn quay lại sau.</p>'
+            def the_gon(b):
+                anh_html = (f'<a href="{b["url"]}"><img class="anh-nho" src="{html.escape(b["anh"])}" '
+                            f'alt="{html.escape(b["alt"])}" loading="lazy"></a>') if b["anh"] else ""
+                am_thanh = ""
+                if b["audio"]:
+                    am_thanh = (f'<audio id="audio-{branch}-{b["slug"]}" class="an" preload="none" '
+                                f'src="{html.escape(b["audio"])}"></audio>\n'
+                                f'              <button class="nut-nghe{" tam" if branch == "tam" else ""} nho" type="button" '
+                                f'aria-controls="audio-{branch}-{b["slug"]}" aria-pressed="false">'
+                                f'<span aria-hidden="true">🔊</span> Nghe</button>')
+                return (f'''        <article class="the-gon {branch}">
+          {anh_html}
+          <div class="noi-dung-gon">
+            <h3><a href="{b["url"]}">{html.escape(b["title"])}</a></h3>
+            <p class="sa-po">{html.escape(b["desc"])}</p>
+            <div class="hang-duoi">
+              <span class="meta-gon">{html.escape(b["cat"])} &middot; {html.escape(b["ngay"])}</span>
+              {am_thanh}
+            </div>
+          </div>
+        </article>''')
+            cards = "\n".join(the_gon(b) for b in ds) or '        <p style="color:var(--muted)">Chuyên mục đang được bổ sung bài viết — mời bạn quay lại sau.</p>'
             url_tuyet_doi = f"{DOMAIN}/{branch}/{slug}/"
             # Khối tặng ebook (bảng chung thẻ -> ấn bản; bền qua các lần tái tạo trang)
             EBOOKS = {
@@ -111,7 +176,7 @@ def main():
       <p style="color:var(--muted);font-size:15px;"><a href="/{branch}/">{BRANCH_LABEL[branch]}</a> &middot; Chuyên mục</p>
       <h1>{html.escape(name)}</h1>
       <p class="article-desc">{html.escape(desc)}</p>{khoi_ebook}
-      <div class="cat-grid">
+      <div class="danh-sach-gon">
 {cards}
       </div>
     </section>
@@ -136,7 +201,12 @@ def main():
                 head2)
             out_dir = os.path.join(ROOT, branch, slug)
             os.makedirs(out_dir, exist_ok=True)
-            open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8").write(head2 + main_html + tail)
+            trang = head2 + main_html + tail
+            # Nút "Nghe" trên thẻ cần the-nghe.js (gắn vào trang chuyên mục
+            # sinh ra; trang nhánh gốc không đổi).
+            trang = trang.replace("</body>",
+                '<script src="/public/assets/js/the-nghe.js"></script>\n</body>', 1)
+            open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8").write(trang)
             dem += 1
             print(f"  /{branch}/{slug}/: {len(ds)} bài")
     print(f"Đã tạo {dem} trang chuyên mục.")

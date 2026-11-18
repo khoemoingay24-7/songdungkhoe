@@ -246,22 +246,105 @@ body.page-tam .site-search button { background: var(--tam); }
   .topbar-inner { padding: 6px 16px; font-size: 13px; }
 }
 
-/* ---------- Mục "Bài mới nhất" (trang chủ) ---------- */
+/* ---------- Thẻ bài viết (Cách 1: Card Lớn + Danh sách Gọn, từ 19/11/2026) ----------
+   Card lớn cho bài mới nhất; danh sách gọn cho các bài sau (trang chủ +
+   trang chuyên mục). Ảnh hero tự lấy từ file bài, tải chậm. */
 .tieu-de-muc { font-size: 24px; margin: 6px 0 4px; }
-.latest-list { display: grid; gap: 12px; margin: 14px 0 8px; }
-.latest-item { display: flex; gap: 14px; align-items: flex-start; background: var(--card);
-  border: 1px solid var(--line); border-left-width: 5px; border-radius: var(--radius);
-  padding: 14px 18px; box-shadow: var(--shadow); }
-.latest-item.than { border-left-color: var(--than); }
-.latest-item.tam { border-left-color: var(--tam); }
-.latest-item h3 { margin: 2px 0 4px; font-size: 19px; line-height: 1.5; }
-.latest-item h3 a { color: var(--ink); text-decoration: none; }
-.latest-item h3 a:hover { text-decoration: underline; }
-.latest-meta { margin: 0; font-size: 14px; color: var(--muted); }
-.nhan-nhanh { display: inline-block; flex: none; font-size: 13px; font-weight: 700;
-  padding: 3px 12px; border-radius: 999px; margin-top: 3px; white-space: nowrap; }
+.luoi-noi-bat { display: grid; gap: 20px; margin: 14px 0 8px; }
+.the-lon {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.the-lon img.anh-the {
+  width: 100%;
+  aspect-ratio: 16 / 9;          /* cắt tỉa chuẩn 16:9 */
+  object-fit: cover;
+  display: block;
+}
+.the-lon.than { border-top: 5px solid var(--than); }
+.the-lon.tam  { border-top: 5px solid var(--tam); }
+.than-the { padding: 18px 20px 20px; }
+.nhan-nhanh {
+  display: inline-block;
+  font-size: 13px; font-weight: 700; letter-spacing: .02em;
+  padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+}
 .nhan-nhanh.than { background: var(--than-soft); color: var(--than-deep); }
-.nhan-nhanh.tam { background: var(--tam-soft); color: var(--tam-deep); }
+.nhan-nhanh.tam  { background: var(--tam-soft);  color: var(--tam-deep); }
+.the-lon h3 { margin: 0 0 6px; font-size: 22px; line-height: 1.45; }
+.the-lon h3 a { color: var(--ink); text-decoration: none; }
+.the-lon h3 a:hover { text-decoration: underline; }
+.meta-the { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+.sa-po {
+  margin: 0 0 14px; color: #4A4238; font-size: 16px; line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;          /* sa-pô tối đa 3 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- Danh sách gọn --- */
+.danh-sach-gon { display: grid; gap: 14px; margin: 14px 0 8px; }
+.the-gon {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+.the-gon.than { border-left: 4px solid var(--than); }
+.the-gon.tam  { border-left: 4px solid var(--tam); }
+.the-gon img.anh-nho {
+  flex: 0 0 96px;
+  width: 96px; height: 96px;       /* thumbnail vuông 1:1 */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;             /* bo góc nhẹ */
+}
+.noi-dung-gon { min-width: 0; flex: 1; }
+.noi-dung-gon h3 { margin: 0 0 4px; font-size: 17px; line-height: 1.45; }
+.noi-dung-gon h3 a { color: var(--ink); text-decoration: none; }
+.noi-dung-gon h3 a:hover { text-decoration: underline; }
+.noi-dung-gon .sa-po {
+  font-size: 15px; margin-bottom: 10px;
+  -webkit-line-clamp: 2;           /* danh sách gọn: tối đa 2 dòng */
+}
+.hang-duoi {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 6px 14px;
+}
+.meta-gon { color: var(--muted); font-size: 13.5px; }
+
+/* --- Nút Nghe (mặt ngoài thẻ, to rõ) --- */
+.nut-nghe {
+  display: inline-flex; align-items: center; gap: 7px;
+  border: none; border-radius: 999px; cursor: pointer;
+  font-family: inherit; font-size: 15px; font-weight: 700;
+  padding: 10px 20px; color: #fff; background: var(--than);
+  transition: background .15s ease, transform .1s ease;
+}
+.nut-nghe:hover { background: var(--than-deep); }
+.nut-nghe:active { transform: scale(.97); }
+.nut-nghe.tam { background: var(--tam); }
+.nut-nghe.tam:hover { background: var(--tam-deep); }
+.nut-nghe.dang-phat { background: var(--ink); }
+.nut-nghe.nho { font-size: 14px; padding: 7px 15px; }
+audio.an { display: none; }
+
+/* --- Hai cột Thân / Tâm trên trang chủ --- */
+.luoi-hai-cot { display: grid; gap: 34px; margin: 14px 0 8px; }
+
+/* --- Màn hình rộng: 2 cột --- */
+@media (min-width: 720px) {
+  .luoi-noi-bat { grid-template-columns: 1fr 1fr; }
+  .luoi-hai-cot { grid-template-columns: 1fr 1fr; }
+  .the-gon img.anh-nho { flex-basis: 120px; width: 120px; height: 120px; }
+  .the-lon h3 { font-size: 23px; }
+}
 
 /* ---------- Nút "Về đầu trang" ---------- */
 .nut-len-dau { position: fixed; right: 18px; bottom: 18px; z-index: 60;
@@ -290,14 +373,11 @@ body.page-tam .site-search button { background: var(--tam); }
 
 .goi-y-binh-luan { color: var(--muted); font-size: 15px; margin: 4px 0 12px; }
 
-/* Hai khối Bài mới nhất trang chủ */
-.latest-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 14px 0 8px; }
-@media (max-width: 720px) { .latest-blocks { grid-template-columns: 1fr; } }
-.latest-block { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 18px 12px; }
+/* Nút "Xem thêm" dưới khối Bài mới nhất */
 .xem-them { display: inline-block; padding: 10px 26px; border-radius: 999px; border: 1.5px solid var(--than); color: var(--than-deep); font-weight: 700; text-decoration: none; font-size: 16px; }
 .xem-them:hover { background: var(--than-soft); }
-.latest-block:nth-child(2) .xem-them { border-color: var(--tam); color: var(--tam-deep); }
-.latest-block:nth-child(2) .xem-them:hover { background: var(--tam-soft); }
+.luoi-hai-cot > div:nth-child(2) .xem-them { border-color: var(--tam); color: var(--tam-deep); }
+.luoi-hai-cot > div:nth-child(2) .xem-them:hover { background: var(--tam-soft); }
 
 /* Góc Video Ngắn — trang chủ (thêm 29/10/2026, nhúng Reel Instagram chính thức) */
 .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 14px 0 8px; }
