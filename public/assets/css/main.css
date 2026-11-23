@@ -88,7 +88,7 @@ body.page-tam .main-nav a.active { background: var(--tam); }
   margin: 10px auto 4px; border-radius: var(--radius); box-shadow: var(--shadow);
   background:
     linear-gradient(rgba(253,251,247,0.84), rgba(253,251,247,0.84)),
-    url("/public/assets/images/hero-banner-trang-chu.jpg") center/cover no-repeat;
+    url("/public/assets/images/hero-banner-trang-chu.jpg?v=20261123") center/cover no-repeat;
 }
 .hero h1 { font-size: 30px; line-height: 1.35; margin: 0 0 6px; }
 .hero p.lead { font-size: 20px; color: var(--muted); max-width: 940px; margin: 0 auto; }
@@ -98,12 +98,12 @@ body.page-tam  .hero h1 { color: var(--tam-deep); }
 body.page-than .hero {
   background:
     linear-gradient(rgba(253,251,247,0.75), rgba(253,251,247,0.75)),
-    url("/public/assets/images/card-duong-than.jpg") center/cover no-repeat;
+    url("/public/assets/images/card-duong-than.jpg?v=20261123") center/cover no-repeat;
 }
 body.page-tam .hero {
   background:
     linear-gradient(rgba(253,251,247,0.75), rgba(253,251,247,0.75)),
-    url("/public/assets/images/card-duong-tam.jpg") center/cover no-repeat;
+    url("/public/assets/images/card-duong-tam.jpg?v=20261123") center/cover no-repeat;
 }
 
 /* ---------- Thẻ nhánh Thân / Tâm (thẻ ngang tinh gọn, 23/11/2026) ---------- */
