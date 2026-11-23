@@ -94,6 +94,17 @@ body.page-tam .main-nav a.active { background: var(--tam); }
 .hero p.lead { font-size: 20px; color: var(--muted); max-width: 940px; margin: 0 auto; }
 body.page-than .hero h1 { color: var(--than-deep); }
 body.page-tam  .hero h1 { color: var(--tam-deep); }
+/* Nền chìm riêng cho trang nhánh (đồng bộ trang chủ, 23/11/2026): */
+body.page-than .hero {
+  background:
+    linear-gradient(rgba(253,251,247,0.84), rgba(253,251,247,0.84)),
+    url("/public/assets/images/card-duong-than.jpg") center/cover no-repeat;
+}
+body.page-tam .hero {
+  background:
+    linear-gradient(rgba(253,251,247,0.84), rgba(253,251,247,0.84)),
+    url("/public/assets/images/card-duong-tam.jpg") center/cover no-repeat;
+}
 
 /* ---------- Thẻ nhánh Thân / Tâm (thẻ ngang tinh gọn, 23/11/2026) ---------- */
 .branch-grid {
@@ -118,7 +129,7 @@ body.page-tam  .hero h1 { color: var(--tam-deep); }
 /* ---------- Lưới chuyên mục ---------- */
 .cat-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px; margin: 24px 0 56px;
+  gap: 16px; margin: 12px 0 40px;
 }
 .cat-card {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
@@ -156,13 +167,6 @@ body.page-home .site-footer { border-top: 5px solid transparent;
 .footer-inner .cols { display: flex; gap: 40px; flex-wrap: wrap; justify-content: space-between; }
 .footer-inner a { color: #EDE6D8; }
 .footer-copy { text-align: center; padding: 18px 24px; font-size: 15px; color: #CFC4B2; border-top: 1px solid rgba(255,255,255,.12); }
-
-/* ---------- Banner ảnh thẻ (trang chuyên mục /than/, /tam/ vẫn dùng) ---------- */
-.hero-banner { margin: 8px 0 40px; }
-.hero-banner img {
-  width: 100%; max-height: 440px; object-fit: cover; display: block;
-  border-radius: var(--radius); box-shadow: var(--shadow);
-}
 
 /* ---------- Nhỏ gọn trên điện thoại ---------- */
 @media (max-width: 940px) {
