@@ -54,11 +54,11 @@ body.page-tam  .site-header { border-bottom-color: var(--tam); }
 
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; padding: 14px 24px; max-width: 1080px; margin: 0 auto;
+  gap: 12px; padding: 12px 20px; max-width: 1080px; margin: 0 auto;
 }
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); flex: none; }
 .brand-logo {
-  width: 60px; height: 60px; object-fit: cover; flex: none;
+  width: 56px; height: 56px; object-fit: cover; flex: none;
   border-radius: 50%; background: #fff; padding: 2px;
   border: 2px solid #D9CBA8;
   box-shadow: 0 2px 10px rgba(60, 48, 32, 0.18);
@@ -67,44 +67,52 @@ body.page-than .brand-logo { border-color: var(--than); }
 body.page-tam .brand-logo { border-color: var(--tam); }
 .brand-name {
   font-family: "Dancing Script", "Be Vietnam Pro", cursive;
-  font-weight: 700; font-size: 32px; line-height: 1.1;
+  font-weight: 700; font-size: 30px; line-height: 1.1;
 }
-.brand-tag { font-size: 14px; color: var(--muted); line-height: 1.4; }
+.brand-tag { font-size: 13px; color: var(--muted); line-height: 1.4; white-space: nowrap; }
 
 /* ---------- Nav ---------- */
-.main-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.main-nav { display: flex; gap: 4px; flex-wrap: nowrap; flex: none; }
 .main-nav a {
-  text-decoration: none; color: var(--ink); font-weight: 600; font-size: 16px;
-  padding: 8px 14px; border-radius: 999px;
+  text-decoration: none; color: var(--ink); font-weight: 600; font-size: 15px;
+  padding: 8px 11px; border-radius: 999px; white-space: nowrap;
 }
 .main-nav a:hover { background: var(--than-soft); color: var(--than-deep); }
 body.page-tam .main-nav a:hover { background: var(--tam-soft); color: var(--tam-deep); }
 .main-nav a.active { background: var(--than); color: #fff; }
 body.page-tam .main-nav a.active { background: var(--tam); }
 
-/* ---------- Hero ---------- */
-.hero { padding: 64px 0 40px; text-align: center; }
+/* ---------- Hero (ảnh rừng trúc làm nền chìm sau chữ, 23/11/2026) ---------- */
+.hero {
+  padding: 56px 24px 48px; text-align: center;
+  margin: 24px auto 8px; border-radius: var(--radius); box-shadow: var(--shadow);
+  background:
+    linear-gradient(rgba(253,251,247,0.84), rgba(253,251,247,0.84)),
+    url("/public/assets/images/hero-banner-trang-chu.jpg") center/cover no-repeat;
+}
 .hero h1 { font-size: 40px; line-height: 1.35; margin: 0 0 12px; }
 .hero p.lead { font-size: 20px; color: var(--muted); max-width: 720px; margin: 0 auto; }
 body.page-than .hero h1 { color: var(--than-deep); }
 body.page-tam  .hero h1 { color: var(--tam-deep); }
 
-/* ---------- Thẻ nhánh Thân / Tâm ---------- */
+/* ---------- Thẻ nhánh Thân / Tâm (thẻ ngang tinh gọn, 23/11/2026) ---------- */
 .branch-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px; margin: 32px 0 56px;
+  gap: 16px; margin: 20px 0 32px;
 }
 .branch-card {
   background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
-  padding: 32px; text-decoration: none; color: var(--ink);
-  border-top: 6px solid var(--line); display: block;
+  padding: 18px 22px; text-decoration: none; color: var(--ink);
+  border-top: 6px solid var(--line); display: flex; align-items: center; gap: 16px;
 }
 .branch-card.than { border-top-color: var(--than); }
 .branch-card.tam  { border-top-color: var(--tam); }
-.branch-card h2 { margin: 0 0 8px; font-size: 26px; }
+.branch-card .card-icon { font-size: 32px; line-height: 1; flex: none; }
+.branch-card .card-body { display: block; }
+.branch-card h2 { margin: 0 0 4px; font-size: 22px; }
 .branch-card.than h2 { color: var(--than-deep); }
 .branch-card.tam  h2 { color: var(--tam-deep); }
-.branch-card p { margin: 0; color: var(--muted); font-size: 16px; }
+.branch-card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
 .branch-card:hover { transform: translateY(-3px); transition: transform .2s; }
 
 /* ---------- Lưới chuyên mục ---------- */
@@ -149,21 +157,19 @@ body.page-home .site-footer { border-top: 5px solid transparent;
 .footer-inner a { color: #EDE6D8; }
 .footer-copy { text-align: center; padding: 18px 24px; font-size: 15px; color: #CFC4B2; border-top: 1px solid rgba(255,255,255,.12); }
 
-/* ---------- Banner & ảnh thẻ ---------- */
+/* ---------- Banner ảnh thẻ (trang chuyên mục /than/, /tam/ vẫn dùng) ---------- */
 .hero-banner { margin: 8px 0 40px; }
 .hero-banner img {
   width: 100%; max-height: 440px; object-fit: cover; display: block;
   border-radius: var(--radius); box-shadow: var(--shadow);
 }
-.branch-card { padding: 0; overflow: hidden; }
-.branch-card .card-thumb { width: 100%; height: 210px; object-fit: cover; display: block; }
-.branch-card .card-body { padding: 24px 32px 32px; display: block; }
-.branch-card .card-body h2 { margin: 0 0 8px; font-size: 26px; }
-.branch-card .card-body p { margin: 0; color: var(--muted); font-size: 16px; }
-.branch-card.than .card-body h2 { color: var(--than-deep); }
-.branch-card.tam .card-body h2 { color: var(--tam-deep); }
 
 /* ---------- Nhỏ gọn trên điện thoại ---------- */
+@media (max-width: 940px) {
+  .header-inner { flex-wrap: wrap; }
+  .site-search { order: 3; flex: 1 1 100%; }
+  .site-search input[type="search"] { flex: 1; width: auto; }
+}
 @media (max-width: 640px) {
   body { font-size: 17px; }
   .hero h1 { font-size: 30px; }
@@ -176,7 +182,7 @@ body.page-home .site-footer { border-top: 5px solid transparent;
 .site-search input[type="search"] {
   font-size: 16px; padding: 8px 12px; border-radius: 999px;
   border: 1px solid var(--line); background: var(--bg); color: var(--ink);
-  width: 170px; max-width: 40vw;
+  width: 150px; max-width: 40vw;
 }
 .site-search input[type="search"]:focus { outline: 2px solid var(--line); border-color: var(--muted); }
 .site-search button {
@@ -202,13 +208,6 @@ body.page-tam .site-search button { background: var(--tam); }
   padding: 4px 10px; border-radius: 999px; text-decoration: none; white-space: nowrap;
 }
 .search-suggest a:hover { text-decoration: underline; }
-
-/* Dòng nhắn gửi trên thẻ hai nhánh */
-.branch-card .card-body .card-msg {
-  margin-top: 12px; font-style: italic; font-size: 15px;
-}
-.branch-card.than .card-body .card-msg { color: var(--than-deep); }
-.branch-card.tam .card-body .card-msg { color: var(--tam-deep); }
 
 /* Trang kết quả tìm kiếm */
 .search-page-form { display: flex; gap: 8px; margin: 16px 0; }
@@ -378,15 +377,6 @@ audio.an { display: none; }
 .xem-them:hover { background: var(--than-soft); }
 .luoi-hai-cot > div:nth-child(2) .xem-them { border-color: var(--tam); color: var(--tam-deep); }
 .luoi-hai-cot > div:nth-child(2) .xem-them:hover { background: var(--tam-soft); }
-
-/* Góc Video Ngắn — trang chủ (thêm 29/10/2026, nhúng Reel Instagram chính thức) */
-.video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 14px 0 8px; }
-@media (max-width: 720px) { .video-grid { grid-template-columns: 1fr; } }
-.video-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 16px 10px; }
-.video-card h4 { margin: 0 0 6px; font-size: 18px; line-height: 1.5; }
-.video-card h4 a { color: var(--ink); text-decoration: none; }
-.video-card .video-meta { color: var(--muted); font-size: 14px; margin: 0 0 10px; }
-.video-card .instagram-media { margin: 0 auto !important; min-width: 0 !important; }
 
 /* ---------- Khung bình luận tự dựng (D1 + /api/comments) ----------
    Chữ lớn, ô nhập rộng rãi cho độc giả lớn tuổi dễ dùng. */
